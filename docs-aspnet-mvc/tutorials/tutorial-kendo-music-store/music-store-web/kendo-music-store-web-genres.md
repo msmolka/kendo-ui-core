@@ -14,7 +14,7 @@ The **Genre** listing is going to display all albums according to a selected gen
 
 **Figure 1. A snapshot of the Kendo UI Music Store genre lists**
 
-![kendo-genre-screenshot](/tutorials/tutorial-kendo-music-store/music-store-web/images/kendo-genre-screenshot.png)
+![kendo-genre-screenshot](images/kendo-genre-screenshot.png)
 
 ### Create the HTML
 
@@ -98,8 +98,6 @@ load the record for this `GenreId` from the server. This is done through a stand
 On a successful response from the server, the `genre` property is set on the `viewModel`. This will cause the view to update and show the name of the genre. Note that this happens asynchronously. The page initially displays an empty `<h3>` tag and when the JavaScript is run, the element is bound to the `viewModel.genre` property. If the jQuery AJAX request has not finished, this will still be `null`. Once the AJAX request finishes, it calls the `.set()` method on the `viewModel` to set the genre. This in turn notifies the `<h3>` tag that the genre property has changed, and it updates to get the loaded genre name.
 
 ## See Also
-
-Other articles on the Kendo UI Music Store Web Application sample project:
 
 * [Overview of the Kendo UI Music Store Sample Project]({% slug overview_muscistoretutorial_aspnetmvc %})
 * [Set Up the Kendo UI Music Store Web App]({% slug projectsetup_muscistorewebapp_aspnetmvc %})

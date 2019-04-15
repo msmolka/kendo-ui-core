@@ -10,7 +10,7 @@ position: 2
 
 **Figure 1. An overview of the Kendo UI Music Store Sales page**
 
-![dashboard-overview](/tutorials/tutorial-kendo-music-store/music-store-dashboard/images/dashboard-overview.png)
+![dashboard-overview](images/dashboard-overview.png)
 
 The Music Store Dashboard is constructed as a single-page app (SPA) that is built to deliver smooth transitions and high performance. Using the `Sammy.js` framework, the various pages of the application are routed through it and in ASP.NET MVC.
 
@@ -179,7 +179,7 @@ The `musicDashboard` setup method of the object calls another method, `setupView
         this.router = new kendo.Router();
 
         this.setupViews();
-        this.setupRoutes();            
+        this.setupRoutes();
 
         this.router.start();
 
@@ -221,7 +221,7 @@ When a view is requested, its create method is called. For the Music Store Dashb
 
 **Figure 2. The navigation strip of the Music Store Dashboard**
 
-![navigation-strip](/tutorials/tutorial-kendo-music-store/music-store-dashboard/images/navigation-strip.png)
+![navigation-strip](images/navigation-strip.png)
 
 The various pages of the Music Dashboard are accessed through the navigation strip at the top.
 
@@ -244,8 +244,6 @@ The `class` attributes in the `<span>` tags are defined in `Site.css`.
 Because the routes are defined using the Kendo UI Router, there is no real need to define click or touch event handlers to drive navigation. Instead, simple `<a href="">` anchors that change the URL `#` value are defined for each menu item.
 
 ## See Also
-
-Other articles on the Kendo UI Music Store Dashboard sample project:
 
 * [Overview of the Kendo UI Music Store Sample Project]({% slug overview_muscistoretutorial_aspnetmvc %})
 * [Set Up the Kendo UI Music Store Dashboard Project]({% slug projectsetup_muscistoredashboard_aspnetmvc %})

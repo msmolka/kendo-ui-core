@@ -1,6 +1,6 @@
 ---
 title: Ajax Binding
-page_title: Ajax Binding | Kendo UI Chart HtmlHelper
+page_title: Ajax Binding | Kendo UI Chart HtmlHelper for ASP.NET MVC
 description: "Configure the Kendo UI Chart for ASP.NET MVC for Ajax binding."
 slug: ajaxbinding_charthelper_aspnetmvc
 position: 2
@@ -43,7 +43,7 @@ In the view, configure the Chart to use the action method created in the previou
 
 ###### Example
 
-```tab-ASPX
+```ASPX
 
         <%: Html.Kendo().Chart<MvcApplication1.Models.InternetUsers>()
                 .Name("internetUsersChart")
@@ -59,7 +59,7 @@ In the view, configure the Chart to use the action method created in the previou
                 )
         %>
 ```
-```tab-Razor
+```Razor
 
         @(Html.Kendo().Chart<MvcApplication1.Models.InternetUsers>()
               .Name("internetUsersChart")

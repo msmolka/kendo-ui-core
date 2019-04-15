@@ -1,7 +1,7 @@
 ---
 title: Build Custom dataSource for Custom Editor
-page_title: Build Custom dataSource for Custom Editor | Kendo UI Grid
-description: "Learn how to build custom dataSource with currying for a custom editor in the Kendo UI Grid widget."
+page_title: jQuery Grid Documentation | dataSource for Custom Editor | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to build custom dataSource with currying for a custom editor in the widget."
 slug: howto_build_custom_datasourcefor_custom_editor_grid
 ---
 
@@ -11,7 +11,7 @@ The following example demonstrates how to create a custom data source based on t
 
 ###### Example
 
-```html
+```dojo
     <script src="https://demos.telerik.com/kendo-ui/content/shared/js/products.js"></script>
     <div id="example">
         <div id="grid"></div>

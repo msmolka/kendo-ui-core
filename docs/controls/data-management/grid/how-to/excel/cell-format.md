@@ -1,7 +1,7 @@
 ---
 title: Format Cell Values
-page_title: Format Cell Values | Kendo UI Grid
-description: "Learn how to format the cell values of the Kendo UI Grid widget during Excel export."
+page_title: jQuery Grid Documentation | Format Cell Values | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to format the cell values of the widget during Excel export."
 slug: howto_format_cell_values_grid
 ---
 
@@ -15,7 +15,7 @@ The following example demonstrates how to format cell values of the Grid while e
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>
 <script>
     $("#grid").kendoGrid({
@@ -45,7 +45,7 @@ The example below demonstrates how to set a custom format for `date` values.
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>
 <script>
   $("#grid").kendoGrid({

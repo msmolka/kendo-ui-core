@@ -765,7 +765,7 @@ that the total number of categories does not exceed [categoryAxis.maxDateGroups]
 
 Series data is aggregated for the specified base unit using the [series.aggregate](/api/javascript/dataviz/ui/chart#configuration-series.aggregate) function.
 
-### categoryAxis.baseUnitStep `Object` *(default: 1)*
+### categoryAxis.baseUnitStep `Number|String` *(default: 1)*
 
 The step (interval) between categories in base units. Setting it to "auto" will set the step to such value
 that the total number of categories does not exceed [categoryAxis.maxDateGroups](/api/javascript/dataviz/ui/chart#configuration-categoryAxis.maxDateGroups).
@@ -2523,7 +2523,7 @@ The configuration of the axis lines. Also affects the major and minor ticks, but
           width: 3
         },
         categories: ["2011", "2012", "2013"]
-      }],
+      },
       series: [{
         data: [1, 2, 3]
       }]
@@ -2546,7 +2546,7 @@ The color of the lines. Accepts a valid CSS color string, including hex and rgb.
           color: "#aa00bb"
         },
         categories: ["2011", "2012", "2013"]
-      }],
+      },
       series: [{
         data: [1, 2, 3]
       }]
@@ -2563,7 +2563,7 @@ The color of the lines. Accepts a valid CSS color string, including hex and rgb.
           color: "rgb(128, 0, 255)"
         },
         categories: ["2011", "2012", "2013"]
-      }],
+      },
       series: [{
         data: [1, 2, 3]
       }]
@@ -2580,7 +2580,7 @@ The color of the lines. Accepts a valid CSS color string, including hex and rgb.
           color: "green"
         },
         categories: ["2011", "2012", "2013"]
-      }],
+      },
       series: [{
         data: [1, 2, 3]
       }]
@@ -2606,12 +2606,12 @@ The following dash types are supported:
     <div id="chart"></div>
     <script>
     $("#chart").kendoChart({
-      categoryAxis: [{
+      categoryAxis: {
         line: {
           dashType: "dashDot"
         },
         categories: ["2011", "2012", "2013"]
-      }],
+      },
       series: [{
         data: [1, 2, 3]
       }]
@@ -2627,12 +2627,12 @@ If set to `true` the chart will display the category axis lines. By default the 
     <div id="chart"></div>
     <script>
     $("#chart").kendoChart({
-      categoryAxis: [{
+      categoryAxis: {
         line: {
           visible: false
         },
         categories: ["2011", "2012", "2013"]
-      }],
+      },
       series: [{
         data: [1, 2, 3]
       }]
@@ -2648,12 +2648,12 @@ The width of the line in pixels. Also affects the major and minor ticks, but not
     <div id="chart"></div>
     <script>
     $("#chart").kendoChart({
-      categoryAxis: [{
+      categoryAxis: {
         line: {
           width: 3
         },
         categories: ["2011", "2012", "2013"]
-      }],
+      },
       series: [{
         data: [1, 2, 3]
       }]
@@ -33893,6 +33893,33 @@ Defines whether the widget should proceed with resizing even if the element dime
 Saves the Chart as a PDF file using the options specified in [options.pdf](/api/javascript/dataviz/ui/chart#configuration-pdf).
 
 > Calling this method could trigger the browser built-in popup blocker in some cases. To avoid that always call it as a response to end-user action e.g. button click.
+
+#### Example - export the Chart to PDF
+    <!-- Load Pako ZLIB library to enable PDF compression -->
+    <script src="https://kendo.cdn.telerik.com/2018.3.1017/js/pako_deflate.min.js"></script>
+    <button id="exportBtn">Export to PDF</button>
+    <div id="chart" style="width: 600px; height: 400px;"></div>
+    <script>
+      $("#chart").kendoChart({
+        pdf: {
+          paperSize: "A4",
+          landscape: true,
+          margin: "2cm"
+        },
+        legend: {
+          position: "bottom"
+        },
+        series: [
+          { name: "Series 1", data: [1, 2, 3] },
+          { name: "Series 2", data: [3, 4, 5] }
+        ]
+      });
+
+      $("#exportBtn").on("click", function(){
+        var chart = $("#chart").getKendoChart();
+        chart.saveAsPDF();
+      });
+    </script>
 
 ### setDataSource
 

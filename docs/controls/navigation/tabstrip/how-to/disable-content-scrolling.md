@@ -18,7 +18,7 @@ The example below demonstrates how to disable content scrolling for a specific T
 
 ###### Example
 
-```html
+```dojo
     <div id="tabstrip1">
       <ul>
         <li class="k-state-active">
@@ -95,8 +95,6 @@ The example below demonstrates how to disable content scrolling for a specific T
 ```
 
 ## See Also
-
-Other articles on the Kendo UI TabStrip:
 
 * [TabStrip JavaScript API Reference](/api/javascript/ui/tabstrip)
 * [How to Display Buttons at the Bottom]({% slug howto_displaybuttonsatthebottom_tabstrip %})

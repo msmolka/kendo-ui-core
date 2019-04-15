@@ -12,7 +12,7 @@ The following example demonstrates how to validate a group of Kendo UI radio but
 
 ###### Example
 
-```html
+```dojo
 <div id="form">
     <span class="k-invalid-msg" data-for="test"></span><br/>
     Test 1<input type="radio" name="test" required /><br/>
@@ -29,7 +29,7 @@ $(function(){
         rules: {
             radio: function(input) {
                 if (input.filter("[type=radio]") && input.attr("required")) {
-                    return $("#form").find("[type=radio]").is(":checked");
+                    return $("#form").find("[type=radio][name=" + input.attr("name") + "]").is(":checked");
                 }
                 return true;
             }

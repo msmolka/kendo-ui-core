@@ -9,14 +9,14 @@ position: 5
 
 # JavaScript Prerequisites
 
-Kendo UI is a jQuery-based library that also supports AngularJS integration.  
+Kendo UI is a jQuery-based library that also supports AngularJS integration.
 
 ## jQuery
 
 The Kendo UI library is based on [jQuery](http://jquery.com/). All Kendo UI bundles include the corresponding minified jQuery library in the `js` directory.
 
 > **Important**
->  
+>
 > In order for the Kendo UI scripts to work as expected, make sure you include a reference to the jQuery library in the document before the scripts.
 
 ### Supported jQuery Versions
@@ -27,6 +27,7 @@ The following table provides a list of the jQuery versions that are compatible w
 
 | Major Releases												                                         | jQuery Version    | Comments  |
 | :---															                                             | :---			         | :---	     |
+| [Kendo UI 2019.1.115 (R1 2019)](https://www.telerik.com/support/whats-new/kendo-ui/release-history/progress-kendo-ui-2019-1-115-changelog-)|1.12.4| Also compatible with 1.10.x, 2.2.x and 3.3.1|
 | [Kendo UI 2018.3.911 (R3 2018)](https://www.telerik.com/support/whats-new/kendo-ui/release-history/kendo-ui-r3-2018)	|1.12.4| Also compatible with 1.10.x, 2.2.x and 3.3.1|
 | [Kendo UI 2018.2.516 (R2 2018)](https://www.telerik.com/support/whats-new/kendo-ui/release-history/kendo-ui-r2-2018)	|1.12.4| Also compatible with 1.10.x, 2.2.x and 3.3.1|
 | [Kendo UI 2018.1.117 (R1 2018)](https://www.telerik.com/support/whats-new/kendo-ui/release-history/kendo-ui-r1-2018)	|1.12.4| Also compatible with 1.10.x, 2.2.x and 3.1.1|
@@ -67,6 +68,8 @@ As of the Kendo UI 2014 Q2 release, the Kendo UI widgets support [AngularJS](htt
 
 | Major Releases												           | AngularJS Version     | Comments  |
 | :---															               | :---			       	     | :---	     |
+| [Kendo UI 2019.1.115 (R1 2019)](https://www.telerik.com/support/whats-new/kendo-ui/release-history/progress-kendo-ui-2019-1-115-changelog-) |1.4\*, 1.5\*, 1.6\*, 1.7\* |- |
+| [Kendo UI 2018.3.911 (R3 2018)](https://www.telerik.com/support/whats-new/kendo-ui/release-history/kendo-ui-r3-2018) |1.4\*, 1.5\*, 1.6\*, 1.7\* |- |
 | [Kendo UI 2018.2.516 (R2 2018)](https://www.telerik.com/support/whats-new/kendo-ui/release-history/kendo-ui-r2-2018) |1.4\*, 1.5\*, 1.6\* |- |
 | [Kendo UI 2018.1.117 (R1 2018)](https://www.telerik.com/support/whats-new/kendo-ui/release-history/kendo-ui-r1-2018) |1.4\*, 1.5\*, 1.6\* |- |
 | [Kendo UI 2017.3.913 (R3 2017)](https://www.telerik.com/support/whats-new/kendo-ui/release-history/kendo-ui-r3-2017) |1.4\*, 1.5\*, 1.6\* |- |
@@ -98,8 +101,6 @@ Generally, it is recommended that you place the `script` tags before the closing
 The server-side wrappers for the Kendo UI widgets are self-initialized. This means that each initialization script is rendered right after the HTML markup of the widget. In such cases, the Kendo UI scripts can still be registered at the end of the document while the jQuery script must be registered in the `body` before the first Kendo UI widget on the document, or in the document `head`.
 
 ## See Also
-
-Other articles on getting started with Kendo UI:
 
 * [Get Started with Kendo UI]({% slug getting_started_installation_kendoui %})
 * [Kendo UI CDN Services]({% slug kendoui_cdn_services_installation %})

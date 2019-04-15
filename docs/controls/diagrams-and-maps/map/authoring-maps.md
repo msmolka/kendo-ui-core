@@ -12,7 +12,7 @@ This article illustrates the process of creating a map from scratch and by using
 
 **Figure 1: The expected outlook of a finished map**
 
-![Finished map](/controls/diagrams-and-maps/map/images/map-au.png)
+![Finished map](images/map-au.png)
 
 ## Steps
 
@@ -24,7 +24,7 @@ The data used in this article is from the [Natural Earth project](http://www.nat
 
 For the purpose of this project, the [Admin 1 – States, provinces](http://www.naturalearthdata.com/downloads/50m-cultural-vectors) data set is going to be used. A scale of 1:50 000 000 provides good detail/size balance on a country level. The dataset is available for download in [Esri Shapefile format](http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_1_states_provinces_lakes.zip).
 
-For more information, refer to the web site on [global administrative areas](http://www.gadm.org/country).
+For more information, refer to the website on [global administrative areas](http://www.gadm.org/country).
 
 ### Explore Data
 
@@ -34,7 +34,7 @@ Start by [importing the Esri Shapefile](https://docs.qgis.org/testing/en/docs/us
 
 **Figure 2: Identifying of the results**
 
-![Identify results](/controls/diagrams-and-maps/map/images/map-qgis-identify.png)
+![Identify results](images/map-qgis-identify.png)
 
 You are also able to narrow down your interest to features with the "AU" [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 
@@ -83,7 +83,7 @@ Set up a simple Kendo UI Map and add a single shape layer to it, as demonstrated
     });
     </script>
 
-![Unstyled map](/controls/diagrams-and-maps/map/images/map-au-base.png)
+![Unstyled map](images/map-au-base.png)
 
 ### Add Styles
 
@@ -119,8 +119,6 @@ The example below demonstrates how to define a palette and apply it based on pro
 The `provnum_ne` field goes from 1 to 9 denoting each mainland state and territory. This project uses the [`shapeCreated`](/api/dataviz/map#events-shapeCreated) event to set the fill color of the newly created shape.
 
 ## See Also
-
-Other articles on the Kendo UI Map:
 
 * [Overview of the Map Widget]({% slug overview_kendoui_mapwidget %})
 * [Map Layers]({% slug maplayers_mapwidget %})

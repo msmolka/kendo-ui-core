@@ -20,7 +20,7 @@ To initialize the MultiViewCalendar, use a jQuery selector.
 
 ###### Example
 
-```html
+```dojo
     <div id="multiViewCalendar"></div>
     <script>
         $("#multiViewCalendar").kendoMultiViewCalendar();
@@ -29,13 +29,11 @@ To initialize the MultiViewCalendar, use a jQuery selector.
 
 ## Functionality and Features
 
-The Calendar provides configuration options that can be set during initialization. The available properties are:
-
 * [Active view]({% slug active_view_multiviewcalendar %})
 * [Multiple views]({% slug multiple_views_multiviewcalendar %})
-* [Day template]({% slug day_template_multiviewcalendar %})
 * [Selection]({% slug selection_multiviewcalendar %})
-* [Disable dates]({% slug disabled_dates_multiviewcalendar %})
+* [Day template]({% slug day_template_multiviewcalendar %})
+* [Disabled dates]({% slug disabled_dates_multiviewcalendar %})
 * [Week column]({% slug week_column_multiviewcalendar %})
 * [Keyboard navigation]({% slug keyboard_navigation_multiviewcalendar %})
 
@@ -45,7 +43,7 @@ The following example demonstrates basic MultiViewCalendar events.
 
 ###### Example
 
-```html
+```dojo
     <div id="multiViewCalendar"></div>
     <script>
         $("#multiViewCalendar").kendoMultiViewCalendar({
@@ -65,8 +63,6 @@ The following example demonstrates basic MultiViewCalendar events.
 ```
 
 ## See Also
-
-Other articles on the Kendo UI MultiViewCalendar:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the MultiViewCalendar Widget](/aspnet-mvc/helpers/multiviewcalendar/overview)
 * [MultiViewCalendar JavaScript API Reference](/api/javascript/ui/multiviewcalendar)

@@ -1,7 +1,7 @@
 ---
 title: Prevent Page Navigation in Edit Mode
-page_title: Prevent Page Navigation in Edit Mode | Kendo UI Grid
-description: "Learn how to prevent page navigation in the Kendo UI Grid widget while in edit mode."
+page_title: jQuery Grid Documentation | Prevent Navigation in Edit Mode | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to prevent page navigation while in edit mode."
 slug: howto_prevent_page_navigation_inedit_mode_grid
 ---
 
@@ -15,7 +15,7 @@ If the Grid is in edit mode and you do not make any changes, the page navigation
 
 ###### Example
 
-```html
+```dojo
   <div id="example">
       <div id="grid"></div>
 
@@ -106,7 +106,7 @@ If the Grid is in edit mode, paging and sorting are prevented.
 
 ###### Example
 
-```html
+```dojo
   <div id="example">
       <div id="grid"></div>
 

@@ -14,7 +14,7 @@ The example below demonstrates how to create Kendo UI Stock Charts by using Angu
 
 ###### Example
 
-```html
+```dojo
 <div id="example" ng-app="MyApp" ng-controller="MyCtrl">
   <div class="demo-section k-content">
     <div kendo-stock-chart k-data-source="dataSource"       
@@ -135,8 +135,6 @@ The example below demonstrates how to create Kendo UI Stock Charts by using Angu
 ```
 
 ## See Also
-
-Other articles and how-to examples on Kendo UI Charts:
 
 * [Chart JavaScript API Reference](/api/javascript/dataviz/ui/chart)
 * [How to Aggregate Data in Pie Charts]({% slug howto_aggregatedata_piecharts %})

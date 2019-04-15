@@ -10,7 +10,7 @@ position: 6
 
 **Figure 1. A snapshot of Kendo UI Music Store Search box functionality**
 
-![kendo-search-overview](/tutorials/tutorial-kendo-music-store/music-store-web/images/kendo-search-overview.png)
+![kendo-search-overview](images/kendo-search-overview.png)
 
 The Music Store application provides a text box for searching the store by an album title. To implement this functionality, use a [Kendo UI AutoComplete widget](http://demos.telerik.com/kendo-ui/web/autocomplete/index.html). This aims at having the AutoComplete box query the server for albums that match the entered user text and having the filtering performed server-side by applying a [remote DataSource](http://demos.telerik.com/kendo-ui/web/datasource/remote-data.html). The results are then listed together with the album art, title, and artist name, and are clickable, so that users are able to get details about the album.
 
@@ -223,8 +223,6 @@ In the event object `e`, `e.item` is the `<li>` element. Then, use a jQuery sele
 Once you have the album ID, you can show your album details by calling `store.viewAlbumDetails(albumId);`. This is discussed in more detail in the other chapters of this tutorial.
 
 ## See Also
-
-Other articles on the Kendo UI Music Store Web Application sample project:
 
 * [Overview of the Kendo UI Music Store Sample Project]({% slug overview_muscistoretutorial_aspnetmvc %})
 * [Set Up the Kendo UI Music Store Web App]({% slug projectsetup_muscistorewebapp_aspnetmvc %})

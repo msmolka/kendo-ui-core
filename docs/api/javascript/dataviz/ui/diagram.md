@@ -321,9 +321,11 @@ Specifies if the connections can be dragged.
 
 Specifies if the connections can be removed.
 
-### connectionDefaults.editable.tools `Array`
+### connectionDefaults.editable.tools `Array`|`Boolean`
 
-Specifies the toolbar tools. Supports all options supported for the [toolbar.items](/api/javascript/ui/toolbar/configuration/items). Predefined tools are:
+Specifies the toolbar tools. Supports all options supported for the [toolbar.items](/api/javascript/ui/toolbar/configuration/items). If set to `false`, no edit tools will be displayed.
+
+Predefined tools are:
 
 * "edit" - The selected item can be edited
 * "delete" - The selected items can be deleted
@@ -2741,13 +2743,13 @@ Defines where the circle/arc ends. The positive direction is **clockwise** and t
 ### layout.grid `Object`
 
 Each layout algorithm has a different set of parameters customizing the layout but they also all have a common collection of parameters which relate to the way 'pieces' of a diagram are organized.
-![Diagram component](/api/javascript/dataviz/diagram/component_example.png)
+![Diagram component](../diagram/component_example.png)
 
 A diagram can have in general disconnected pieces, known as components, which can be organized in a way independent of the way a component on its own is arranged. In the picture above, this is one diagram consisting of four components.
 
 When you apply a certain layout an analysis will first split the diagram in components, arrange each component individually and thereafter organize the components in a grid. The common parameters referred above deal with this grid layout, they define the width, margin and padding of the (invisible) grid used to organize the components.
 
-![Component parameters](/api/javascript/dataviz/diagram/component_parameters.png)
+![Component parameters](../diagram/component_parameters.png)
 
 ### layout.grid.componentSpacingX `Number` *(default: 50)*
 
@@ -2773,7 +2775,7 @@ Defines the width of the grid. The bigger this parameter the more components wil
 
 Either the distance between the siblings if the tree is up/down or between levels if the tree is left/right. In *tipOver tree layout* this setting is used only for the direct children of the root
 
-![Tree parameters](/api/javascript/dataviz/diagram/tree_parameters.png)
+![Tree parameters](../diagram/tree_parameters.png)
 
 ### layout.iterations `Number` *(default: 300)*
 
@@ -2783,7 +2785,7 @@ In situations where there is enough symmetry in the diagram the increased number
 
 *This setting is specific to the force-directed layout*
 
-![Increasing iterations](/api/javascript/dataviz/diagram/force_directed_iterations.png)
+![Increasing iterations](../diagram/force_directed_iterations.png)
 
 ### layout.layerSeparation `Number` *(default: 50)*
 
@@ -2815,27 +2817,27 @@ The subtype further defines the layout type by specifying in greater detail the 
 
 * "down" - *tree layout* and *layered layout* specific subtype. In the tree layout the root is arranged at the top and its children downwards. For the layered layout the links are directed downwards. This is the default subtype.
 
-![Tree down parameters](/api/javascript/dataviz/diagram/tree_down_parameters.png)
+![Tree down parameters](../diagram/tree_down_parameters.png)
 
 * "up" - *tree layout* and *layered layout* specific subtype. In the tree layout the root is arranged at the bottom and its children upwards. For the layered layout the links are directed upwards.
 * "left" - *tree layout* *layered layout* specific subtype. In the tree layout the root is arranged at the left and its children sideways to the right. For the layered layout the links are directed to the left.
 * "right" - *tree layout* *layered layout* specific subtype. In the tree layout the root is arranged at the right and its children sideways to the left. For the layered layout the links are directed downwards.
 
-![Tree right parameters](/api/javascript/dataviz/diagram/tree_right_parameters.png)
+![Tree right parameters](../diagram/tree_right_parameters.png)
 
 * "mindmapHorizontal" - *tree layout* specific subtype. The root sits at the center and its children are spread equally to the left and right.
 * "mindmapVertical" - *tree layout* specific subtype. The root sits at the center and its children are spread equally above and below.
 
-![Mindmap parameters](/api/javascript/dataviz/diagram/mindmap_parameters.png)
+![Mindmap parameters](../diagram/mindmap_parameters.png)
 
 * "radial" - *tree layout* specific subtype. The root sits at the center and its children are spread radially around.
 
-![Radial tree parameters](/api/javascript/dataviz/diagram/radial_tree_parameters.png)
-![Radial layout angles.](/api/javascript/dataviz/diagram/radial_angles.png)
+![Radial tree parameters](../diagram/radial_tree_parameters.png)
+![Radial layout angles.](../diagram/radial_angles.png)
 
 * "tipOver" - *tree layout* specific subtype. A special version of the tree-down layout where the grand-children (and iteratively) are arranged vertically while the direct children are arranged horizontally. This arrangement has the advantage that it doesn't spread as much as the classic tree-down layout. See below for a concrete example.
 
-![Tip-over parameters](/api/javascript/dataviz/diagram/tip_over_parameters.png)
+![Tip-over parameters](../diagram/tip_over_parameters.png)
 
 * "horizontal" - *layered layout* specific subtype. The preferred direction of the links is horizontal.
 * "vertical" - *layered layout* specific subtype. The preferred direction of the links is vertical.
@@ -2882,7 +2884,7 @@ The type of the layout algorithm to use. Predefined values are:
 * "tree" - Organizes a diagram in a hierarchical way and is typically used in organizational representations. This type includes the radial tree layout, mindmapping and the classic tree diagrams.
 * "force" - Force-directed layout algorithm (also known as the spring-embedder algorithm) is based on a physical simulation of forces acting on the nodes whereby the links define whether two nodes act upon each other. Each link effectively is like a spring embedded in the diagram. The simulation attempts to find a minimum energy state in such a way that the springs are in their base-state and thus do not pull or push any (linked) node. This force-directed layout is **non-deterministic**; each layout pass will result in an unpredictable (and hence not reproducible) layout. The optimal length is more and indication in the algorithm than a guarantee that all nodes will be at this distance. The result of the layout is really a combination of the incidence structure of the diagram, the initial topology (positions of the nodes) and the number of iterations.
 
-![Force-directed parameter](/api/javascript/dataviz/diagram/force_directed_parameters.png)
+![Force-directed parameter](../diagram/force_directed_parameters.png)
 
 * "layered" - Organizes the diagram with an emphasis on *flow* and minimizing the crossing between layers of shapes. This layout works well when few components are present and some sort of top-down flow is present. The concept of *flow* in this context being a more or less clear direction of the connections with a minimum of cycles (connections flowing back upstream). Layered graph layout is a type of graph layout in which the nodes of a (directed) graph are drawn in horizontal or vertical layers with the links directed in the complementary direction. It is also known as Sugiyama or hierarchical graph layout. When the graph is a tree the layout reduces to a standard tree layout and thus can be considered as an extension to the classic tree layout.
 
@@ -2900,7 +2902,7 @@ The construction of a layered graph drawing proceeds in a series of steps (assum
  + Each node is assigned a coordinate within its layer, consistent with the permutation calculated in the previous step.
  + The edges reversed in the first step of the algorithm are returned to their original orientations, the dummy vertices are removed from the graph and the vertices and edges are drawn.
 
-![Layered layout parameters.](/api/javascript/dataviz/diagram/layered_parameters.png)
+![Layered layout parameters.](../diagram/layered_parameters.png)
 
 ### layout.underneathHorizontalOffset `Number` *(default: 15)*
 
@@ -3075,7 +3077,7 @@ The author of the PDF document that will be visible in the PDF file metadata.
 
 ### pdf.creator `String` *(default: "Kendo UI PDF Generator")*
 
-The creator of the PDF document. 
+The creator of the PDF document.
 
 #### Example - setting the PDF document creator
 
@@ -3611,7 +3613,7 @@ You can define your own custom connectors or use the predefined types.
                 color: "white",
                 dashType: "solid"
               }
-            }, 
+            },
             {
               name: "bottom"
             }]
@@ -4248,9 +4250,11 @@ Specifies if the shapes can be removed.
       });
     </script>
 
-### shapeDefaults.editable.tools `Array`
+### shapeDefaults.editable.tools `Array`|`Boolean`
 
-Specifies the toolbar tools. Provides all options that are supported for [`toolbar.items`](/api/javascript/ui/toolbar/configuration/items). The predefined tools are:
+Specifies the toolbar tools. Provides all options that are supported for [`toolbar.items`](/api/javascript/ui/toolbar/configuration/items). If set to `false`, no edit tools will be displayed.
+
+The predefined tools are:
 
 * "edit" - The selected item can be edited.
 * "delete" - The selected items can be deleted.
@@ -5259,7 +5263,7 @@ Defines the hover configuration of the shape connectors.
           },
           connectors: [
             {
-              name: "top", 
+              name: "top",
               hover: {
                 fill: {
                   color: "pink"
@@ -5358,7 +5362,7 @@ Defines the fill options of the shape connectors.
           },
           connectors: [
             {
-              name: "top", 
+              name: "top",
               fill: {
                 color: "red",
                 opacity: 0.5
@@ -5421,7 +5425,7 @@ Defines the stroke options of the shape connectors.
           },
           connectors: [
             {
-              name: "top", 
+              name: "top",
               stroke: {
                 color: "red",
                 width: 3
@@ -7111,6 +7115,51 @@ This can be one of the four supported directions:
 * "top"
 * "bottom"
 
+#### Example - selecting and aligning Diagram shapes to the right
+
+    <button id="alignButton">Align 2nd and 3rd shape</button>
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes: [{
+          id: "1",
+          content: {
+            text: "Monday"
+          },
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          content: {
+            text: "Tuesday"
+          },
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          content: {
+            text: "Wednesday"
+          },
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }]
+      });
+
+      $("#alignButton").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var shapes = diagram.shapes;
+        diagram.select([shapes[1], shapes[2]]);
+        diagram.alignShapes("right");
+      });
+    </script>
+
 ### boundingBox
 
 #### Returns
@@ -7123,6 +7172,53 @@ This can be one of the four supported directions:
 
 The items (shapes and connections) to include in the bounding box.
 Defaults to all items if not specified.
+
+#### Example - getting the bounding box of given shapes
+
+    <button id="btn">Get bounding box of 1st and 2nd shape</button>
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes: [{
+          id: "1",
+          content: {
+            text: "Monday"
+          },
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          content: {
+            text: "Tuesday"
+          },
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          content: {
+            text: "Wednesday"
+          },
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+
+      $("#btn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var shapes = diagram.shapes;
+        console.log(diagram.boundingBox([shapes[0], shapes[1]]));
+      });
+    </script>
 
 ### bringIntoView
 
@@ -7195,16 +7291,165 @@ The second shape has a vertical position of 1000 and is off the screen at launch
 
 Cancels edit and close the popup form.
 
+#### Example - cancel edit conditionally
+
+    <button id="cancelBtn">Cancel Edit</button>
+    <div id="diagram"></div>
+    <script>
+      function onEdit(e){
+        if(e.shape){
+          var shape = e.shape;
+          if(shape.JobTitle == "President"){
+            e.sender.cancelEdit();
+          }
+        }
+      }
+
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramShapes/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramShapes/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramShapes/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              JobTitle: { type: "string" },
+              Color: { type: "string" }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramConnections/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramConnections/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramConnections/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" },
+              fromX: { from: "FromPointX", type: "number" },
+              fromY: { from: "FromPointY", type: "number" },
+              toX: { from: "ToPointX", type: "number" },
+              toY: { from: "ToPointY", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        editable: {
+          tools: ["edit"]
+        },
+        connectionDefaults: {
+          editable: {
+            tools: ["edit"]
+          }
+        },
+        edit: onEdit
+      });
+    </script>
+
 ### clear
 
 Clears the content of the diagram.
+
+#### Example - clear Diagram content
+
+    <button id="clearBtn">Clear Diagram</button>
+    <div id="diagram"></div>
+    <script>
+      $("#clearBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.clear();
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ]
+      });
+    </script>
 
 ### connect
 
 Creates a connection which can be either attached on both ends to a shape, half attached or floating (not attached to any shape). When a connection is (half) attached to a shape it happens through the intermediate Connector object. Connectors are part of a Shape's definition and you can specify the binding of a connection to a shape directly via the shape or via one of its connectors. If you specify a Shape as a connection's endpoint the Auto-connector will be used. This means that the endpoint of the connection will switch to the most convenient (in the sense of shortest path) connector automatically. If you specify a shape's connector as an endpoint for a connection the endpoint will remain attached to that given Connector instance.
 Finally, if you wish to have a (half) floating connection endpoint you should specify a Point as parameter for the floating end.
 
-![Creating connections.](/api/javascript/dataviz/diagram/connect.png)
+![Creating connections.](../diagram/connect.png)
 
 #### Parameters
 
@@ -7281,33 +7526,369 @@ A Shape in the diagram.
 
 A Shape in the diagram.
 
+#### Example - check if two shapes are connected
+
+    <button id="checkConnBtn">Check connection between shapes 2 and 3</button>
+    <div id="diagram"></div>
+    <script>
+      $("#checkConnBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var shapes = diagram.shapes;
+        if(shapes.length >= 3){
+          var state = diagram.connected(shapes[1], shapes[2]) ? "connected" : "disconnected";
+          console.log("Shapes 2 and 3 are " + state);
+        }
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          },
+          {
+            id:"3",
+            content: {
+              text: "State 3"
+            },
+            x: 300,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          },
+          {
+            from: "2",
+            to: "3"
+          }
+        ]
+      });
+    </script>
+
 ### copy
 
 Puts a copy of the currently selected diagram to an internal clipboard.
+
+#### Example - copy and paste Diagram elements
+
+    <button id="copyBtn">Copy Selected Elements</button>
+    <button id="pasteBtn">Paste</button>
+    <div id="diagram"></div>
+    <script>
+      $("#copyBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.copy();
+      });
+      $("#pasteBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.paste();
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ]
+      });
+    </script>
 
 ### createConnection
 
 Adds an empty connection data item and a popup window will be displayed.
 
-#### Parameters
+#### Example - create a connection
 
-##### item `Object`
+    <button id="createBtn">Create Connection</button>
+    <div id="diagram"></div>
+    <script>
+      $("#createBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.createConnection();
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
 
-A diagram shape item to edit.
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramShapes/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramShapes/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramShapes/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              JobTitle: { type: "string" },
+              Color: { type: "string" }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramConnections/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramConnections/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramConnections/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" },
+              fromX: { from: "FromPointX", type: "number" },
+              fromY: { from: "FromPointY", type: "number" },
+              toX: { from: "ToPointX", type: "number" },
+              toY: { from: "ToPointY", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        editable: {
+          tools: ["edit"]
+        },
+        connectionDefaults: {
+          editable: {
+            tools: ["edit"]
+          }
+        }
+      });
+    </script>
 
 ### createShape
 
 Adds an empty shape data item and a popup window will be displayed.
 
-#### Parameters
+#### Example - create a new shape
+    <button id="createBtn">Create Connection</button>
+    <div id="diagram"></div>
+    <script>
+      $("#createBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.createShape();
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
 
-##### item `Object`
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramShapes/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramShapes/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramShapes/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              JobTitle: { type: "string" },
+              Color: { type: "string" }
+            }
+          }
+        }
+      };
 
-A diagram shape item to edit.
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramConnections/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramConnections/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramConnections/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" },
+              fromX: { from: "FromPointX", type: "number" },
+              fromY: { from: "FromPointY", type: "number" },
+              toX: { from: "ToPointX", type: "number" },
+              toY: { from: "ToPointY", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        editable: {
+          tools: ["edit"]
+        },
+        connectionDefaults: {
+          editable: {
+            tools: ["edit"]
+          }
+        }
+      });
+    </script>
 
 ### cut
 
 Cuts the currently selected diagram items to an internal clipboard.
+
+#### Example - cut and paste Diagram elements
+
+    <button id="cutBtn">Cut Selected Elements</button>
+    <button id="pasteBtn">Paste</button>
+    <div id="diagram"></div>
+    <script>
+      $("#cutBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.cut();
+      });
+      $("#pasteBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.paste();
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ]
+      });
+    </script>
 
 ### destroy
 
@@ -7337,7 +7918,7 @@ Prepares the widget for safe removal from the DOM. Detaches all event handlers a
 
 ### documentToModel
 
-Transforms a point from Page document coordinates to Model coordinates. Shortcut for viewToModel(documentToView(point))
+Transforms a point from Page document coordinates to Model coordinates. Shortcut for `viewToModel(documentToView(point))`. This method is useful when you want to transform coordinates of a drag operation on top of the Diagram.
 
 #### Parameters
 
@@ -7349,19 +7930,202 @@ The point in Page document coordinates.
 
 `Object` the transformed point
 
+#### Example - get Model coordinates of dragged HTML element
+
+    <script>
+      $(function () {
+
+        $("#splitter").kendoSplitter({
+          panes: [
+            { size: "200px" },
+            {  }
+          ]
+        });
+
+        var diagram = $("#diagram").kendoDiagram({
+          dataSource: {
+            data: [{
+              items: [{}, {}]
+            }],
+            schema: {
+              model: {
+                children: "items"
+              }
+            }
+          },
+          shapeDefaults: {
+            width: 120,
+            height: 120,
+            fill: "#8ebc00"
+          },
+          layout: {
+            type: "tree"
+          }
+        }).getKendoDiagram();
+
+        $("#shapes").kendoDraggable({
+          filter: ".shapeItem",
+          hint: function (element) {
+            return element.clone();
+          }
+        });
+
+        $("#diagram").kendoDropTarget({
+          drop: function (e) {
+            if (e.draggable.hint) {
+              var position = diagram.documentToModel({ x: e.pageX, y: e.pageY });
+              var targetShape = shapeByPosition(position);
+              if (targetShape) {
+                var item = e.draggable.hint.data("shape");
+                var newShape = diagram.addShape(item);
+                diagram.connect(targetShape, newShape);
+                diagram.layout(diagram.options.layout);
+              }
+            }
+          }
+        });
+
+        function shapeByPosition(position) {
+          var shapes = diagram.shapes;
+          var shape;
+          for (var idx = 0; idx < shapes.length; idx++) {
+            shape = shapes[idx];
+            if (shape.bounds().contains(position)) {
+              return shape;
+            }
+          }
+        }
+      });
+    </script>
+    <div id="splitter">
+      <div id="left-pane">
+        <div class="pane-content">
+          Drag square to Diagram:
+          <div id="shapes">
+            <span class="shapeItem" data-shape='{"width":120,"height":120,"type":"rectangle"}' style="background-position: 0 0"></span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="pane-content">
+          <div id="diagram"></div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      html, body, #splitter
+      {
+        height: 100%;
+      }
+
+      .shapeItem
+      {
+        margin-top: 10px;
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+        background-image: url("https://demos.telerik.com/kendo-ui/content/integration/diagram/images/diagram-toolbox.png");
+        background-size: auto 100%;
+      }
+    </style>
+
 ### documentToView
 
-Transforms a point from Page document coordinates to View coordinates. View origin is the diagram container.
+Transforms a point from Page document coordinates to View coordinates. View coordinates are relative to the currently visible portion of the Diagram.
 
 #### Parameters
 
 ##### point `Object`
 
-The point in View coordinates.
+The point in Page document coordinates.
 
 #### Returns
 
 `Object` the transformed point
+
+#### Example - get point position in the visible portion of the Diagram
+
+    <script>
+      $(function () {
+
+        $("#splitter").kendoSplitter({
+          panes: [
+            { size: "200px" },
+            {  }
+          ]
+        });
+
+        var diagram = $("#diagram").kendoDiagram({
+          dataSource: {
+            data: [{
+              items: [{}, {}]
+            }],
+            schema: {
+              model: {
+                children: "items"
+              }
+            }
+          },
+          shapeDefaults: {
+            width: 120,
+            height: 120,
+            fill: "#8ebc00"
+          },
+          layout: {
+            type: "tree"
+          }
+        }).getKendoDiagram();
+
+        $("#shapes").kendoDraggable({
+          filter: ".shapeItem",
+          hint: function (element) {
+            return element.clone();
+          }
+        });
+
+        $("#diagram").kendoDropTarget({
+          drop: function (e) {
+            if (e.draggable.hint) {
+              var position = diagram.documentToView({ x: e.pageX, y: e.pageY });
+              console.log("Dropped element at visible position: " + position);
+            }
+          }
+        });
+      });
+    </script>
+    <div id="splitter">
+      <div id="left-pane">
+        <div class="pane-content">
+          Drag square to Diagram:
+          <div id="shapes">
+            <span class="shapeItem" data-shape='{"width":120,"height":120,"type":"rectangle"}' style="background-position: 0 0"></span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="pane-content">
+          <div id="diagram"></div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      html, body, #splitter
+      {
+        height: 100%;
+      }
+
+      .shapeItem
+      {
+        margin-top: 10px;
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+        background-image: url("https://demos.telerik.com/kendo-ui/content/integration/diagram/images/diagram-toolbox.png");
+        background-size: auto 100%;
+      }
+    </style>
 
 ### edit
 
@@ -7372,6 +8136,117 @@ Edit diagram connection/shape.
 ##### item `Object`
 
 A diagram item to edit.
+
+#### Example - edit the first Diagram shape
+
+    <button id="createBtn">Edit first shape</button>
+    <div id="diagram"></div>
+    <script>
+      $("#createBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.edit(diagram.shapes[0]);
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramShapes/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramShapes/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramShapes/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              JobTitle: { type: "string" },
+              Color: { type: "string", editable: false }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramConnections/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramConnections/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramConnections/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" },
+              fromX: { from: "FromPointX", type: "number" },
+              fromY: { from: "FromPointY", type: "number" },
+              toX: { from: "ToPointX", type: "number" },
+              toY: { from: "ToPointY", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        editable: {
+          tools: ["edit"]
+        },
+        connectionDefaults: {
+          editable: {
+            tools: ["edit"]
+          }
+        },
+        shapeDefaults: {
+          content: {
+            template: "#= dataItem.JobTitle #"
+          }
+        }
+      });
+    </script>
 
 ### exportImage
 
@@ -7417,25 +8292,27 @@ for more details.
 
 #### Example - Exporting a diagram to an image
 
+    <button id="exportBtn">Export</button>
     <div id="diagram"></div>
     <script>
-        $("#diagram").kendoDiagram({
-          dataSource: {
-              data: [{ "items": [{ items: [{}] }] }],
-              schema: { model: { children: "items" } }
-          },
-          layout: {
-              type: "tree"
-          }
-        });
-
+      $("#exportBtn").on("click", function(){
         var diagram = $("#diagram").getKendoDiagram();
         diagram.exportImage().done(function(data) {
-            kendo.saveAs({
-                dataURI: data,
-                fileName: "diagram.png"
-            });
+          kendo.saveAs({
+            dataURI: data,
+            fileName: "diagram.png"
+          });
         });
+      });
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [{ "items": [{ items: [{}] }] }],
+          schema: { model: { children: "items" } }
+        },
+        layout: {
+          type: "tree"
+        }
+      });
     </script>
 
 ### exportPDF
@@ -7457,25 +8334,30 @@ Parameters for the exported PDF file.
 
 #### Example - Exporting a diagram to a PDF file
 
+    <button id="exportBtn">Export</button>
     <div id="diagram"></div>
     <script>
-        $("#diagram").kendoDiagram({
-          dataSource: {
-              data: [{ "items": [{ items: [{}] }] }],
-              schema: { model: { children: "items" } }
-          },
-          layout: {
-              type: "tree"
-          }
-        });
-
+      $("#exportBtn").on("click", function(){
         var diagram = $("#diagram").getKendoDiagram();
-        diagram.exportPDF().done(function(data) {
-            kendo.saveAs({
-                dataURI: data,
-                fileName: "diagram.pdf"
-            });
+        diagram.exportPDF({
+          paperSize: "A4",
+          landscape: true
+        }).done(function(data) {
+          kendo.saveAs({
+            dataURI: data,
+            fileName: "diagram.pdf"
+          });
         });
+      });
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [{ "items": [{ items: [{}] }] }],
+          schema: { model: { children: "items" } }
+        },
+        layout: {
+          type: "tree"
+        }
+      });
     </script>
 
 ### exportSVG
@@ -7503,30 +8385,52 @@ Resolves the promise with the raw SVG document without the Data URI prefix.
 
 #### Example - Exporting a diagram to an SVG document
 
+    <button id="exportBtn">Export</button>
     <div id="diagram"></div>
     <script>
-        $("#diagram").kendoDiagram({
-          dataSource: {
-              data: [{ "items": [{ items: [{}] }] }],
-              schema: { model: { children: "items" } }
-          },
-          layout: {
-              type: "tree"
-          }
-        });
-
+      $("#exportBtn").on("click", function(){
         var diagram = $("#diagram").getKendoDiagram();
         diagram.exportSVG().done(function(data) {
-            kendo.saveAs({
-                dataURI: data,
-                fileName: "diagram.svg"
-            });
+          kendo.saveAs({
+            dataURI: data,
+            fileName: "diagram.svg"
+          });
         });
+      });
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [{ "items": [{ items: [{}] }] }],
+          schema: { model: { children: "items" } }
+        },
+        layout: {
+          type: "tree"
+        }
+      });
     </script>
 
 ### focus
 
 Sets the focus on the diagram.
+
+#### Example - focus the Diagram
+
+    <button id="focusBtn">Focus</button>
+    <div id="diagram"></div>
+    <script>
+      $("#focusBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.focus();
+      });
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [{ "items": [{ items: [{}] }] }],
+          schema: { model: { children: "items" } }
+        },
+        layout: {
+          type: "tree"
+        }
+      });
+    </script>
 
 ### getConnectionByModelId
 
@@ -7542,6 +8446,71 @@ The model id value.
 
 `kendo.dataviz.diagram.Connection` the connection corresponding to the model.
 
+#### Exampmle - get connection information by id
+
+    <button id="getConnBtn">Get connection with id = 1</button>
+    <div id="diagram"></div>
+    <script>
+      $("#getConnBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var conn = diagram.getConnectionByModelId(1);
+        console.log("Connection between shapes " + conn.from + " and " + conn.to);
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        shapeDefaults: {
+          content: {
+            template: "#= dataItem.JobTitle #"
+          }
+        }
+      });
+
+    </script>
+
 ### getConnectionByModelUid
 
 Returns the connection corresponding to the model with the specified uid value.
@@ -7555,6 +8524,71 @@ The model uid value.
 #### Returns
 
 `kendo.dataviz.diagram.Connection` the connection corresponding to the model.
+
+#### Example - get connection by data item uid
+
+    <button id="getConnBtn">Select third connection</button>
+    <div id="diagram"></div>
+    <script>
+      $("#getConnBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var dataItem = diagram.connectionsDataSource.at(2);
+        var conn = diagram.getConnectionByModelUid(dataItem.uid);
+        diagram.select(conn);
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        shapeDefaults: {
+          content: {
+            template: "#= dataItem.JobTitle #"
+          }
+        }
+      });
+    </script>
 
 ### getShapeById
 
@@ -7570,6 +8604,71 @@ The unique identifier of the Shape or Connection
 
 `Object` the item that has the provided ID.
 
+#### Example - get shape by id
+
+    <button id="getConnBtn">Select From shape of the first connection</button>
+    <div id="diagram"></div>
+    <script>
+      $("#getConnBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        // Using getShapeById for the pursposes of the example. In this case, diagram.connections[0].from points directly to the shape.
+        var shape = diagram.getShapeById(diagram.connections[0].from.id);
+        diagram.select(shape);
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        shapeDefaults: {
+          content: {
+            template: "#= dataItem.JobTitle #"
+          }
+        }
+      });
+    </script>
+
 ### getShapeByModelId
 
 Returns the shape corresponding to the model with the specified id value.
@@ -7583,6 +8682,70 @@ The model id value.
 #### Returns
 
 `kendo.dataviz.diagram.Shape` the shape corresponding to the model.
+
+#### Example - get shape by model id
+
+    <button id="getShapeBtn">Select shape with id = 3</button>
+    <div id="diagram"></div>
+    <script>
+      $("#getShapeBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var shape = diagram.getShapeByModelId(3);
+        diagram.select(shape);
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        shapeDefaults: {
+          content: {
+            template: "#= dataItem.JobTitle #"
+          }
+        }
+      });
+    </script>
 
 ### getShapeByModelUid
 
@@ -7598,6 +8761,71 @@ The model uid value.
 
 `kendo.dataviz.diagram.Shape` the shape corresponding to the model.
 
+#### Example - get shape by model uid
+
+    <button id="getShapeBtn">Select third shape</button>
+    <div id="diagram"></div>
+    <script>
+      $("#getShapeBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var dataItem = diagram.dataSource.at(2);
+        var shape = diagram.getShapeByModelUid(dataItem.uid);
+        diagram.select(shape);
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        shapeDefaults: {
+          content: {
+            template: "#= dataItem.JobTitle #"
+          }
+        }
+      });
+    </script>
+
 ### layerToModel
 
 Transforms a point from Layer coordinates to Model coordinates. Layer coordinates are relative to the drawable surface.
@@ -7612,6 +8840,45 @@ The point in layer coordinates.
 
 `Object` the transformed point
 
+#### Example - convert a point from Layer to Model coordinates
+
+    <button id="convertBtn">Convert point coordinates</button>
+    <div id="diagram"></div>
+    <script>
+      $("#convertBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var point = new kendo.dataviz.diagram.Point(200, 100);
+        var modelCoordinates = diagram.layerToModel(point);
+        console.log(modelCoordinates);
+      });
+      $("#diagram").kendoDiagram({
+        zoom: 1.5,
+        shapes: [{
+          id: "1",
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
+
 ### layout
 
 Applies a layout algorithm on the current diagram.
@@ -7624,19 +8891,91 @@ A more detailed overview of layout and graph analysis can be found below.
 
 The layout options. See [options.layout](/api/javascript/dataviz/ui/diagram#configuration-layout) for a full reference.
 
+#### Example - apply a layout dynamically
+
+    <button id="layoutBtn">Apply layout</button>
+    <div id="diagram"></div>
+    <script>
+      $("#layoutBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.layout({
+          type: "layered"
+        });
+      });
+      $("#diagram").kendoDiagram({
+        shapes: [{
+          id: "1"
+        }, {
+          id: "2"
+        }, {
+          id: "3"
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
+
 ### load
 
 Loads a saved diagram.
 
 #### Parameters
 
-##### json `String`
+##### json `Object`
 
-The serialized diagram in JSON format.
+The serialized Diagram options to load.
+
+#### Example - save and load Diagram content
+
+    <button id="saveBtn">Save Diagram</button>
+    <button id="loadBtn">Load Diagram</button>
+    <div id="diagram"></div>
+    <script>
+      $("#saveBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        localStorage.setItem("diagram", JSON.stringify(diagram.save()));
+      });
+      $("#loadBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        if(localStorage.getItem("diagram")){
+          diagram.load(JSON.parse(localStorage.getItem("diagram")));
+        }
+      });
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        shapes: [{
+          id: "1"
+        }, {
+          id: "2"
+        }, {
+          id: "3"
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
 
 ### modelToDocument
 
-Transforms a point from Model coordinates to Page document coordinates. Shortcut for viewToDocument(modelToView(point))
+Transforms a point from Model coordinates to Page document coordinates. Shortcut for `viewToDocument(modelToView(point))`.
 
 #### Parameters
 
@@ -7647,6 +8986,44 @@ The point in Model coordinates.
 #### Returns
 
 `Object` the transformed point
+
+#### Example - convert shape position to Page document coordinates
+
+    <button id="convertBtn">Convert first shape coordinates</button>
+    <div id="diagram"></div>
+    <script>
+      $("#convertBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var documentCoordinates = diagram.modelToDocument(diagram.shapes[0].position());
+        console.log(documentCoordinates);
+      });
+      $("#diagram").kendoDiagram({
+        zoom: 1.5,
+        shapes: [{
+          id: "1",
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
 
 ### modelToLayer
 
@@ -7662,9 +9039,47 @@ The point in Model coordinates.
 
 `Object` the transformed point
 
+#### Example - convert Model to Layer coordinates
+
+    <button id="convertBtn">Convert first shape coordinates</button>
+    <div id="diagram"></div>
+    <script>
+      $("#convertBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var layerCoordinates = diagram.modelToLayer(diagram.shapes[0].position());
+        console.log(layerCoordinates);
+      });
+      $("#diagram").kendoDiagram({
+        zoom: 1.5,
+        shapes: [{
+          id: "1",
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
+
 ### modelToView
 
-Transforms a point from Model coordinates to View coordinates. Model coordinates are independent coordinates to define Shape bounds.
+Transforms a point from Model coordinates to View coordinates. Model coordinates are independent coordinates to define Shape bounds. View coordinates are relative to the currently visible part of the drawing surface.
 
 #### Parameters
 
@@ -7676,23 +9091,183 @@ The point in Model coordinates.
 
 `Object` the transformed point
 
+#### Example - convert Model to View coordinates
+
+    <button id="convertBtn">Convert first shape coordinates</button>
+    <div id="diagram"></div>
+    <script>
+      $("#convertBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var layerCoordinates = diagram.modelToView(diagram.shapes[0].position());
+        console.log(layerCoordinates);
+      });
+      $("#diagram").kendoDiagram({
+        zoom: 1.5,
+        shapes: [{
+          id: "1",
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
+
 ### pan
 
 Pans the diagram with a specified delta (represented as a Point).
 
 #### Parameters
 
-##### pan `Object`
+##### pan `Object|kendo.dataviz.diagram.Point`
 
-The translation delta to apply to the diagram.
+The translation delta to apply to the diagram or the Point to pan to.
+
+#### Example - pan to a predefined point in the Diagram
+
+    <button id="panBtn">Pan Diagram</button>
+    <div id="diagram"></div>
+    <script>
+      $("#panBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var point = new kendo.dataviz.diagram.Point(120, 120);
+        diagram.pan(point);
+      });
+      $("#diagram").kendoDiagram({
+        zoom: 1.5,
+        shapes: [{
+          id: "1",
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
 
 ### paste
 
 Pastes the content of the internal diagram clipboard.
 
+#### Example - copy and paste Diagram elements
+
+    <button id="copyBtn">Copy Selected Elements</button>
+    <button id="pasteBtn">Paste</button>
+    <div id="diagram"></div>
+    <script>
+      $("#copyBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.copy();
+      });
+      $("#pasteBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.paste();
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ]
+      });
+    </script>
+
 ### redo
 
 Executes again the previously undone action.
+
+#### Example - redo Diagram changes
+
+    <button id="undoBtn">Undo</button>
+    <button id="redoBtn">Redo</button>
+    <div id="diagram"></div>
+    <script>
+      $("#undoBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.undo();
+      });
+      $("#redoBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.redo();
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ]
+      });
+    </script>
 
 ### remove
 
@@ -7710,28 +9285,141 @@ Whether the removal should be recorded in the undo-redo stack.
 
 #### Example - removing items
 
+    <button id="removeBtn">Remove</button>
     <div id="diagram"></div>
-
     <script>
-      var Shape = kendo.dataviz.diagram.Shape;
-      $("#diagram").kendoDiagram();
-      var diagram = $("#diagram").data("kendoDiagram");
-
-      var shape1 = diagram.addShape(new Shape({x:100, y:100, fill: "red"}));
-      var shape2 = diagram.addShape(new Shape({x:400, y:100, fill: "red"}));
-      var con = diagram.connect(shape1,shape2);
-      diagram.remove([shape1, shape2, con]);
+      $("#removeBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        if(diagram.shapes.length > 0){
+          diagram.remove(diagram.shapes[0]);
+        }
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ]
+      });
     </script>
 
 ### resize
 
 Adjusts the diagram size to match the size of the container.
 
+#### Example - resize Diagram on window resize
+
+    <style>
+      html,
+      body,
+      .diagram-wrapper,
+      &#35;diagram {
+        height: 100%;
+      }
+    </style>
+    <div class="diagram-wrapper">
+      <div id="diagram"></div>
+    </div>
+    <script>
+      $(window).on("resize", function() {
+        kendo.resize($(".diagram-wrapper"));
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ]
+      });
+    </script>
+
 ### save
 
-Saves the diagram.
+Returns the complete Diagram configuration in JSON format.
 
-### saveAsPdf
+#### Returns
+
+`Object` An options object containing the complete Diagram configuration.
+
+#### Example - save and load Diagram content
+
+    <button id="saveBtn">Save Diagram</button>
+    <button id="loadBtn">Load Diagram</button>
+    <div id="diagram"></div>
+    <script>
+      $("#saveBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        localStorage.setItem("diagram", JSON.stringify(diagram.save()));
+      });
+      $("#loadBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        if(localStorage.getItem("diagram")){
+          diagram.load(JSON.parse(localStorage.getItem("diagram")));
+        }
+      });
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        shapes: [{
+          id: "1"
+        }, {
+          id: "2"
+        }, {
+          id: "3"
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
+
+### saveAsPDF
 
 Saves the diagram content as PDF document.
 
@@ -7741,24 +9429,208 @@ Saves the diagram content as PDF document.
 
 #### Example - Exporting a diagram to a PDF document
 
+    <button id="exportBtn">Save as PDF</button>
     <div id="diagram"></div>
     <script>
-      $("#diagram").kendoDiagram({
-        shapes: [{
-          id: "1"
-        }]
+      $("#exportBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.saveAsPDF();
       });
-      var diagram = $("#diagram").getKendoDiagram();
-      diagram.saveAsPDF();
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ]
+      });
     </script>
 
 ### saveEdit
 
 Saves any changes made by the user.
 
+#### Example - save modified value on DataSource change
+
+    <div id="diagram"></div>
+    <script>
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramShapes/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramShapes/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramShapes/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              JobTitle: { type: "string" },
+              Color: { type: "string", editable: false }
+            }
+          }
+        },
+        change: function(e){
+          var item = e.items[0];
+          if(e.action=="itemchange" && item[e.field] != ""){
+            $("#diagram").getKendoDiagram().saveEdit();
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        batch: false,
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          },
+          update: {
+            url: serviceRoot + "/DiagramConnections/Update",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: serviceRoot + "/DiagramConnections/Destroy",
+            dataType: "jsonp"
+          },
+          create: {
+            url: serviceRoot + "/DiagramConnections/Create",
+            dataType: "jsonp"
+          },
+          parameterMap: function (options, operation) {
+            if (operation !== "read") {
+              return { models: kendo.stringify(options.models || [options]) };
+            }
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" },
+              fromX: { from: "FromPointX", type: "number" },
+              fromY: { from: "FromPointY", type: "number" },
+              toX: { from: "ToPointX", type: "number" },
+              toY: { from: "ToPointY", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        },
+        dataSource: shapesDataSource,
+        connectionsDataSource: connectionsDataSource,
+        editable: {
+          tools: ["edit"]
+        },
+        connectionDefaults: {
+          editable: {
+            tools: ["edit"]
+          }
+        },
+        shapeDefaults: {
+          content: {
+            template: "#= dataItem.JobTitle #"
+          }
+        }
+      });
+    </script>
+
 ### select
 
 Gets or sets the selected elements.
+
+#### Example - select a shape
+
+    <button id="selectBtn">Select 3rd Shape</button> - adds the shape to the existing selection
+    <div id="diagram"></div>
+    <script>
+      $("#selectBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.select(diagram.shapes[2], {addToSelection: true});
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          },
+          {
+            id:"3",
+            content: {
+              text: "State 3"
+            },
+            x: 160,
+            y: 160
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          },{
+            from: "2",
+            to: "3"
+          }
+        ]
+      });
+    </script>
 
 #### Parameters
 
@@ -7793,6 +9665,54 @@ If set to true the newly selected items will be added to the existing selection.
 
 Selects all shapes and the connections between them (without the point-to-point connections).
 
+#### Example - select all shapes
+
+    <button id="selectBtn">Select all shapes</button>
+    <div id="diagram"></div>
+    <script>
+      $("#selectBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.selectAll();
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          },
+          {
+            id:"3",
+            content: {
+              text: "State 3"
+            },
+            x: 160,
+            y: 160
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          },{
+            from: "2",
+            to: "3"
+          }
+        ]
+      });
+    </script>
+
 ### selectArea
 
 Selects all diagram elements within the given rectangle.
@@ -7802,6 +9722,55 @@ Selects all diagram elements within the given rectangle.
 ##### rect `kendo.dataviz.diagram.Rect`
 
 The rectangle that determines which elements should be selected.
+
+#### Example - select items within a rectangle
+
+    <button id="selectBtn">Select items</button> - at coordinates {x: 150, y: 80, width: 80, height: 80}
+    <div id="diagram"></div>
+    <script>
+      $("#selectBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var rect = new kendo.dataviz.diagram.Rect(150, 80, 80, 80);
+        diagram.selectArea(rect);
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          },
+          {
+            id:"3",
+            content: {
+              text: "State 3"
+            },
+            x: 160,
+            y: 160
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          },{
+            from: "2",
+            to: "3"
+          }
+        ]
+      });
+    </script>
 
 ### setConnectionsDataSource
 
@@ -7813,6 +9782,65 @@ Sets the connections data source of the diagram.
 
 The data source to which the widget should be bound.
 
+#### Example - set Diagram DataSources dynamically
+
+    <button id="dsBtn">Set dataSource</button>
+    <button id="connDsBtn">Set connectionDataSource</button>
+    <div id="diagram"></div>
+    <script>
+      $("#dsBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.setDataSource(shapesDataSource);
+      });
+      $("#connDsBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.setConnectionsDataSource(connectionsDataSource);
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        }
+      });
+    </script>
+
 ### setDataSource
 
 Sets the data source of the diagram.
@@ -7822,6 +9850,65 @@ Sets the data source of the diagram.
 ##### dataSource `kendo.data.DataSource`
 
 The data source to which the widget should be bound.
+
+#### Example - set Diagram DataSources dynamically
+
+    <button id="dsBtn">Set dataSource</button>
+    <button id="connDsBtn">Set connectionDataSource</button>
+    <div id="diagram"></div>
+    <script>
+      $("#dsBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.setDataSource(shapesDataSource);
+      });
+      $("#connDsBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.setConnectionsDataSource(connectionsDataSource);
+      });
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+
+      var shapesDataSource = {
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramShapes",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false }
+            }
+          }
+        }
+      };
+
+      var connectionsDataSource = {
+        transport: {
+          read: {
+            url: serviceRoot + "/DiagramConnections",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "id",
+            fields: {
+              id: { from: "Id", type: "number", editable: false },
+              from: { from: "FromShapeId", type: "number" },
+              to: { from: "ToShapeId", type: "number" }
+            }
+          }
+        }
+      };
+
+      $("#diagram").kendoDiagram({
+        layout: {
+          type: "layered"
+        }
+      });
+    </script>
 
 ### toBack
 
@@ -7837,6 +9924,58 @@ An array of diagram items.
 
 Whether the change should be recorded in the undo-redo stack.
 
+#### Example - send 2nd and 3rd shape to back
+
+    <button id="hideBtn">Shape 2 and 3 to back</button>
+    <div id="diagram"></div>
+    <script>
+      $("#hideBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var shapes = [diagram.shapes[1], diagram.shapes[2]];
+        diagram.toBack(shapes);
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20,
+            stroke: {
+              width: 1,
+              color: "#0000ff"
+            }
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 70,
+            y: 20,
+            stroke: {
+              width: 1,
+              color: "#00ff00"
+            }
+          },
+          {
+            id:"3",
+            content: {
+              text: "State 3"
+            },
+            x: 100,
+            y: 20,
+            stroke: {
+              width: 1,
+              color: "#00ff00"
+            }
+          }
+        ]
+      });
+    </script>
+
 ### toFront
 
 Brings the specified items in front, i.e. it's reordering items to ensure they are on top of the complementary items.
@@ -7851,44 +9990,101 @@ An array of diagram items.
 
 Whether the change should be recorded in the undo-redo stack.
 
-### transformPoint
+#### Example - bring shape 1 on top of other shapes
 
-Transforms a point from the main canvas coordinates to the non-transformed origin.
-
-#### Parameters
-
-##### p `Object`
-
-An arbitrary point to transform to the diagram coordinate system.
-
-### transformRect
-
-Transforms a given rectangle to the diagram coordinate system.
-
-#### Parameters
-
-##### r `Object`
-
-The rectangle to be transformed.
+    <button id="showBtn">Shape 1 to front</button>
+    <div id="diagram"></div>
+    <script>
+      $("#showBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.toFront(diagram.shapes[0]);
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20,
+            stroke: {
+              width: 1,
+              color: "#0000ff"
+            }
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 70,
+            y: 20,
+            stroke: {
+              width: 1,
+              color: "#00ff00"
+            }
+          },
+          {
+            id:"3",
+            content: {
+              text: "State 3"
+            },
+            x: 100,
+            y: 20,
+            stroke: {
+              width: 1,
+              color: "#00ff00"
+            }
+          }
+        ]
+      });
+    </script>
 
 ### undo
 
 Undoes the previous action.
 
-#### Example - undoing items removal
+#### Example - undo Diagram changes
 
+    <button id="undoBtn">Undo</button>
+    <button id="redoBtn">Redo</button>
     <div id="diagram"></div>
-
     <script>
-      var Shape = kendo.dataviz.diagram.Shape;
-      $("#diagram").kendoDiagram();
-      var diagram = $("#diagram").data("kendoDiagram");
-
-      var shape1 = diagram.addShape(new Shape({x:100, y:100, fill: "red"}));
-      var shape2 = diagram.addShape(new Shape({x:400, y:100, fill: "red"}));
-      var con = diagram.connect(shape1,shape2);
-      diagram.remove([shape1, shape2, con]);
-      diagram.undo()
+      $("#undoBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.undo();
+      });
+      $("#redoBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.redo();
+      });
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ]
+      });
     </script>
 
 ### viewToDocument
@@ -7905,6 +10101,45 @@ The point in Page document coordinates.
 
 `kendo.dataviz.diagram.Point` the transformed point
 
+#### Example - convert a Point from View to Document coordinates
+
+    <button id="convertBtn">Convert point coordinates</button>
+    <div id="diagram"></div>
+    <script>
+      $("#convertBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var point = new kendo.dataviz.diagram.Point(200, 100);
+        var documentCoordinates = diagram.viewToDocument(point);
+        console.log("(200, 100) = > " + documentCoordinates);
+      });
+      $("#diagram").kendoDiagram({
+        zoom: 1.5,
+        shapes: [{
+          id: "1",
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
+
 ### viewToModel
 
 Transforms a point from View coordinates to Model coordinates. Model coordinates are independent coordinates to define Shape bounds.
@@ -7919,6 +10154,45 @@ The point in View coordinates.
 
 `kendo.dataviz.diagram.Point` the transformed point
 
+#### Example - convert Point from View to Model coordinates
+
+    <button id="convertBtn">Convert point coordinates</button>
+    <div id="diagram"></div>
+    <script>
+      $("#convertBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var point = new kendo.dataviz.diagram.Point(200, 100);
+        var documentCoordinates = diagram.viewToModel(point);
+        console.log("(200, 100) = > " + documentCoordinates);
+      });
+      $("#diagram").kendoDiagram({
+        zoom: 1.5,
+        shapes: [{
+          id: "1",
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
+
 ### viewport
 
 The bounds of the diagramming canvas.
@@ -7926,6 +10200,44 @@ The bounds of the diagramming canvas.
 #### Returns
 
 `kendo.dataviz.diagram.Rect` as viewport bounds
+
+#### Example - get viewport bounds
+
+    <button id="viewportBtn">Get viewport bounds</button>
+    <div id="diagram"></div>
+    <script>
+      $("#viewportBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        var viewport = diagram.viewport();
+        console.log(viewport);
+      });
+      $("#diagram").kendoDiagram({
+        zoom: 1.5,
+        shapes: [{
+          id: "1",
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
 
 ### zoom
 
@@ -7943,6 +10255,42 @@ The point to zoom into or out of.
 
 #### Returns
 `Number` The current zoom level
+
+#### Example - zoom Diagram dynamically
+
+    <button id="zoomBtn">Zoom Diagram</button>
+    <div id="diagram"></div>
+    <script>
+      $("#zoomBtn").on("click", function(){
+        var diagram = $("#diagram").getKendoDiagram();
+        diagram.zoom(1.5);
+      });
+      $("#diagram").kendoDiagram({
+        shapes: [{
+          id: "1",
+          x: 100,
+          y: 20
+        }, {
+          id: "2",
+          x: 350,
+          y: 20
+        }, {
+          id: "3",
+          x: 250,
+          y: 200
+        }],
+        connections: [{
+          from: "1",
+          to: "2"
+        },{
+          from: "2",
+          to: "3"
+        }],
+        connectionDefaults: {
+          endCap: "ArrowEnd"
+        }
+      });
+    </script>
 
 ## Events
 
@@ -7972,28 +10320,40 @@ The widget instance which fired the event.
 
 #### Example - handling the add event
 
-    <script>
-      var diagramElement = $('<div id="diagram" />').kendoDiagram({
-        shapes: [{
-          id: "id1",
-          type: "Rectangle",
-          x: 0,
-          y: 0,
-          width: 100,
-          height: 100
-        }],
-        add: function(e) {
-          var addedShape = e.shape;
-          // 'this' refers to the widget here
+      <div id="diagram" style="height:600px;"></div>
+      <script>
+        $("#diagram").kendoDiagram({
+          dataSource: {
+            data: [
+              { id: 1, jobTitle: "President" },
+              { id: 2, jobTitle: "VP Finance" }
+            ],
+            schema: {
+              model: {
+                id: "id",
+                fields: {
+                  jobTitle: { type: "string" }
+                }
+              }
+            }
+          },
+          connectionsDataSource: {
+            data: [
+              { id: 1, from: 1, to: 2 }
+            ]
+          },
+          layout: {
+            type: "tree",
+            subtype: "tipover",
+            underneathHorizontalOffset: 140
+          },
+          add: onAdd
+        });
+
+        function onAdd(e){
+          console.log(e.shape.id);
         }
-      });
-
-      $('body').append(diagramElement);
-
-      var diagram = diagramElement.data('kendoDiagram');
-
-      diagram.addShape(new kendo.dataviz.diagram.Shape({x:100, y:100, fill: "red"}))
-    </script>
+      </script>
 
 ### cancel
 
@@ -8017,6 +10377,43 @@ The dataItem to which shape is bound.
 
 The widget instance which fired the event.
 
+#### Example - handling the cancel event
+
+      <div id="diagram" style="height:600px;"></div>
+      <script>
+        $("#diagram").kendoDiagram({
+          dataSource: {
+            data: [
+              { id: 1, jobTitle: "President" },
+              { id: 2, jobTitle: "VP Finance" }
+            ],
+            schema: {
+              model: {
+                id: "id",
+                fields: {
+                  jobTitle: { type: "string" }
+                }
+              }
+            }
+          },
+          connectionsDataSource: {
+            data: [
+              { id: 1, from: 1, to: 2 }
+            ]
+          },
+          layout: {
+            type: "tree",
+            subtype: "tipover",
+            underneathHorizontalOffset: 140
+          },
+          cancel: onCancel
+        });
+
+        function onCancel(e){
+          console.log(e.shape.id);
+        }
+      </script>
+
 ### change
 
 Fired when an item is added or removed to/from the diagram.
@@ -8035,9 +10432,64 @@ The removed items (shapes or connections).
 
 The widget instance which fired the event.
 
+#### Example - get added and removed items
+
+    <div id="diagram"></div>
+    <script>
+      function onChange(e){
+        console.log("Added items: " + e.added.length + "; Removed items: " + e.removed.length);
+      }
+
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        change: onChange
+      });
+    </script>
+
 ### click
 
 Fired when the user clicks on a shape or a connection.
+
+#### Event Data
+
+##### e.item `kendo.dataviz.diagram.Shape` | `kendo.dataviz.diagram.Connection`
+
+The clicked shape or connection.
+
+##### meta `Object`
+
+An object with fields indicating which keys(altKey, ctrlKey, shiftKey, metaKey) were pressed.
+
+##### e.point `kendo.dataviz.diagram.Point`
+
+The clicked location.
+
+##### e.sender `kendo.dataviz.ui.Diagram`
+
+The widget instance which fired the event.
 
 #### Example - handling the click event
 
@@ -8088,24 +10540,6 @@ Fired when the user clicks on a shape or a connection.
       })
     </script>
 
-#### Event Data
-
-##### e.item `kendo.dataviz.diagram.Shape` | `kendo.dataviz.diagram.Connection`
-
-The clicked shape or connection.
-
-##### meta `Object`
-
-An object with fields indicating which keys(altKey, ctrlKey, shiftKey, metaKey) were pressed.
-
-##### e.point `kendo.dataviz.diagram.Point`
-
-The clicked location.
-
-##### e.sender `kendo.dataviz.ui.Diagram`
-
-The widget instance which fired the event.
-
 ### dataBound
 
 Fired when the widget is bound to data from dataDource and connectionsDataSource.
@@ -8115,6 +10549,43 @@ The event handler function context (available via the `this` keyword) will be se
 #### Event Data
 
 ##### e.sender `kendo.dataviz.ui.Diagram`
+
+#### Example - handling the dataBound event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [
+            { id: 1, jobTitle: "President" },
+            { id: 2, jobTitle: "VP Finance" }
+          ],
+          schema: {
+            model: {
+              id: "id",
+              fields: {
+                jobTitle: { type: "string" }
+              }
+            }
+          }
+        },
+        connectionsDataSource: {
+          data: [
+            { id: 1, from: 1, to: 2 }
+          ]
+        },
+        layout: {
+          type: "tree",
+          subtype: "tipover",
+          underneathHorizontalOffset: 140
+        },
+        dataBound: onDataBound
+      });
+
+      function onDataBound(e){
+        console.log("Bound a Diagram with " + this.shapes.length + " shapes.");
+      }
+    </script>
 
 ### drag
 
@@ -8137,6 +10608,48 @@ An array with the dragged shapes.
 ##### e.sender `kendo.dataviz.ui.Diagram`
 
 The widget instance which fired the event.
+
+#### Example - handling the drag event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        drag: onDrag
+      });
+
+      function onDrag(e){
+        if(e.connections.length > 0){
+          console.log("Dragging connection(s)");
+        }
+        if(e.shapes.length > 0){
+          console.log("Dragging shape(s)");
+        }
+      }
+    </script>
 
 ### dragEnd
 
@@ -8164,6 +10677,48 @@ The widget instance which fired the event.
 
 A function that can be used prevent the default action. If invoked, the dragged elements will be returned to their original state.
 
+#### Example - handling the dragEnd event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        dragEnd: onDragEnd
+      });
+
+      function onDragEnd(e){
+        if(e.connections.length > 0){
+          console.log("Finished dragging " + e.connections.length + " connections");
+        }
+        if(e.shapes.length > 0){
+          console.log("Finished dragging " + e.shapes.length + " shapes");
+        }
+      }
+    </script>
+
 ### dragStart
 
 Fired before starting dragging shapes or connection.
@@ -8190,6 +10745,48 @@ The widget instance which fired the event.
 
 A function that can be used prevent the default action. If invoked, the element(s) will not be dragged.
 
+#### Example - handling the dragStart event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        dragStart: onDragStart
+      });
+
+      function onDragStart(e){
+        if(e.connections.length > 0){
+          console.log("Started dragging " + e.connections.length + " connections");
+        }
+        if(e.shapes.length > 0){
+          console.log("Started dragging " + e.shapes.length + " shapes");
+        }
+      }
+    </script>
+
 ### edit
 
 Fired when the user edits a shape or connection.
@@ -8212,6 +10809,43 @@ The dataItem to which shape is bound.
 
 The widget instance which fired the event.
 
+#### Example - handling the edit event
+
+    <div id="diagram" style="height:600px;"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [
+            { id: 1, jobTitle: "President" },
+            { id: 2, jobTitle: "VP Finance" }
+          ],
+          schema: {
+            model: {
+              id: "id",
+              fields: {
+                jobTitle: { type: "string" }
+              }
+            }
+          }
+        },
+        connectionsDataSource: {
+          data: [
+            { id: 1, from: 1, to: 2 }
+          ]
+        },
+        layout: {
+          type: "tree",
+          subtype: "tipover",
+          underneathHorizontalOffset: 140
+        },
+        edit: onEdit
+      });
+
+      function onEdit(e){
+        console.log("Editing shape with model id: " + e.shape.id);
+      }
+    </script>
+
 ### itemBoundsChange
 
 Fired when the location or size of a shape are changed.
@@ -8230,6 +10864,43 @@ The affected shape.
 
 The widget instance which fired the event.
 
+#### Example - handling itemBoundsChange event
+
+    <div id="diagram" style="height:600px;"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [
+            { id: 1, jobTitle: "President" },
+            { id: 2, jobTitle: "VP Finance" }
+          ],
+          schema: {
+            model: {
+              id: "id",
+              fields: {
+                jobTitle: { type: "string" }
+              }
+            }
+          }
+        },
+        connectionsDataSource: {
+          data: [
+            { id: 1, from: 1, to: 2 }
+          ]
+        },
+        layout: {
+          type: "tree",
+          subtype: "tipover",
+          underneathHorizontalOffset: 140
+        },
+        itemBoundsChange: onItemBoundsChange
+      });
+
+      function onItemBoundsChange(e){
+        console.log("New item bounds (x, y, width, height): " + e.bounds);
+      }
+    </script>
+
 ### itemRotate
 
 Fired when a shape is rotated.
@@ -8243,6 +10914,48 @@ The rotated shape.
 ##### e.sender `kendo.dataviz.ui.Diagram`
 
 The widget instance which fired the event.
+
+#### Example - handling the itemRotate event
+
+    <div id="diagram" style="height:600px;"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [
+            { id: 1, jobTitle: "President" },
+            { id: 2, jobTitle: "VP Finance" }
+          ],
+          schema: {
+            model: {
+              id: "id",
+              fields: {
+                jobTitle: { type: "string" }
+              }
+            }
+          }
+        },
+        connectionsDataSource: {
+          data: [
+            { id: 1, from: 1, to: 2 }
+          ]
+        },
+        layout: {
+          type: "tree",
+          subtype: "tipover",
+          underneathHorizontalOffset: 140
+        },
+        shapeDefaults: {
+          content: {
+            template: "#: jobTitle #"
+          }
+        },
+        itemRotate: onItemRotate
+      });
+
+      function onItemRotate(e){
+        console.log("Rotated item: " + e.item + "at angle: " + e.item.options.rotation.angle);
+      }
+    </script>
 
 ### mouseEnter
 
@@ -8262,6 +10975,48 @@ The target shape or connection.
 
 The diagram instance which fired the event.
 
+#### Example - handling the mouseEnter event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        mouseEnter: onMouseEnter
+      });
+
+      function onMouseEnter(e){
+        if(e.item instanceof kendo.dataviz.diagram.Shape){
+          console.log("Hovered shape: " + e.item);
+        }
+        else {
+          console.log("Hovered connection: " + e.item);
+        }
+      }
+    </script>
+
 ### mouseLeave
 
 Fired when the mouse leaves a shape or a connection.
@@ -8280,6 +11035,48 @@ The target shape or connection.
 
 The diagram instance which fired the event.
 
+#### Example - handling the mouseLeave event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        mouseLeave: onMouseLeave
+      });
+
+      function onMouseLeave(e){
+        if(e.item instanceof kendo.dataviz.diagram.Shape){
+          console.log("Mouse left shape: " + e.item);
+        }
+        else {
+          console.log("Mouse left connection: " + e.item);
+        }
+      }
+    </script>
+
 ### pan
 
 Fired when the user pans the diagram.
@@ -8293,6 +11090,43 @@ A point representing the pan distance.
 ##### e.sender `kendo.dataviz.ui.Diagram`
 
 The widget instance which fired the event.
+
+#### Example - handling the pan event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        pan: onPan
+      });
+
+      function onPan(e){
+        console.log("Pan distance: " + e.pan);
+      }
+    </script>
 
 ### remove
 
@@ -8316,9 +11150,53 @@ Prevents the remove action. If called, the element will not be removed to the di
 
 The widget instance which fired the event.
 
+#### Example - handling the remove event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        remove: onRemove
+      });
+
+      function onRemove(e){
+        if(e.shape){
+          debugger
+          console.log("Removing shape with text: " + e.shape.options.content.text);
+        }
+
+        if(e.connection){
+          console.log("Removing connection with id: " + e.connection.id);
+        }
+      }
+    </script>
+
 ### save
 
-Fired when the user saved a shape or a connection.
+Fired when the user saves a shape or a connection.
 
 #### Event Data
 
@@ -8338,6 +11216,62 @@ The dataItem to which shape is bound.
 
 The widget instance which fired the event.
 
+#### Example - handling the save event
+
+    <div id="diagram" style="height:600px;"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [
+            { id: 1, jobTitle: "President" },
+            { id: 2, jobTitle: "VP Finance" }
+          ],
+          schema: {
+            model: {
+              id: "id",
+              fields: {
+                jobTitle: { type: "string" }
+              }
+            }
+          }
+        },
+        connectionsDataSource: {
+          data: [
+            { id: 1, from: 1, to: 2 }
+          ],
+          schema: {
+            model: {
+              id: "id",
+              fields: {
+                from: { type: "number" },
+                to: { type: "number" }
+              }
+            }
+          }
+        },
+        layout: {
+          type: "tree",
+          subtype: "tipover",
+          underneathHorizontalOffset: 140
+        },
+        shapeDefaults: {
+          content: {
+            template: "#: jobTitle #"
+          }
+        },
+        save: onSave
+      });
+
+      function onSave(e){
+        if(e.shape){
+          console.log("Saved shape with id: " + e.shape.id);
+        }
+        if(e.connection){
+          console.log("Saved connection with id: " + e.connection.id);
+        }
+      }
+    </script>
+
 ### select
 
 Fired when the user selects one or more items.
@@ -8355,6 +11289,46 @@ The rest of the items (shapes and connections).
 ##### e.sender `kendo.dataviz.ui.Diagram`
 
 The widget instance which fired the event.
+
+#### Example - get shape info from selection
+
+    <div id="diagram"></div>
+    <script>
+      function onSelect(e){
+        var selectedItem = e.selected[0]; // first element in selection
+        if(selectedItem instanceof kendo.dataviz.diagram.Shape){
+          console.log("Selected shape with text: " + selectedItem.options.content.text);
+        }
+      }
+
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        select: onSelect
+      });
+    </script>
 
 ### toolBarClick
 
@@ -8382,6 +11356,57 @@ The jQuery object that represents the clicked toolbar element.
 
 The widget instance which fired the event.
 
+#### Example - handling the toolBarClick event
+
+    <div id="diagram" style="height:600px;"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        dataSource: {
+          data: [
+            { id: 1, jobTitle: "President" },
+            { id: 2, jobTitle: "VP Finance" }
+          ],
+          schema: {
+            model: {
+              id: "id",
+              fields: {
+                jobTitle: { type: "string" }
+              }
+            }
+          }
+        },
+        connectionsDataSource: {
+          data: [
+            { id: 1, from: 1, to: 2 }
+          ],
+          schema: {
+            model: {
+              id: "id",
+              fields: {
+                from: { type: "number" },
+                to: { type: "number" }
+              }
+            }
+          }
+        },
+        layout: {
+          type: "tree",
+          subtype: "tipover",
+          underneathHorizontalOffset: 140
+        },
+        shapeDefaults: {
+          content: {
+            template: "#: jobTitle #"
+          }
+        },
+        toolBarClick: onToolBarClick
+      });
+
+      function onToolBarClick(e){
+        console.log("Selected action '" + e.action + "' for shapes: " + e.shapes);
+      }
+    </script>
+
 ### zoomEnd
 
 Fired when the user changes the diagram zoom level.
@@ -8400,6 +11425,43 @@ The widget instance which fired the event.
 
 The current zoom level.
 
+#### Example - handling the zoomEnd event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        zoomEnd: onZoomEnd
+      });
+
+      function onZoomEnd(e){
+        console.log("Zoom level changed to: " + e.zoom);
+      }
+    </script>
+
 ### zoomStart
 
 Fired when the user starts changing the diagram zoom level.
@@ -8417,3 +11479,40 @@ The widget instance which fired the event.
 ##### e.zoom `Number`
 
 The current zoom level.
+
+#### Example - handling the zoomStart event
+
+    <div id="diagram"></div>
+    <script>
+      $("#diagram").kendoDiagram({
+        shapes:[
+          {
+            id:"1",
+            content:{
+              text: "State 1"
+            },
+            x: 20,
+            y: 20
+          },
+          {
+            id:"2",
+            content: {
+              text: "State 2"
+            },
+            x: 160,
+            y: 20
+          }
+        ],
+        connections:[
+          {
+            from: "1",
+            to: "2"
+          }
+        ],
+        zoomStart: onZoomStart
+      });
+
+      function onZoomStart(e){
+        console.log("Zoom level changed to: " + e.zoom);
+      }
+    </script>

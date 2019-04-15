@@ -1,19 +1,20 @@
 ---
 title: Multiple Views
-page_title:  Multiple Views | Kendo UI MultiViewCalendarr HtmlHelper
+page_title:  Multiple Views | Kendo UI MultiViewCalendar HtmlHelper for ASP.NET MVC
 description: "Control the visible date ranges in the Kendo UI MultiViewCalendar and manage the number of its horizontally rendered views."
 slug: multiple_views_multiviewcalendar_aspnetmvc
 position: 3
 ---
 
-
 # Multiple Views
 
-The Kendo UI MultiViewCalendar allows to define the number of views/months to be displayed at a time. In some scenarios it might be necessary to display more than two months. This is helpful especially in case of range selection among a couple of months.
+The Kendo UI MultiViewCalendar allows you to define the number of views or months that are displayed at a time.
+
+In some scenarios it might be necessary to display more than two months. This is especially helpful for performing range selection between months.
 
 ###### Example
 
-```tab-ASPX
+```ASPX
 
         <%: Html.Kendo().NumericTextBox()
             .Name("numberOfViews")
@@ -42,11 +43,11 @@ The Kendo UI MultiViewCalendar allows to define the number of views/months to be
                 var numberOfViews = $("#numberOfViews").data().kendoNumericTextBox.value();
                 if (numberOfViews > 0) {
                     $("#multiViewCalendar").data().kendoMultiViewCalendar.setOptions({ numberOfVies: numberOfViews });
-                } 
+                }
             }
        </script>
 ```
-```tab-Razor
+```Razor
 
         @(Html.Kendo().NumericTextBox()
             .Name("numberOfViews")
@@ -71,15 +72,13 @@ The Kendo UI MultiViewCalendar allows to define the number of views/months to be
                 var numberOfViews = $("#numberOfViews").data().kendoNumericTextBox.value();
                 if (numberOfViews > 0) {
                     $("#multiViewCalendar").data().kendoMultiViewCalendar.setOptions({ numberOfVies: numberOfViews });
-                } 
+                }
             }
         </script>
 
 ```
 
 ## See Also
-
-Other articles on the Kendo UI MultiViewCalendar:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the MultiViewCalendar Widget](/helpers/multiviewcalendar/overview)
 * [MultiViewCalendar JavaScript API Reference](http://docs.telerik.com/kendo-ui/api/javascript/ui/multiviewcalendar)

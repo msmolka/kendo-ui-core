@@ -9,7 +9,9 @@ position: 4
 
 # CORS Data Fetching
 
-This article was written by Todd Anglin, [originally published in the Kendo UI Blogs](http://www.telerik.com/blogs/using-cors-with-all-modern-browsers) on October 3, 2011 and consequently updated in July 2012. The original spelling, grammar, and structure of the item is preserved here for consistency.
+This article was written by Todd Anglin, [originally published in the Kendo UI Blogs](http://www.telerik.com/blogs/using-cors-with-all-modern-browsers) on October 3, 2011 and consequently updated in July 2012.
+
+The original spelling, grammar, and structure of the item is preserved here for consistency.
 
 ## Using CORS with All (Modern) Browsers
 
@@ -162,8 +164,6 @@ Now, Opera (any other non-CORS browser) will use an alternate configuration of t
 Hopefully this post helps highlight the value of CORS and how it can be used with most modern browsers. As more app code moves to the client, the need for CORS will only grow. Start playing with it today and help push web standards to the next level.
 
 ## See Also
-
-Other articles on the Kendo UI DataSource component:
 
 * [DataSource Overview]({% slug overview_kendoui_datasourcecomponent %})
 * [Basic Usage]({% slug basicusage_kendoui_datasourcecomponent %})

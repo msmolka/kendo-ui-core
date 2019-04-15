@@ -82,7 +82,7 @@ Some of the properties that can be overridden and controlled are:
 * Custom action buttons and their layout.
 * Title and **Close** buttons.
 * Animation effects and duration.
-*	Modality.
+* Modality.
 * Predefined dialogs.
 
 The example below demonstrates how to create a non-modal Dialog that contains two action buttons and no **Close** button.
@@ -286,8 +286,6 @@ To create a Kendo UI Dialog instance multiple times with the same ID, make sure 
 Alternatively, do not destroy the existing Dialog instance&mdash;[open](/api/javascript/ui/dialog/methods/open) it and [set new static content](/api/javascript/ui/dialog/methods/content) if needed.
 
 ## See Also
-
-Other articles on Kendo UI Upload:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the Dialog Widget](/aspnet-mvc/helpers/dialog/overview)
 * [Overview of the Dialog JSP Tag]({% slug overview_dialog_uiforjsp %})

@@ -8,7 +8,9 @@ position: 2
 
 # Active View
 
-To define the first rendered view, use the `start` option. To control the navigation depth, set the `depth` option.
+To define the first view which the MultiViewCalendar initially renders, use the `start` option.
+
+To control the navigation depth, set the `depth` option.
 
 The following views are predefined:
 
@@ -17,13 +19,13 @@ The following views are predefined:
 * `decade`&mdash;Shows the years of the decade.
 * `century`&mdash;Shows the decades of the century.
 
-### Selectable Month Calendars
+## Selectable Month Calendars
 
 The following example demonstrates how to create a MultiViewCalendar that allows users to select a month.
 
 ###### Example
 
-```html
+```dojo
     <div id="multiViewCalendar"></div>
 
     <script>
@@ -35,8 +37,6 @@ The following example demonstrates how to create a MultiViewCalendar that allows
 ```
 
 ## See Also
-
-Other articles on the Kendo UI MultiViewCalendar:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the MultiViewCalendar Widget](/aspnet-mvc/helpers/multiviewcalendar/overview)
 * [MultiViewCalendar JavaScript API Reference](/api/javascript/ui/multiviewcalendar)

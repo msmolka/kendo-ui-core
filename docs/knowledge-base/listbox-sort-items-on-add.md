@@ -25,7 +25,7 @@ res_type: kb
 
 ## Description
 
-How can I sort the items between connected ListBoxes when I drag an item from one ListBox to the other?
+How can I sort the items between connected ListBoxes when I move items from one ListBox to the other?
 
 ## Solution
 
@@ -33,7 +33,7 @@ How can I sort the items between connected ListBoxes when I drag an item from on
 1. To sort the items when the user drops a new item, handle the [`add`](https://docs.telerik.com/kendo-ui/api/javascript/ui/listbox/events/add) event and prevent the default behavior.
 1. Manually add the item to the respective DataSource and call the [`sort()`](https://docs.telerik.com/kendo-ui/api/javascript/data/datasource/methods/sort) method.
 
-```html
+```dojo
 <div id="example" role="application">
     <div class="demo-section k-content">
         <img src="http://demos.telerik.com/kendo-ui/content/web/listbox/arrow-left2right.png" alt="drag-indicator" class="arrow" />
@@ -115,10 +115,13 @@ How can I sort the items between connected ListBoxes when I drag an item from on
             dropSources: ["available"],
             dataTextField: "ProductName",
             dataValueField: "ProductID",
+            toolbar: {
+                tools: [ "transferTo", "transferFrom", "transferAllTo", "transferAllFrom"]
+            },
             add: function (e) {
                 e.preventDefault();
 
-                this.dataSource.data().push(e.dataItems[0]);
+                addItems(this.dataSource, e.dataItems)
                 this.dataSource.sort({ field: "ProductName", dir: "asc" });
             }
         });
@@ -133,10 +136,16 @@ How can I sort the items between connected ListBoxes when I drag an item from on
             add: function (e) {
                 e.preventDefault();
 
-                this.dataSource.data().push(e.dataItems[0]);
+                addItems(this.dataSource, e.dataItems)
                 this.dataSource.sort({ field: "ProductName", dir: "asc" });
             }
         });
+
+        function addItems(dataSource, items){
+          items.forEach(function(item){
+            dataSource.data().push(item);
+          })
+        }
 
 
     });

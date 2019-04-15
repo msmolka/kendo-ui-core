@@ -133,7 +133,7 @@ The example below demonstrates how to add a new TabStrip tab.
     </div>
 
     <script>
-        var tabstrip = $("#tabstrip").data("kendoTabStrip");
+        var tabstrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
         tabstrip.insertAfter(
             { text: "New Tab" },
             tabstrip.tabGroup.children("li:last")
@@ -217,8 +217,6 @@ The example below demonstrates how to initialize a TabStrip and select the first
     </script>
 
 ## See Also
-
-Other articles on Kendo UI TabStrip:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the TabStrip Widget](/aspnet-mvc/helpers/tabstrip/overview)
 * [Overview of the TabStrip JSP Tag]({% slug overview_tabstrip_uiforjsp %})

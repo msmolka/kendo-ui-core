@@ -46,7 +46,7 @@ The following example demonstrates how to format the Spreadsheet conditionally.
 
 ###### Example
 
-```html
+```dojo
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
 
     <div id="example">
@@ -567,8 +567,6 @@ The Spreadsheet does not support the following options that are otherwise availa
 - Filling cell width&mdash;`*` Excel format.
 
 ## See Also
-
-Other articles on the Kendo UI Spreadsheet:
 
 * [Overview]({% slug overview_spreadsheet_widget %})
 * [Custom Functions]({% slug custom_functions_spreadsheet_widget %})

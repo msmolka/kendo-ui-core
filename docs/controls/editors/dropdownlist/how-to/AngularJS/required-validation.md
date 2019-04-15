@@ -9,7 +9,7 @@ slug: howto_validate_using_required_attributes_dropdownlist
 
 The following example demonstrates how to validate a DropDownList in AngularJS applications by using a required attribute along with `ng-model`.
 
-```html
+```dojo
 <div ng-app="inputExample">
     <script>
      angular.module('inputExample', [ "kendo.directives" ])
@@ -50,7 +50,7 @@ The following example demonstrates how to validate a DropDownList in AngularJS a
 
 ## See Also
 
-* [DropDownList JavaScript API Reference](/api/javascript/ui/dropdownlist)
+* [JavaScript API Reference of the DropDownList](/api/javascript/ui/dropdownlist)
 * [How to Automatically Adjust the Width of a DropDownList]({% slug howto_automatically_adjust_width_dropdownlist %})
 * [How to Create DropDownLists with Long Items]({% slug howto_create_listswith_long_items_dropdownlist %})
 * [How to Detect Wrapper Focus Events]({% slug howto_detect_wrapper_focus_events_dropdownlist %})

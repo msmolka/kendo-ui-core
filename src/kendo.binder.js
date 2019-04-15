@@ -1068,7 +1068,7 @@ var __meta__ = { // jshint ignore:line
                 var element = this.element,
                     value = element.value;
 
-                if (value == "on" || value == "off") {
+                if (value == "on" || value == "off" || this.element.type == "checkbox") {
                     value = element.checked;
                 }
 
@@ -1545,6 +1545,28 @@ var __meta__ = { // jshint ignore:line
                     var widget = this.widget;
                     var elements = e.addedItems || widget.items();
                     var data, parents;
+
+                    if (elements.length) {
+                        data = e.addedDataItems || widget.dataItems();
+                        parents = this.bindings.source._parents();
+
+                        for (idx = 0, length = data.length; idx < length; idx++) {
+                            bindElement(elements[idx], data[idx], this._ns(e.ns), [data[idx]].concat(parents));
+                        }
+                    }
+                }
+            })
+        },
+
+        grid: {
+            source: dataSourceBinding("source", "dataSource", "setDataSource").extend({
+                dataBound: function(e) {
+                    var idx,
+                    length,
+                    widget = this.widget,
+                    elements = e.addedItems || widget.items(),
+                    parents,
+                    data;
 
                     if (elements.length) {
                         data = e.addedDataItems || widget.dataItems();

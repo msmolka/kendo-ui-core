@@ -1,6 +1,6 @@
 ---
 title: Active View
-page_title: Active View | Telerik UI for ASP.NET Core Tag Helpers
+page_title: Active View | Kendo UI MultiViewCalendar Tag for ASP.NET Core
 description: "Define the first view that the Kendo UI MultiViewCalendar initially renders."
 slug: active_view_multiviewcalendar_taghelper_aspnetcore
 position: 2
@@ -8,7 +8,9 @@ position: 2
 
 # Active View
 
-To define the first rendered view, use the `Start` option. To control the navigation depth, set the `Depth` option.
+To define the first view which the MultiViewCalendar intially renders, use the `Start` option.
+
+To control the navigation depth, set the `Depth` option.
 
 The following views are predefined:
 
@@ -17,19 +19,19 @@ The following views are predefined:
 * `decade`&mdash;Shows the years of the decade.
 * `century`&mdash;Shows the decades of the century.
 
-### Selectable Month Calendars
+## Selectable Month Calendars
 
 The following example demonstrates how to create a MultiViewCalendar that allows users to select a month.
 
 ###### Example
 
-```tab-tagHelper
+```tagHelper
 
     <kendo-multiviewcalendar name="multiviewcalendar" start="CalendarView.Year" depth="CalendarView.Year">
     </kendo-multiviewcalendar>
 
 ```
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
             .Name("MultiViewCalendar")
@@ -39,8 +41,6 @@ The following example demonstrates how to create a MultiViewCalendar that allows
 ```
 
 ## See Also
-
-Other articles on the Kendo UI MultiViewCalendar:
 
 * [Overview of Telerik UI for ASP.NET Core]({% slug overview_aspnetmvc6_aspnetmvc %})
 * [Get Started with Telerik UI for ASP.NET Core in ASP.NET Core Projects]({% slug gettingstarted_aspnetmvc6_aspnetmvc %})

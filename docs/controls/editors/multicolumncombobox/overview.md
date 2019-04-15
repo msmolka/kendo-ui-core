@@ -315,8 +315,6 @@ The following example demonstrates how to define a `noDataTemplate` template.
 
 ## See Also
 
-Other articles on the Kendo UI MultiColumnComboBox:
-
 * [Grouping Functionality]({% slug grouping_kendoui_multicolumncombobox_widget %})
 * [Virtualization]({% slug virtualization_kendoui_multicolumncombobox_widget %})
 * [Cascading MultiColumnComboBoxes]({% slug cascading_kendoui_multicolumncombobox_widget %})
@@ -328,8 +326,8 @@ Other articles on the Kendo UI MultiColumnComboBox:
 Articles on the Kendo UI DropDownList:
 
 * [Overview of the DropDownList Widget]({% slug overview_kendoui_dropdownlist_widget %})
-* [Cascading DropDownLists]({% slug cascading_kendoui_dropdownlist_widget %})
-* [DropDownList JavaScript API Reference](/api/javascript/ui/dropdownlist)
+* [Cascading DropDownLists]({% slug cascading_kendoui_combobox_widget %})
+* [JavaScript API Reference of the DropDownList](/api/javascript/ui/dropdownlist)
 
 Articles on the Kendo UI MultiSelect:
 

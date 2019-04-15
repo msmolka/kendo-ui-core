@@ -1,7 +1,7 @@
 ---
 title: Customize Data Source
-page_title: Customize Data Source | Kendo UI Grid
-description: "Learn how to customize the data source options of a Kendo UI Grid for PDF export."
+page_title: jQuery Grid Documentation | Customize Data Source | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to customize the data source options for PDF export."
 slug: howto_customize_data_source_pdf_grid
 ---
 
@@ -15,7 +15,7 @@ The following example demonstrates how to switch to client paging during PDF exp
 
 ###### Example
 
-```html
+```dojo
   <div id="grid"></div>
 
   <style>
@@ -162,7 +162,7 @@ The following example demonstrates how to switch to client paging during PDF exp
 
 * [JavaScript API Reference: kendo.drawing](/api/javascript/drawing)
 * [JavaScript API Reference: kendo.geometry](/api/javascript/geometry)
-* [Grid JavaScript API Reference](/api/javascript/ui/grid)
+* [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
 * [How to Customize Page Layout]({% slug howto_customize_page_layout_pdf_grid %})
 * [How to Export All Pages]({% slug howto_export_all_pagesto_pdf_grid %})
 * [How to Export All Pages and Full Page Content]({% slug howto_export_allpagesand_full_page_content_pdf_grid %})

@@ -1,6 +1,6 @@
 ---
 title: NuGet Packages
-page_title: NuGet Packages | Progress Telerik UI for ASP.NET MVC
+page_title: NuGet Packages - Getting Started
 description: "Download and install Progress Telerik UI for ASP.NET MVC from our NuGet feed."
 slug: aspnetmvc_nuget
 previous_url: /nuget-install
@@ -48,6 +48,16 @@ The command from the example below stores the password in clear text in the `%Ap
 
 ```
 NuGet Sources Add -Name "telerik.com" -Source "https://nuget.telerik.com/nuget" ^
+      -UserName "your login email" -Password "your password" ^
+      -StorePasswordInClearText
+```
+
+If you have already stored a token instead of storing the credentials as clear text, update the definition in the `%AppData%\NuGet\NuGet.config` file by using the following command.
+
+###### Example
+
+```
+NNuGet Sources Update -Name "telerik.com" -Source "https://nuget.telerik.com/nuget" ^
       -UserName "your login email" -Password "your password" ^
       -StorePasswordInClearText
 ```

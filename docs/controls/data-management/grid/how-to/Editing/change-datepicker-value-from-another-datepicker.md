@@ -1,7 +1,7 @@
 ---
 title: Change DatePicker Value from Another DatePicker
-page_title: Change DatePicker Value from Another DatePicker | Kendo UI Grid
-description: "Learn how to change a DatePicker value from another DatePicker in the Grid."
+page_title: jQuery Grid Documentation | Change DatePicker Value | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to change a DatePicker value from another DatePicker in the Grid."
 slug: howto_change_datepicker_value_from_another_datepicker_grid
 ---
 
@@ -13,7 +13,7 @@ When the user selects a date from the first DatePicker, the following date is pr
 
 ###### Example
 
-```html
+```dojo
 
   <div id="grid"></div>
 

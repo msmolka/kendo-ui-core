@@ -1,7 +1,7 @@
 ---
 title: Show Custom Editor Using the Selected Item outside the Grid
-page_title: Show Custom Editor Using the Selected Item outside the Grid | Kendo UI Grid
-description: "Learn how to show a custom editor, which uses the currently selected item, outside the Kendo UI Grid widget."
+page_title: jQuery Grid Documentation | Custom Editor Outside the Grid | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to show a custom editor, which uses the currently selected item, outside the Grid."
 slug: howto_use_show_custom_editor_selected_item_outside_grid
 ---
 
@@ -11,7 +11,7 @@ The following example demonstrates how to use a custom editor, which uses the cu
 
 ###### Example
 
-```html
+```dojo
     <style>
       label{display:block;width:25em;position:relative;line-height:2.6;}
       label > .k-textbox, label > .k-button, label > .k-widget{position:absolute;right:0;width:15em;}

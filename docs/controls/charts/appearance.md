@@ -25,7 +25,7 @@ For detailed information on [Chart titles and legends, refer to the article abou
 
 **Figure 1: The structure of a Chart**
 
-![Chart Structure](/controls/charts/chart-structure.png)
+![Chart Structure](chart-structure.png)
 
 ### Themes
 
@@ -89,8 +89,6 @@ Kendo UI Charts use animated transitions to display new and updated data. These 
     });
 
 ## See Also
-
-Other articles on Kendo UI Charts:
 
 * [Overview of the Chart Widgets]({% slug overview_kendoui_charts_widget %})
 * [Data Binding]({% slug databinding_charts_widget %})

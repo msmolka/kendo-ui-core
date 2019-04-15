@@ -1,6 +1,6 @@
 ---
 title: SignalR Binding
-page_title: SignalR Binding | Telerik UI for ASP.NET Core HtmlHelpers
+page_title: SignalR Binding | Kendo UI Grid HtmlHelper for ASP.NET Core
 description: "Learn the basics when working with the Grid HtmlHelper for ASP.NET Core (MVC 6 or ASP.NET Core MVC)."
 slug: htmlhelpers_grid_aspnetcore_signalrbinding
 previous_url: /aspnet-core/helpers/html-helpers/grid/signalr-binding
@@ -22,9 +22,7 @@ The following example uses Long Polling because [WebSockets](https://docs.micros
 
 The following snippet demonstrates a sample implementation of a Grid which uses SignalR. The service that is used is available in [this GitHub repository](https://github.com/telerik/kendo-ui-demos-service/tree/master/signalr-hubs).
 
-###### Example
-
-```tab-JavaScript
+```JavaScript
 $(document).ready(function() {
     var hubUrl = "http://domain/signalr-service/products";
     var hub = new signalR.HubConnectionBuilder()
@@ -42,7 +40,7 @@ function onPush(e) {
 }
 
 ```
-```tab-Razor
+```Razor
 @(Html.Kendo().Notification()
         .Name("notification")
         .Width("100%")
@@ -94,7 +92,7 @@ function onPush(e) {
                 {
                     model.Id("ID");
                     model.Field("ID", typeof(string)).Editable(false);
-                    model.Field("ProductName", typeof(string));                    
+                    model.Field("ProductName", typeof(string));
                     model.Field("CreatedAt", typeof(DateTime));
                     model.Field("UnitPrice", typeof(int));
                 }

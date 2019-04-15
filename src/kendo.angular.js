@@ -784,11 +784,13 @@ var __meta__ = { // jshint ignore:line
         MobileDetailButton  : "a",
         ListView       : "ul",
         MobileListView: "ul",
+        ScrollView       : "div",
         PanelBar       : "ul",
         TreeView       : "ul",
         Menu           : "ul",
         ContextMenu    : "ul",
-        ActionSheet    : "ul"
+        ActionSheet    : "ul",
+        Switch    : "input"
     };
 
     var SKIP_SHORTCUTS = [
@@ -1406,6 +1408,7 @@ var __meta__ = { // jshint ignore:line
         "Pager": [ "SelectTemplate", "LinkTemplate" ],
         "PivotGrid": [ "ColumnHeaderTemplate", "DataCellTemplate", "RowHeaderTemplate" ],
         "Scheduler": ["AllDayEventTemplate", "DateHeaderTemplate", "EventTemplate", "MajorTimeHeaderTemplate", "MinorTimeHeaderTemplate"],
+        "ScrollView": [ "Template" ],
         "PanelBar": [ "Template" ],
         "TreeView": [ "Template" ],
         "Validator": [ "ErrorTemplate" ]

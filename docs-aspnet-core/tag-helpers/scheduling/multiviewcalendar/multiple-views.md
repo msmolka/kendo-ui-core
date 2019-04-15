@@ -1,19 +1,20 @@
 ---
 title: Multiple Views
-page_title: Multiple Views | Telerik UI for ASP.NET Core Tag Helpers
+page_title: Multiple Views | Kendo UI MultiViewCalendar Tag for ASP.NET Core
 description: "Control the visible date ranges in the Kendo UI MultiViewCalendar and manage the number of its horizontally rendered views."
 slug: multiple_views_multiviewcalendar_taghelper_aspnetcore
 position: 3
 ---
 
-
 # Multiple Views
 
-The Kendo UI MultiViewCalendar allows to define the number of views/months to be displayed at a time. In some scenarios it might be necessary to display more than two months. This is helpful especially in case of range selection among a couple of months.
+The Kendo UI MultiViewCalendar allows you to define the number of views and months that are displayed at a time.
+
+In some scenarios it might be necessary to display more than two months. This is especially helpful when performing range selection between months.
 
 ###### Example
 
-```tab-tagHelper
+```tagHelper
 
     <kendo-numerictextbox  name="numberOfViews" restrict-decimals="true" decimals="0" min="2" max="10" format="n0"/>
 
@@ -29,12 +30,12 @@ The Kendo UI MultiViewCalendar allows to define the number of views/months to be
             var numberOfViews = $("#numberOfViews").data().kendoNumericTextBox.value();
             if (numberOfViews > 0) {
                 $("#multiViewCalendar").data().kendoMultiViewCalendar.setOptions({ numberOfVies: numberOfViews });
-            } 
+            }
         }
     </script>
 
 ```
-```tab-Razor
+```Razor
 
         @(Html.Kendo().NumericTextBox()
             .Name("numberOfViews")
@@ -59,15 +60,13 @@ The Kendo UI MultiViewCalendar allows to define the number of views/months to be
                 var numberOfViews = $("#numberOfViews").data().kendoNumericTextBox.value();
                 if (numberOfViews > 0) {
                     $("#multiViewCalendar").data().kendoMultiViewCalendar.setOptions({ numberOfVies: numberOfViews });
-                } 
+                }
             }
         </script>
 
 ```
 
 ## See Also
-
-Other articles on the Kendo UI MultiViewCalendar:
 
 * [Overview of Telerik UI for ASP.NET Core]({% slug overview_aspnetmvc6_aspnetmvc %})
 * [Get Started with Telerik UI for ASP.NET Core in ASP.NET Core Projects]({% slug gettingstarted_aspnetmvc6_aspnetmvc %})

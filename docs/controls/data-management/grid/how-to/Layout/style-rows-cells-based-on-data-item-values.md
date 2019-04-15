@@ -1,7 +1,7 @@
 ---
 title: Customize Rows and Cells Based on Data Item Values
-page_title: Customize Rows and Cells Based on Data Item Values | Kendo UI Grid
-description: "Learn how to customize kendo UI Grid cells and rows, based on data items values."
+page_title: jQuery Grid Documentation | Style Cells by Data Item Values | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to customize its cells and rows based on data items values."
 previous_url: /controls/data-management/grid/how-to/style-rows-cells-based-on-data-item-values, /controls/data-management/grid/how-to/style-rows-cells-based-on-data-item-values, /asp-mvc/controls/data-management/grid/how-to/style-rows-cells-based-on-data-item-values
 slug: howto_customize_rowsand_cells_basedon_dataitem_values_grid
 ---
@@ -23,7 +23,7 @@ The usage of a row template is suitable only if you do not intend to use hierarc
 
 ###### Example
 
-```html
+```dojo
     <style>
       .k-grid {
         width: 500px;
@@ -111,7 +111,7 @@ The usage of the `dataBound` handler and the iteration of the table rows is suit
 
 ###### Example
 
-```html
+```dojo
     <style>
       .k-grid {
         width: 500px;
@@ -209,7 +209,7 @@ The usage of the `dataBound` handler and the iteration of the data items is suit
 
 ###### Example
 
-```html
+```dojo
     <style>
     .k-grid {
         width: 500px;

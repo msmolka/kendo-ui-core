@@ -40,7 +40,7 @@ $("#treeview .k-checkbox-wrapper input").prop("checked", true).trigger("change")
 
 The following example demonstrates how to implement a **Toggle** button which, depending on the value of the button, will check or uncheck all checkboxes in the TreeView.
 
-```html
+```dojo
     <div>
       <input type="button" value="Uncheck" id="checkButton" onclick="toggleCheckAll()" class="k-button" />
       <h4>Check/Uncheck All Nodes</h4>
@@ -63,7 +63,7 @@ The following example demonstrates how to implement a **Toggle** button which, d
               ]
             },
             {
-              id: 6, text: "New Web Site", expanded: true, spriteCssClass: "folder", items: [
+              id: 6, text: "New Website", expanded: true, spriteCssClass: "folder", items: [
                 { id: 7, text: "mockup.jpg", spriteCssClass: "image" },
                 { id: 8, text: "Research.pdf", spriteCssClass: "pdf" },
               ]

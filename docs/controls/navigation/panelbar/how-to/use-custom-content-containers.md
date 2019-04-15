@@ -11,7 +11,7 @@ The example below demonstrates how to use custom content containers in the Kendo
 
 ###### Example
 
-```html
+```dojo
     <style>
       /* for first panelbar */
       .scrollable,
@@ -97,10 +97,8 @@ The example below demonstrates how to use custom content containers in the Kendo
 
 ## See Also
 
-Other articles on the Kendo UI PanelBar:
-
 * [PanelBar JavaScript API Reference](/api/javascript/ui/panelbar)
-* [Initialize the Grid inside a Hidden Container]({% slug appearance_kendoui_grid_widget %}#hidden-containers)
+* [Initialize the Grid inside a Hidden Container]({% slug hidden_containers_kendoui_grid_widget %})
 * [JavaScript API Reference: Configure PanelBar Animations](/api/javascript/ui/panelbar/configuration/animation)
 
 For more runnable examples on the Kendo UI PanelBar widget, browse its [**How To** documentation folder]({% slug initialize_thegrid_panelbar_widget %}).

@@ -1,6 +1,6 @@
 ---
 title: Cascade DropDownLists with Enabled Virtualization
-page_title: Cascade DropDownLists with Enabled Virtualization | Kendo UI DropDownList HtmlHelper
+page_title: Cascade DropDownLists with Enabled Virtualization | Kendo UI DropDownList HtmlHelper for ASP.NET MVC
 description: "Cascade DropDownLists and enable virtualization in ASP.NET MVC applications."
 slug: howto_cascadeddlenabledvirtualization_ddlaspnetmvc
 position: 0
@@ -15,8 +15,6 @@ It enables the usage of the `DataSourceRequest` and `ToDataSourceResult` methods
 To see the example, refer to the project on how to [cascade the DropDownList with enabled virtualization](https://github.com/telerik/ui-for-aspnet-mvc-examples/tree/master/dropdownlist/KendoDropDownListCascadingAndVirtualization).
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI DropDownList HtmlHelper:
 
 * [Overview of the DropDownList HtmlHelper]({% slug overview_dropdownlisthelper_aspnetmvc %})
 * [DropDownListBuilder API Reference](http://docs.telerik.com/aspnet-mvc/api/Kendo.Mvc.UI.Fluent/DropDownListBuilder)

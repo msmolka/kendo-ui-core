@@ -69,7 +69,7 @@ The previous code results in the following PivotGrid widget.
 
 **Figure 1: The Kendo UI PivotGrid widget**
 
-![Kendo UI PivotGrid](/images/pivotgrid.png)
+![Kendo UI PivotGrid](../../../images/pivotgrid.png)
 
 ## Settings
 
@@ -135,8 +135,6 @@ Use a dedicated [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processin
 
 ## See Also
 
-Other articles on the Kendo UI PivotGrid:
-
 * [PivotConfigurator Overview]({% slug overview_kendoui_pivotconfigurator_pivotgridwidget %})
 * [Exporting]({% slug exporting_functionality_pivotgridwidget %})
 * [Fundamentals]({% slug fundamentals_pivotgrid_widget %})
@@ -146,5 +144,5 @@ Other articles on the Kendo UI PivotGrid:
 * [Overview of the JSP Tag]({% slug overview_pivotgrid_uiforjsp %})
 * [Overview of the PHP Class](/php/widgets/pivotgrid/overview)
 * [PivotGrid JavaScript API Reference](/api/javascript/ui/pivotgrid)
-
-For how-to examples on the Kendo UI PivotGrid widget, browse its [**How To** documentation folder]({% slug howto_change_pivotgrid_fields_names_pivotgrid %}).
+* [How-To Examples]({% slug howto_change_pivotgrid_fields_names_pivotgrid %})
+* [Knowledge Base Section](/knowledge-base)

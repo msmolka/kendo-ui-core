@@ -13,7 +13,7 @@ After you have created the customer TreeView, you need to set up the Grid of ord
 
 **Figure 1. The Orders list in the Kendo UI Sales Hub**
 
-![kendo-saleshub-orders-grid-screenshot](/tutorials/tutorial-saleshub/home-page/images/kendo-saleshub-orders-grid-screenshot.png)
+![kendo-saleshub-orders-grid-screenshot](images/kendo-saleshub-orders-grid-screenshot.png)
 
 ## Configuration
 
@@ -118,8 +118,6 @@ Now that the URL is placed in a variable that can be accessed from your JavaScri
 The code from the previous example uses jQuery to find the button created earlier in the toolbar and to register a click event handler to it. When the button is clicked, the URL stored earlier is accessed, the id of the currently selected Customer is concatenated, and the result to the location of the window is set.
 
 ## See Also
-
-Other articles on the Kendo UI Sales Hub project and its **Home** and **Order** pages:
 
 * [Overview of the Kendo UI Music Store Sample Project]({% slug overview_saleshubtutorial_aspnetmvc %})
 * [Create the Customer TreeView]({% slug createcustomtreeview_saleshubtutorial_aspnetmvc %})

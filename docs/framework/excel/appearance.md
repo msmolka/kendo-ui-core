@@ -8,13 +8,9 @@ position: 2
 
 # Appearance
 
-By default, Excel shows all cells according to their default font settings&mdash;color, font name, and size.
+By default, Excel shows all cells according to their default color, font name, and size settings.
 
-## Customization
-
-### Configuration Options
-
-Kendo UI allows you to change the appearance of the cells via the following configuration options:
+Kendo UI allows you to change the appearance of the cells by using the following configuration options:
 
 * [`background`](/api/javascript/ooxml/workbook/configuration/sheets.rows.cells.background)&mdash;This option sets the background color of the cell.
 * [`bold`](/api/javascript/ooxml/workbook/configuration/sheets.rows.cells.bold)&mdash;Displays the cell value in bold.
@@ -26,11 +22,7 @@ Kendo UI allows you to change the appearance of the cells via the following conf
 * [`underline`](/api/javascript/ooxml/workbook/configuration/sheets.rows.cells.underline)&mdash;Displays the cell value as underlined.
 * [`vAlign`](/api/javascript/ooxml/workbook/configuration/sheets.rows.cells.valign)&mdash;Sets the vertical text alignment.
 
-The example below demonstrates how to customize the appearance of the cells.
-
-###### Example
-
-```html
+```dojo
 <script>
 var workbook = new kendo.ooxml.Workbook({
   sheets: [
@@ -95,11 +87,9 @@ kendo.saveAs({
 
 ## See Also
 
-Articles on the Excel export functionality in Kendo UI:
-
 * [Introduction to the Excel Export Functionality]({% slug introduction_excelexport_kendoui %})
-* [Freeze Rows and Columns]({% slug freezerowsandcolumns_excelexport_kendoui %})
-* [Set the Column Width]({% slug columnwidth_excelexport_kendoui %})
-* [Set the Colspan and Rowspan]({% slug colaspanandrowspan_excelexport_kendoui %})
-* [Create Multiple Sheets]({% slug sheets_excelexport_kendoui %})
-* [Export Kendo UI DataSource to Excel]({% slug exportdatasource_excelexport_kendoui %})
+* [Freezing Rows and Columns]({% slug freezerowsandcolumns_excelexport_kendoui %})
+* [Setting the Column Width]({% slug columnwidth_excelexport_kendoui %})
+* [Spanning Cells across Rows and Columns]({% slug colaspanandrowspan_excelexport_kendoui %})
+* [Creating Multiple Sheets]({% slug sheets_excelexport_kendoui %})
+* [Exporting the Kendo UI DataSource to Excel]({% slug exportdatasource_excelexport_kendoui %})

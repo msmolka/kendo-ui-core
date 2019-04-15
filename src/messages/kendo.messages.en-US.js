@@ -31,11 +31,25 @@ $.extend(true, kendo.ui.ColumnMenu.prototype.options.messages,{
   "sortAscending": "Sort Ascending",
   "sortDescending": "Sort Descending",
   "filter": "Filter",
+  "column": "Column",
   "columns": "Columns",
+  "columnVisibility": "Column Visibility",
+  "clear": "Clear",
+  "cancel": "Cancel",
   "done": "Done",
-  "settings": "Column Settings",
+  "settings": "Edit Column Settings",
   "lock": "Lock",
   "unlock": "Unlock"
+});
+}
+
+/* DateRangePicker messages */
+
+if (kendo.ui.DateRangePicker) {
+kendo.ui.DateRangePicker.prototype.options.messages =
+$.extend(true, kendo.ui.DateRangePicker.prototype.options.messages,{
+  "startLabel": "Start",
+  "endLabel": "End"
 });
 }
 
@@ -242,7 +256,9 @@ $.extend(true, kendo.ui.FilterMenu.prototype.options.messages,{
   "selectValue": "-Select value-",
   "operator": "Operator",
   "value": "Value",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "done": "Done",
+  "into": "in"
 });
 }
 
@@ -300,9 +316,14 @@ if (kendo.ui.FilterMultiCheck) {
 kendo.ui.FilterMultiCheck.prototype.options.messages =
 $.extend(true, kendo.ui.FilterMultiCheck.prototype.options.messages,{
   "checkAll": "Select All",
+  "clearAll": "Clear All",
   "clear": "Clear",
   "filter": "Filter",
-  "search": "Search"
+  "search": "Search",
+  "cancel": "Cancel",
+  "selectedItemsFormat": "{0} items selected",
+  "done": "Done",
+  "into": "in"
 });
 }
 
@@ -581,6 +602,7 @@ $.extend(true, kendo.ui.Scheduler.prototype.options.messages,{
   "save": "Save",
   "cancel": "Cancel",
   "destroy": "Delete",
+  "resetSeries": "Reset Series",
   "deleteWindowTitle": "Delete event",
   "ariaSlotLabel": "Selected from {0:t} to {1:t}",
   "ariaEventLabel": "{0} on {1:D} at {2:t}",
@@ -596,6 +618,7 @@ $.extend(true, kendo.ui.Scheduler.prototype.options.messages,{
   },
   "recurrenceMessages": {
     "deleteWindowTitle": "Delete Recurring Item",
+    "resetSeriesWindowTitle": "Reset Series",
     "deleteWindowOccurrence": "Delete current occurrence",
     "deleteWindowSeries": "Delete the series",
     "deleteRecurringConfirmation": "Are you sure you want to delete this event occurrence?",
@@ -793,6 +816,13 @@ $.extend(true, kendo.spreadsheet.messages.dialogs,{
   },
   "unsupportedSelectionDialog": {
     "errorMessage": "That action cannot be performed on multiple selection."
+  },
+  "insertCommentDialog": {
+    "title": "Insert comment",
+    "labels": {
+      "comment": "Comment",
+      "removeComment": "Remove comment"
+    }
   }
 });
 }
@@ -901,6 +931,7 @@ $.extend(true, kendo.spreadsheet.messages.toolbar,{
     "freezeColumns": "Freeze columns",
     "unfreeze": "Unfreeze panes"
   },
+  "insertComment": "Insert comment",
   "italic": "Italic",
   "merge": "Merge cells",
   "mergeButtons": {

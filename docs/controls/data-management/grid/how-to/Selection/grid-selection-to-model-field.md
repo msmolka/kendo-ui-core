@@ -1,7 +1,7 @@
 ---
 title: Bind Selection to Model Field with Checkbox Column
-page_title: Bind Selection to Model Field with Checkbox Column | Kendo UI Grid
-description: "Learn how to select a Kendo UI Grid row with a checkbox column that is bound to a model field."
+page_title: jQuery Grid Documentation | Bind Selection to Model Field | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to select a row with a checkbox column that is bound to a model field."
 slug: howto_bind_selection_to_model_field
 ---
 
@@ -15,7 +15,7 @@ The following example demonstrates how `SelectAll` that is located in the header
 
 ###### Example
 
-```html
+```dojo
 <style>
     html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }
     [role='gridcell']{
@@ -114,7 +114,7 @@ The following example demonstrates how `SelectAll` that is located in the header
 
 ###### Example
 
-```html
+```dojo
 <style>
     html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }
     [role='gridcell']{

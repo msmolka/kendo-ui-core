@@ -153,7 +153,7 @@ When you disable dates by setting an array, list the days that need to be disabl
 
 ###### Example
 
-```html
+```dojo
     <input id="dateTimePicker" />
 
     <script>
@@ -170,7 +170,7 @@ When you disable dates by adding a function, determine its return value as `true
 
 ###### Example
 
-```html
+```dojo
     <input id="dateTimePicker" />
 
     <script>
@@ -203,8 +203,6 @@ The DateTimePicker works with the JavaScript `Date` objects that support only th
 To simulate a different calendar type, such as Lunar, use the JavaScript `Date` object and create a date that is in the past. The following example demonstrates how to achieve this behavior.
 
 ## See Also
-
-Other articles on the Kendo UI DateTimePicker:
 
 * [How to Prevent Invalid Values]({% slug howto_prevent_invalid_values_datetimepicker %})
 * [How to Validate Custom Dates]({% slug howto_validate_custom_dates_datetimepicker %})

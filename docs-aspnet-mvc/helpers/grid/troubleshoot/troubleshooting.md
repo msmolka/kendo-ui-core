@@ -1,6 +1,6 @@
 ---
 title: Common Issues
-page_title: Common Issues | Grid HtmlHelper Troubleshooting
+page_title: Common Troubleshooting Issues | Kendo UI Grid HtmlHelper for ASP.NET MVC
 description: "Learn about the solutions of common issues that may occur while working with Kendo UI Grid for ASP.NET MVC."
 slug: troubleshoot_gridhelper_aspnetmvc
 position: 1
@@ -22,10 +22,8 @@ The following example demonstrates the correct order of JavaScript files.
 
 ###### Example
 
-```
-<script src="/Scripts/kendo.all.min.js"></script>
-<script src="/Scripts/kendo.aspnetmvc.min.js"></script>
-```
+    <script src="/Scripts/kendo.all.min.js"></script>
+    <script src="/Scripts/kendo.aspnetmvc.min.js"></script>
 
 ## Binding
 
@@ -121,10 +119,7 @@ The following example demonstrates how to include culture-specific Kendo UI Java
 
 The following example demonstrates how to include JavaScript for the current culture.
 
-###### Example
-
-```tab-ASPX
-
+```ASPX
     <%
         var culture = System.Threading.Thread.CurrentThread.CurrentCulture.ToString();
     %>
@@ -133,8 +128,7 @@ The following example demonstrates how to include JavaScript for the current cul
         kendo.culture("<%= culture %>");
     </script>
 ```
-```tab-Razor
-
+```Razor
     @{
         var culture = System.Threading.Thread.CurrentThread.CurrentCulture.ToString();
     }
@@ -148,8 +142,6 @@ For additional information on this issue, refer to the [article on globalization
 
 ## See Also
 
-Other articles on the Kendo UI Grid for ASP.NET MVC:
-
 * [Overview of the Grid HtmlHelper]({% slug overview_gridhelper_aspnetmvc %})
 * [Configuration of the Grid HtmlHelper]({% slug configuration_gridhelper_aspnetmvc %})
 * [Scaffolding]({% slug scaffoldinggrid_aspnetmvc %})
@@ -160,9 +152,6 @@ Other articles on the Kendo UI Grid for ASP.NET MVC:
 * [Templating of the Grid HtmlHelper]({% slug clientdetailtemplate_grid_aspnetmvc %})
 * [API Reference of the Grid HtmlHelper](http://docs.telerik.com/aspnet-mvc/api/Kendo.Mvc.UI.Fluent/GridBuilder)
 * [Overview of the Kendo UI Grid Widget](http://docs.telerik.com/kendo-ui/controls/data-management/grid/overview)
-
-Articles on Telerik UI for ASP.NET MVC:
-
 * [Overview of Telerik UI for ASP.NET MVC]({% slug overview_aspnetmvc %})
 * [Fundamentals of Telerik UI for ASP.NET MVC]({% slug fundamentals_aspnetmvc %})
 * [Scaffolding in Telerik UI for ASP.NET MVC]({% slug scaffolding_aspnetmvc %})
@@ -170,9 +159,6 @@ Articles on Telerik UI for ASP.NET MVC:
 * [Telerik UI for ASP.NET MVC HtmlHelpers Folder]({% slug overview_barcodehelper_aspnetmvc %})
 * [Tutorials on Telerik UI for ASP.NET MVC]({% slug overview_timeefficiencyapp_aspnetmvc6 %})
 * [Telerik UI for ASP.NET MVC Troubleshooting]({% slug troubleshooting_aspnetmvc %})
-
-Other articles on troubleshooting:
-
 * [Common Issues in Kendo UI](http://docs.telerik.com/kendo-ui/troubleshoot/troubleshooting-common-issues)
 * [JavaScript Errors](http://docs.telerik.com/kendo-ui/troubleshoot/troubleshooting-js-errors)
 * [Performance Issues](http://docs.telerik.com/kendo-ui/troubleshoot/troubleshooting-memory-leaks)

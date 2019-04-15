@@ -17,7 +17,7 @@ To achieve this, take the following notable steps:
 
 ###### Example
 
-```html
+```dojo
 <style>
     html,
     body,
@@ -64,8 +64,6 @@ To achieve this, take the following notable steps:
 
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI Splitter:
 
 * [Splitter JavaScript API Reference](/api/javascript/ui/splitter)
 * [How to Keep Pane Size in Percentages]({% slug howto_keeppanesizepercentages_splitter %})

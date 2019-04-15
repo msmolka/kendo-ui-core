@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | Kendo UI Chat HtmlHelper
+page_title: Chat | Telerik UI for ASP.NET MVC HtmlHelpers
 description: "Get started with the server-side wrapper for the Kendo UI Chat widget for ASP.NET MVC."
 slug: overview_chathelper_aspnetmvc
 position: 1
@@ -22,12 +22,12 @@ The following example demonstrates how to use the HtmlHelper declaration to crea
 
 ###### Example
 
-```tab-Razor
+```Razor
 	@(Html.Kendo().Chat()
 		.Name("chat")
 	)
 ```
-```tab-ASPX
+```ASPX
 	<%: Html.Kendo().Chat()
 		.Name("chat")
 	%>
@@ -43,7 +43,7 @@ The following example demonstrates how to subscribe to events by a handler name.
 
 ###### Example
 
-```tab-Razor
+```Razor
 	@(Html.Kendo().Chat()
 		.Name("chat")
 		.Events(e => e
@@ -62,7 +62,7 @@ The following example demonstrates how to subscribe to events by a handler name.
 	  }
 	</script>
 ```
-```tab-ASPX
+```ASPX
 	<%: Html.Kendo().Chat()
 		.Name("chat")
 		.Events(e => e
@@ -88,7 +88,7 @@ The following example demonstrates how to subscribe to events by a template dele
 
 ###### Example
 
-```tab-Razor
+```Razor
 	@(Html.Kendo().Chat(Model)
 		.Name("chat")
 		.Events(e => e

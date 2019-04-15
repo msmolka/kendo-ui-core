@@ -11,21 +11,15 @@ position: 7
 
 As of the R1 2017 release, Kendo UI delivers 400 integrated font icons intended for the [web and data visualization widgets]({% slug bundle_supportfor_kendoui_components %}) of the suite.
 
-These icons can be used directly in a Kendo UI web project by assigning one of the predefined CSS classes provided in the [list of font icons](#list-of-font-icons) below.
+These icons can be used directly in a Kendo UI web project by assigning one of the predefined CSS classes provided in the [list of font icons](#list-of-font-icons) below. The following example demonstrates how to achieve this behavior.
 
-The following example demonstrates how to achieve this behavior.
-
-###### Example
-
-```html
+```dojo
     <span class="k-icon k-i-copy"></span>
 ```
 
 The following example demonstrates how to add a font icon to a Kendo UI Button.
 
-###### Example
-
-```html
+```dojo
     <a class="k-button" href="#">
         <span class="k-icon k-i-copy"></span> Copy
     </a>
@@ -54,15 +48,15 @@ To use the Kendo UI font icons:
  1. [Load]({% slug themesandappearnce_kendoui_desktopwidgets %}) a Kendo UI theme into your project.
  2. Assign a `k-icon` CSS class followed by a predefined class from the [list of font icons](#list-of-font-icons) to an HTML tag. For example, the `<span>` element as demonstrated in the following example.
 
-```html
- <span class="k-icon k-i-calendar"></span>
-```
+    ```dojo
+     <span class="k-icon k-i-calendar"></span>
+    ```
 
 ## Rendering with Unicode Numbers
 
 Though the web icon font comes with a [set of predefined CSS classes](#toc-list-of-font-icons), you might need to use the icons with a custom CSS class name. To achieve this, set a `:before` pseudo content value for the relevant icon.
 
-```html
+```dojo
 <span class="k-icon my-custom-icon-class"></span>
 
 <style>
@@ -80,13 +74,13 @@ Icon fonts support the following options for visual enhancement:
 * Application of [icon colors](#colors).
 * [Flipping](#flipping) of icons.
 
-### Sizes
+### Adjusting the Size
 
 The Kendo UI font icons are designed on a 16px grid base. To achieve a pixel-perfect icon display, scale up by maintaining the 16-unit measure (32, 48, 64, and so on).
 
 You can scale icons by just setting the `font-size` configuration option.
 
-```html
+```dojo
 <span class="k-icon k-i-gear"></span>
 <span class="k-icon k-i-gear k-icon-32"></span>
 <span class="k-icon k-i-gear k-icon-48"></span>
@@ -107,11 +101,11 @@ You can scale icons by just setting the `font-size` configuration option.
  </style>
  ```
 
-### Colors
+### Adjusting the Colors
 
 To set the icon color, use the `color` CSS property.
 
-```html
+```dojo
 <span class="k-icon k-i-gear" style="color: blue;"></span>
 <span class="k-icon k-i-gear colored-icon"></span>
 
@@ -122,11 +116,11 @@ To set the icon color, use the `color` CSS property.
 </style>
 ```
 
-### Flipping
+### Applying Flipping
 
 To better accommodate an icon in your application, flip it by using the `k-flip-h` and `k-flip-v` predefined CSS classes.
 
-```html
+```dojo
 <span class="k-icon k-i-pencil"></span>
 <span class="k-icon k-i-pencil k-flip-h"></span>
 <span class="k-icon k-i-pencil k-flip-v"></span>
@@ -654,13 +648,10 @@ fonts in fonts/
 
 ## See Also
 
-Other articles on styling, appearance, and rendering of Kendo UI widgets:
-
 * [Themes and Appearance of the Kendo UI Widgets]({% slug themesandappearnce_kendoui_desktopwidgets %})
 * [Responsive Web Design]({% slug responsivewebdesign_integration_kendoui %})
 * [How to Change Themes on the Client]({% slug howto_changethemes_ontheclient_styleskendoui %})
 * [Sass ThemeBuilder Overview]({% slug sassbasedthemes_kendoui %}#sass-theme-builder)
 * [Less ThemeBuilder Overview]({% slug themesandappearnce_kendoui_desktopwidgets %}#less-theme-builder)
 * [Rendering Modes for Data Visualization]({% slug renderingmodesfor_datavisualization_kendouistyling %})
-* [Troubleshooting]({% slug commonissues_troubleshooting_kendouistyling %})
 * [Themes and Appearance of the Kendo UI Hybrid Widgets]({% slug forms_hybridkendoui %})

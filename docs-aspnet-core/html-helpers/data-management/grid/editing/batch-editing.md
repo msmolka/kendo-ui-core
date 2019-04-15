@@ -1,6 +1,6 @@
 ---
 title: Batch Editing
-page_title: Batch Editing | Kendo UI Grid HtmlHelper
+page_title: Batch Editing | Kendo UI Grid HtmlHelper for ASP.NET Core
 description: "Enable cell editing mode and batch updates in Kendo UI Grid for ASP.NET Core."
 slug: batchediting_grid_aspnetcore
 position: 1
@@ -209,8 +209,6 @@ Below are listed the steps for you to follow when configuring the Kendo UI Grid 
 The **Create**, **Update** and **Destroy** action methods must return a collection with the modified/deleted records, which will allow the DataSource to apply the changes accordingly. The **Create** method should return collection with the created records with the assigned ID field.
 
 ## See Also
-
-Other articles on the Kendo UI Grid for ASP.NET Core:
 
 * [Overview of the Grid HtmlHelper]({% slug htmlhelpers_grid_aspnetcore_overview %})
 * [Overview of the Kendo UI Grid Widget](http://docs.telerik.com/kendo-ui/controls/data-management/grid/overview)

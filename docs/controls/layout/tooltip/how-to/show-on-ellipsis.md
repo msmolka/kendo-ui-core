@@ -11,7 +11,7 @@ The example below demonstrates how to show a Kendo UI Tooltip only if the text o
 
 ###### Example
 
-```html
+```dojo
     <style>
       td{
         max-width: 200px;
@@ -58,8 +58,6 @@ The example below demonstrates how to show a Kendo UI Tooltip only if the text o
 ```
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI Tooltip:
 
 * [Tooltip JavaScript API Reference](/api/javascript/ui/tooltip)
 * [How to Show Only If Text Exceeds Certain Length]({% slug howto_showonlyiftextexceedscertainlength_tooltip %})

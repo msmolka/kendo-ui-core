@@ -11,7 +11,7 @@ The following example demonstrates how to zoom the Diagram to a predefined point
 
 ###### Example
 
-```html
+```dojo
 
     <button id="zoomIn">+</button>
     <button id="zoomOut">-</button>
@@ -44,8 +44,6 @@ The following example demonstrates how to zoom the Diagram to a predefined point
 ```
 
 ## See Also
-
-Other articles on the Kendo UI Diagram:
 
 * [JavaScript API Reference](/api/javascript/dataviz/ui/diagram)
 * [How to Implement Local Data Editing]({% slug howto_editlocaladata_diagram %})

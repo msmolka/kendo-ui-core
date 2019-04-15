@@ -10,7 +10,7 @@ position: 10
 
 **Figure 1. A screenshot of the Kendo UI Music Store management grid**
 
-![kendo-manage-grid-screenshot](/tutorials/tutorial-kendo-music-store/music-store-web/images/kendo-manage-grid-screenshot.png)
+![kendo-manage-grid-screenshot](images/kendo-manage-grid-screenshot.png)
 
 When logged in the Music Store as an administrator, an additional button titled **Manage Store** is available in the upper-right corner. This opens the management grid which can be used to add, remove, or delete albums from the store. This page uses the [Kendo UI Grid widget](http://demos.telerik.com/kendo-ui/web/grid/index.html).
 
@@ -295,8 +295,6 @@ If the album being edited has already an `AlbumArtUrl` set, then an `<img>` tag 
 Then an `<input>` element is appended and defined as a Kendo UI Upload widget. When this button is clicked, the user is presented with a file selection dialog where they can choose the art to upload. Because the `async.autoUpload` is set to `true`, the image will be uploaded as soon as it is selected. On the server, after the file is uploaded, a response is sent to the client that contains the `url` to the newly saved image. The Upload widget in the editor uses the `success` event to read the returned URL from the server and display the image.
 
 ## See Also
-
-Other articles on the Kendo UI Music Store Web Application sample project:
 
 * [Overview of the Kendo UI Music Store Sample Project]({% slug overview_muscistoretutorial_aspnetmvc %})
 * [Set Up the Kendo UI Music Store Web App]({% slug projectsetup_muscistorewebapp_aspnetmvc %})

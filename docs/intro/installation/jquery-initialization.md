@@ -33,7 +33,7 @@ The following example demonstrates how to instantiate a Kendo UI AutoComplete.
 
 ###### Example
 
-```html
+```dojo
 
 	<p>Animal: <input id="animal" /></p>
 
@@ -179,8 +179,6 @@ The following example demonstrates how to set the [`height`](/api/javascript/ui/
 ```
 
 ## See Also
-
-Other articles on getting started with Kendo UI:
 
 * [Get Started with Kendo UI]({% slug getting_started_installation_kendoui %})
 * [Kendo UI CDN Services]({% slug kendoui_cdn_services_installation %})

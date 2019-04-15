@@ -67,7 +67,7 @@ The code from the previous example results in the following widget.
 
 **Figure 1: The PivotConfigurator**
 
-![Kendo UI PivotConfigurator](/images/pivotconfigurator.png)
+![Kendo UI PivotConfigurator](../../../images/pivotconfigurator.png)
 
 ## Reference
 
@@ -83,12 +83,10 @@ The following example demonstrates how to access an existing PivotConfigurator i
 
 ## See Also
 
-Other articles on the Kendo UI PivotGrid:
-
 * [Overview]({% slug overview_kendoui_pivotgrid_widget %})
 * [Exporting]({% slug exporting_functionality_pivotgridwidget %})
 * [Fundamentals]({% slug fundamentals_pivotgrid_widget %})
 * [OLAP Cube Setup]({% slug olap_cube_setup_pivotgrid_widget %})
 * [Frequently Asked Questions]({% slug frequently_asked_questions_pivotgrid %})
-
-For how-to examples on the Kendo UI PivotGrid widget, browse its [**How To** documentation folder]({% slug howto_change_pivotgrid_fields_names_pivotgrid %}).
+* [How-To Examples]({% slug howto_change_pivotgrid_fields_names_pivotgrid %})
+* [Knowledge Base Section](/knowledge-base)

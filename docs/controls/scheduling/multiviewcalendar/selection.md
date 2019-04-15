@@ -1,20 +1,22 @@
 ---
-title: Selection 
+title: Selection
 page_title: Selection | Kendo UI MultiViewCalendar
 description: "Learn how to select dates in the Kendo UI MultiViewCalendar widget."
 slug: selection_multiviewcalendar
-position: 4
+position: 5
 ---
 
 # Selection
 
-The Kendo UI MultiViewCalendar allows the user to select multiple dates or a range of dates using different selection modes offered by the widget.
+The Kendo UI MultiViewCalendar allows the user to select multiple dates or a range of dates by using the MultiViewCalendar selection modes.
 
-### Multiple selection
+## Multiple Selection
+
+The following example demonstrates how to implement the multiple-view selection mode in the MultiViewCalendar.
 
 ###### Example
 
-```html
+```dojo
     <div id="multiViewCalendar"></div>
     <script>
         $("#multiViewCalendar").kendoMultiViewCalendar({
@@ -23,11 +25,13 @@ The Kendo UI MultiViewCalendar allows the user to select multiple dates or a ran
     </script>
 ```
 
-### Range selection
+## Range Selection
+
+The following example demonstrates how to implement the range selection mode in the MultiViewCalendar.
 
 ###### Example
 
-```html
+```dojo
     <div id="multiViewCalendar"></div>
     <script>
         $("#multiViewCalendar").kendoMultiViewCalendar({
@@ -37,8 +41,6 @@ The Kendo UI MultiViewCalendar allows the user to select multiple dates or a ran
 ```
 
 ## See Also
-
-Other articles on the Kendo UI MultiViewCalendar:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the MultiViewCalendar Widget](/aspnet-mvc/helpers/multiviewcalendar/overview)
 * [MultiViewCalendar JavaScript API Reference](/api/javascript/ui/multiviewcalendar)

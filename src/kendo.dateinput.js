@@ -59,6 +59,9 @@ var __meta__ = { // jshint ignore:line
                     height: element[0].style.height
                 });
             }
+
+            that._inputWrapper = $(that.wrapper[0]);
+
             $("<span class='k-icon k-i-warning'></span>").insertAfter(element);
 
             that._form();
@@ -194,6 +197,9 @@ var __meta__ = { // jshint ignore:line
         _bindInput: function () {
             var that = this;
             that.element
+                .on("focusout" + ns, function () {
+                    that._change();
+                })
                 .on("paste" + ns, proxy(that._paste, that))
                 .on("keydown" + ns, proxy(that._keydown, that))
                 .on(INPUT_EVENT_NAME, proxy(that._input, that))
@@ -205,6 +211,7 @@ var __meta__ = { // jshint ignore:line
             this.element
                 .off("keydown" + ns)
                 .off("paste" + ns)
+                .off("focusout" + ns)
                 .off(INPUT_EVENT_NAME)
                 .off("mouseup" + ns)
                 .off("DOMMouseScroll" + ns + " mousewheel" + ns);
@@ -222,9 +229,10 @@ var __meta__ = { // jshint ignore:line
             if (!readonly && !disable) {
                 wrapper.addClass(STATEDEFAULT)
                     .removeClass(STATEDISABLED);
-
-                element.removeAttr(DISABLED)
-                    .removeAttr(READONLY);
+                if(element && element.length) {
+                    element[0].removeAttribute(DISABLED);
+                    element[0].removeAttribute(READONLY);
+                }
 
                 that._bindInput();
             } else {
@@ -232,7 +240,9 @@ var __meta__ = { // jshint ignore:line
                     wrapper.addClass(STATEDISABLED)
                     .removeClass(STATEDEFAULT);
                     element.attr(DISABLED, disable);
-                    element.removeAttr(READONLY);
+                    if(element && element.length) {
+                        element[0].removeAttribute(READONLY);
+                    }
                 }
                 if (readonly) {
                     element.attr(READONLY, readonly);

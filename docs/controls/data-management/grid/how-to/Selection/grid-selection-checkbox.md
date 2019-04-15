@@ -1,7 +1,7 @@
 ---
 title: Make Selection with Checkbox Column
-page_title:  Make Selection with Checkbox Column | Kendo UI Grid
-description: "Learn how to select a Kendo UI Grid row with a checkbox column, preserve the selection and get the IDs of all selected items."
+page_title:  jQuery Grid Documentation | Make Selection with Checkbox Column | Kendo UI
+description: "Learn how to select a row of the Kendo UI jQuery Grid with a checkbox column, preserve the selection and get the IDs of all selected items."
 slug: howto_make_selection_checkbox_column_grid
 ---
 
@@ -14,7 +14,7 @@ For earlier versions, refer to the following example. It demonstrates how to sel
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>
 <button id="showSelection">Show selected IDs</button>
 <script>

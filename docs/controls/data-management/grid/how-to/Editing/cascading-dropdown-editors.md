@@ -1,7 +1,7 @@
 ---
 title: Add Cascading DropDownList Editors
-page_title: Add Cascading DropDownList Editors | Kendo UI Grid
-description: "Learn how to add cascading DropDownList editors to the Kendo UI Grid widget."
+page_title: jQuery Grid Documentation | Cascading DropDownList Editors | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to add cascading DropDownList editors to the widget."
 previous_url: /controls/data-management/grid/how-to/grid-cascading-dropdown-editors
 slug: howto_add_cascading_dropdown_list_editors_grid
 ---
@@ -20,7 +20,7 @@ The following examples demonstrate how to add cascading DropDownList editors to 
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>
 <script>
     // array of all brands
@@ -117,7 +117,7 @@ The example below demonstrates the popup editing mode of a Kendo UI Grid with nu
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>    
 
 <script id="popupTemplate" type="text/x-kendo-template">
@@ -255,7 +255,7 @@ The example below demonstrates the popup editing mode of a Kendo UI Grid with no
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>    
 
 <script id="popupTemplate" type="text/x-kendo-template">

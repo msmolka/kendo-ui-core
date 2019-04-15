@@ -1,7 +1,7 @@
 ---
 title: Skip Non-Editable Cells When Tabbing
-page_title:  Skip Non-Editable Cells When Tabbing | Kendo UI Grid Widget
-description: "Learn how to skip non-editable cells in the Kendo UI Grid When tabbing"
+page_title:  jQuery Grid Documentation | Skip Non|Editable Cells | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to skip non-editable cells when tabbing."
 slug: howto_skip_noneditable_cells_when_tabbing_grid
 ---
 
@@ -23,7 +23,7 @@ The following example demonstrates how to skip all cells from a given column.
 
 ###### Example
 
-```html
+```dojo
   <p>The "gender" column is not editable and is skipped during tabbing:</p>
   <div id="grid"></div>
   <script>
@@ -100,7 +100,7 @@ The following example demonstrates how to skip cells from different columns and 
 
 ###### Example
 
-```html
+```dojo
     <style>
       .noneditable {
         border: 1px solid red !important;

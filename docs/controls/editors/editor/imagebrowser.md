@@ -10,13 +10,13 @@ position: 2
 
 By default, the **Insert Image** tool opens a simple dialog that allows you to type in or paste the URL of an image and, optionally, specify a tooltip.
 
-![Insert Image Dialog](/controls/editors/editor/editor-insert-image.png)
+![Insert Image Dialog](editor-insert-image.png)
 
 ## Overview
 
 As of the Q3 2012 release, the Editor has supported a new way of picking an image by browsing a list of predefined files and directories. Uploading new images is also supported.
 
-![Image Browser Dialog](/controls/editors/editor/editor-image-browser.png)
+![Image Browser Dialog](editor-image-browser.png)
 
 To retrieve and upload the files and directories, the image browser needs a server-side implementation.
 
@@ -76,8 +76,6 @@ You can update all of these requests and responses through the [`imagebrowser`](
 
 ## See Also
 
-Other articles on the Kendo UI Editor:
-
 * [Overview of the Editor Widget]({% slug overview_kendoui_editor_widget %})
 * [Post-Process Content]({% slug post_process_content_editor_widget %})
 * [Set Selections]({% slug set_selections_editor_widget %})
@@ -85,5 +83,5 @@ Other articles on the Kendo UI Editor:
 * [Prevent Cross-Site Scripting]({% slug prevent_xss_editor_widget %})
 * [Troubleshooting]({% slug troubleshooting_editor_widget %})
 * [Editor JavaScript API Reference](/api/javascript/ui/editor)
-
-For how-to examples on the Kendo UI Editor widget, browse its [**How To** documentation folder]({% slug howto_handleblurandfocuseventsangular_editor %}).
+* [How-To Examples]({% slug howto_handleblurandfocuseventsangular_editor %})
+* [Knowledge Base Section](/knowledge-base)

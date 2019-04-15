@@ -1,7 +1,7 @@
 ---
 title: Use Checkbox Column Templates and Edit
-page_title:  Use Checkbox Column Templates and Edit | Kendo UI Grid
-description: "Learn how to use checkbox column templates and perform editing in the Kendo UI Grid widget."
+page_title:  jQuery Grid Documentation | Checkbox Column Templates | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to use checkbox column templates and perform editing."
 previous_url: /kendo-uimvc/web/grid/how-to/Templates/grid-with-checkbox-column
 slug: howto_use_checkbox_column_templateand_edit_grid
 ---
@@ -14,7 +14,7 @@ For more information on how to apply batch editing with a bound Boolean column, 
 
 ###### Example
 
-```html
+```dojo
    <div id="grid"></div>
     <script>
       var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
@@ -67,7 +67,7 @@ For more information on how to apply batch editing with a bound Boolean column, 
           "ProductName",
           { field: "UnitPrice", title: "Unit Price", format: "{0:c}", width: 110 },
           { field: "UnitsInStock", title: "Units In Stock", width: 110 },
-          { template: '<input type="checkbox" #= Discontinued ? \'checked="checked"\' : "" # class="chkbx" />', width: 110 },
+          { template: '#=dirtyField(data,"Discontinued")#<input type="checkbox" #= Discontinued ? \'checked="checked"\' : "" # class="chkbx" />', width: 110 },
           { command: "destroy", title: "&nbsp;", width: 100 }],
         editable: true
       });
@@ -78,6 +78,16 @@ For more information on how to apply batch editing with a bound Boolean column, 
 
         dataItem.set("Discontinued", this.checked);
       });
+
+      function dirtyField(data, fieldName){
+        var hasClass = $("[data-uid=" + data.uid + "]").find(".k-dirty-cell").length < 1;
+        if(data.dirty && data.dirtyFields[fieldName] && hasClass){
+          return "<span class='k-dirty'></span>"
+        }
+        else{
+          return "";
+        }
+      }
     </script>
 ```
 

@@ -22,7 +22,7 @@ To vertically scroll the TabStrip content containers with the help of the keyboa
 
 ###### Example
 
-```html
+```dojo
     <style>
 
         #tabstrip > .k-content
@@ -89,8 +89,6 @@ To vertically scroll the TabStrip content containers with the help of the keyboa
 ```
 
 ## See Also
-
-Other articles on the Kendo UI TabStrip:
 
 * [TabStrip JavaScript API Reference](/api/javascript/ui/tabstrip)
 * [How to Display Buttons at the Bottom]({% slug howto_displaybuttonsatthebottom_tabstrip %})

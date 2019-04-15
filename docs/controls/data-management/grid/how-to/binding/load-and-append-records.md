@@ -1,12 +1,16 @@
 ---
 title: Load and Append More Records While Scrolling Down
-page_title: Load and Append More Records While Scrolling Down | Kendo UI Grid
-description: "Learn how to load and append more records as the user scrolls down the Kendo UI Grid."
+page_title: jQuery Grid Documentation | Load and Append More Records | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to load and append more records as the user scrolls down the Grid."
 previous_url: /controls/data-management/grid/how-to/load-and-append-records
 slug: howto_loadand_append_morerecords_while_scrollingdown_grid
 ---
 
 # Load and Append More Records While Scrolling Down
+
+> **Important**
+>
+> **Deprecated** The functionality is available out of the box. Check [`endless scrolling`]({% slug endless_scrolling_kendoui_grid_widget %})
 
 The following example demonstrates how to load more records when scrolling the Grid rows.
 
@@ -23,7 +27,7 @@ To achieve this behavior:
 
 ###### Example
 
-```html
+```dojo
 
     <div id="grid"></div>
 

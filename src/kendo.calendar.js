@@ -26,11 +26,11 @@ var __meta__ = { // jshint ignore:line
         transitions = kendo.support.transitions,
         transitionOrigin = transitions ? transitions.css + "transform-origin" : "",
         cellTemplate = template('<td#=data.cssClass# role="gridcell"><a tabindex="-1" class="k-link" href="\\#" data-#=data.ns#value="#=data.dateString#">#=data.value#</a></td>', { useWithBlock: false }),
-        emptyCellTemplate = template('<td role="gridcell">&nbsp;</td>', { useWithBlock: false }),
+        emptyCellTemplate = template('<td role="gridcell" class="k-out-of-range"><a class="k-link"></a></td>', { useWithBlock: false }),
+        otherMonthCellTemplate = template('<td role="gridcell" class="k-out-of-range">&nbsp;</td>', { useWithBlock: false }),
         weekNumberTemplate = template('<td class="k-alt">#= data.weekNumber #</td>', { useWithBlock: false }),
         browser = kendo.support.browser,
         isIE8 = browser.msie && browser.version < 9,
-        outerHeight = kendo._outerHeight,
         outerWidth = kendo._outerWidth,
         ns = ".kendoCalendar",
         CLICK = "click" + ns,
@@ -49,9 +49,10 @@ var __meta__ = { // jshint ignore:line
         FOCUSED = "k-state-focused",
         OTHERMONTH = "k-other-month",
         OTHERMONTHCLASS = ' class="' + OTHERMONTH + '"',
+        OUTOFRANGE = "k-out-of-range",
         TODAY = "k-nav-today",
         CELLSELECTOR = "td:has(.k-link)",
-        CELLSELECTORVALID = "td:has(.k-link):not(." + DISABLED + ")",
+        CELLSELECTORVALID = "td:has(.k-link):not(." + DISABLED + "):not(." + OUTOFRANGE + ")",
         WEEKCOLUMNSELECTOR = "td:not(:has(.k-link))",
         SELECTED = "k-state-selected",
         BLUR = "blur" + ns,
@@ -95,6 +96,8 @@ var __meta__ = { // jshint ignore:line
             that._selectable();
 
             that._header();
+
+            that._viewWrapper();
 
             that._footer(that.footer);
 
@@ -220,10 +223,16 @@ var __meta__ = { // jshint ignore:line
 
             that._selectable();
 
+            that._viewWrapper();
+
             that._footer(that.footer);
             that._index = views[that.options.start];
 
             that.navigate();
+
+            if(options.weekNumber) {
+                that.element.addClass('k-week-number');
+            }
         },
 
         destroy: function() {
@@ -255,7 +264,7 @@ var __meta__ = { // jshint ignore:line
         focus: function(table) {
             table = table || this._table;
             this._bindTable(table);
-            table.focus();
+            table.trigger("focus");
         },
 
         min: function(value) {
@@ -321,6 +330,7 @@ var __meta__ = { // jshint ignore:line
                 vertical = view !== undefined && view !== that._index,
                 to, currentView, compare,
                 disabled;
+
             if (!value) {
                 value = currentValue;
             }
@@ -445,7 +455,7 @@ var __meta__ = { // jshint ignore:line
             }
 
             value = that._validateValue(value);
-            if(value && that._isMultipleSelection()) {
+            if (value && that._isMultipleSelection()) {
                 var date = new Date(+value);
                 date.setHours(0, 0, 0, 0);
                 that._selectDates = [date];
@@ -632,7 +642,7 @@ var __meta__ = { // jshint ignore:line
         _addSelectedCellsToArray: function() {
             var that = this;
             that.selectable.value().each(function(index, item) {
-                var date = that._toDateObject($(item.firstChild));
+                var date = toDateObject($(item.firstChild));
                 if(!that.options.disableDates(date)) {
                     that._selectDates.push(date);
                 }
@@ -865,20 +875,21 @@ var __meta__ = { // jshint ignore:line
         },
 
         _animate: function(options) {
-            var that = this,
-            from = options.from,
-            to = options.to,
-            active = that._active;
+            var that = this;
+            var from = options.from;
+            var to = options.to;
+            var active = that._active;
+            var viewWrapper = that.element.children(".k-calendar-view");
 
             if (!from) {
-                to.insertAfter(that.element[0].firstChild);
+                viewWrapper.append(to);
                 that._bindTable(to);
             } else if (from.parent().data("animating")) {
                 from.off(ns);
                 from.parent().kendoStop(true, true).remove();
                 from.remove();
 
-                to.insertAfter(that.element[0].firstChild);
+                viewWrapper.append(to);
                 that._focusView(active);
             } else if (!from.is(":visible") || that.options.animation === false || options.replace) {
                 to.insertAfter(from);
@@ -939,11 +950,12 @@ var __meta__ = { // jshint ignore:line
                 cell, position;
 
             if (effects && effects.indexOf("zoom") != -1) {
-                to.css({
+                to.insertBefore(from);
+
+                from.css({
                     position: "absolute",
-                    top: outerHeight(from.prev()),
-                    left: 0
-                }).insertBefore(from);
+                    width: to.width()
+                });
 
                 if (transitionOrigin) {
                     cell = that._cellByDate(that._view.toDateString(that._current));
@@ -958,12 +970,6 @@ var __meta__ = { // jshint ignore:line
                     complete: function() {
                         from.off(ns).remove();
                         that._oldTable = null;
-
-                        to.css({
-                            position: "static",
-                            top: 0,
-                            left: 0
-                        });
 
                         that._focusView(active);
                     }
@@ -987,10 +993,10 @@ var __meta__ = { // jshint ignore:line
                 value = that._view.toDateString(date),
                 disabledDate;
 
-            if (cell) {
-                cell.removeAttr(ARIA_SELECTED)
-                .removeAttr(ARIA_LABEL)
-                .removeAttr(ID);
+            if (cell && cell.length) {
+                cell[0].removeAttribute(ARIA_SELECTED);
+                cell[0].removeAttribute(ARIA_LABEL);
+                cell[0].removeAttribute(ID);
                 //.removeClass(className);
             }
 
@@ -1013,7 +1019,8 @@ var __meta__ = { // jshint ignore:line
 
             if (id) {
                 cell.attr(ID, id);
-                that._table.removeAttr("aria-activedescendant").attr("aria-activedescendant", id);
+                that._table[0].removeAttribute("aria-activedescendant");
+                that._table.attr("aria-activedescendant", id);
             }
         },
 
@@ -1058,6 +1065,16 @@ var __meta__ = { // jshint ignore:line
             }
         },
 
+        _viewWrapper: function() {
+            var that = this;
+            var element = that.element;
+            var viewWrapper = element.children(".k-calendar-view");
+
+            if (!viewWrapper[0]) {
+                viewWrapper = $("<div class='k-calendar-view' />").insertAfter(element.find(".k-header"));
+            }
+        },
+
         _footer: function(template) {
             var that = this,
             today = getToday(),
@@ -1097,7 +1114,7 @@ var __meta__ = { // jshint ignore:line
 
             links = element.find(".k-link")
             .on(MOUSEENTER_WITH_NS + " " + MOUSELEAVE + " " + FOCUS_WITH_NS + " " + BLUR, mousetoggle)
-            .click(false);
+            .on("click", function() { return false; });
 
             that._title = links.eq(1).on(CLICK, function() { that._active = that.options.focusOnNav !== false; that.navigateUp(); });
             that[PREVARROW] = links.eq(0).on(CLICK, function() { that._active = that.options.focusOnNav !== false; that.navigateToPast(); });
@@ -1109,8 +1126,8 @@ var __meta__ = { // jshint ignore:line
             index = that._index + 1,
             currentValue = new DATE(+that._current);
 
-            if(that._isMultipleSelection()) {
-                var firstDayCurrentMonth = that._table.find("td:not(.k-other-month)").has(".k-link").first();
+            if (that._isMultipleSelection()) {
+                var firstDayCurrentMonth = that._table.find("td:not(.k-other-month):not(.k-out-of-range)").has(".k-link").first();
                 currentValue = toDateObject(firstDayCurrentMonth.find("a"));
                 that._current = new Date(+currentValue);
             }
@@ -1291,6 +1308,7 @@ var __meta__ = { // jshint ignore:line
                 format = options.format,
                 culture = options.culture,
                 navigateUrl = options.url,
+                showHeader = options.showHeader,
                 otherMonth = options.otherMonth,
                 isWeekColumnVisible = options.isWeekColumnVisible,
                 hasUrl = navigateUrl && dates[0],
@@ -1304,7 +1322,12 @@ var __meta__ = { // jshint ignore:line
                 lastDayOfMonth = that.last(date),
                 toDateString = that.toDateString,
                 today = getToday(),
-                html = '<table tabindex="0" role="grid" class="k-content" cellspacing="0" data-start="' + toDateString(start) + '"><thead><tr role="row">';
+                html = '<table tabindex="0" role="grid" class="k-content" cellspacing="0" data-start="' + toDateString(start) + '">';
+                if (showHeader) {
+                    html += '<caption class="k-month-header">' + this.title(date, min, max, culture) + '</caption><thead><tr role="row">';
+                } else {
+                    html += '<thead><tr role="row">';
+                }
                 if (isWeekColumnVisible) {
                     html += '<th scope="col" class="k-alt">' + options.messages.weekColumnHeader + '</th>';
                 }
@@ -1327,6 +1350,7 @@ var __meta__ = { // jshint ignore:line
                     max: createDate(max.getFullYear(), max.getMonth(), max.getDate()),
                     otherMonth : otherMonth,
                     content: options.content,
+                    lastDayOfMonth : lastDayOfMonth,
                     empty: options.empty,
                     setter: that.setDate,
                     disableDates: options.disableDates,
@@ -1430,12 +1454,20 @@ var __meta__ = { // jshint ignore:line
                 var namesAbbr = getCalendarInfo(options.culture).months.namesAbbr,
                 toDateString = this.toDateString,
                 min = options.min,
-                max = options.max;
+                max = options.max,
+                html = "";
+
+                if (options.showHeader) {
+                    html += '<table tabindex="0" role="grid" class="k-content k-meta-view" cellspacing="0"><caption class="k-meta-header">';
+                    html += this.title(options.date);
+                    html += '</caption><tbody><tr role="row">';
+                }
 
                 return view({
                     min: createDate(min.getFullYear(), min.getMonth(), 1),
                     max: createDate(max.getFullYear(), max.getMonth(), 1),
                     start: createDate(options.date.getFullYear(), 0, 1),
+                    html: html,
                     setter: this.setDate,
                     build: function(date) {
                         return {
@@ -1495,13 +1527,21 @@ var __meta__ = { // jshint ignore:line
             },
             content: function(options) {
                 var year = options.date.getFullYear(),
-                toDateString = this.toDateString;
+                toDateString = this.toDateString,
+                html = "";
+
+                if (options.showHeader) {
+                    html += '<table tabindex="0" role="grid" class="k-content k-meta-view" cellspacing="0"><caption class="k-meta-header">';
+                    html += this.title(options.date, options.min, options.max);
+                    html += '</caption><tbody><tr role="row">';
+                }
 
                 return view({
                     start: createDate(year - year % 10 - 1, 0, 1),
                     min: createDate(options.min.getFullYear(), 0, 1),
                     max: createDate(options.max.getFullYear(), 0, 1),
                     otherMonth : options.otherMonth,
+                    html : html,
                     setter: this.setDate,
                     build: function(date, idx) {
                         return {
@@ -1542,7 +1582,8 @@ var __meta__ = { // jshint ignore:line
                 max = options.max.getFullYear(),
                 toDateString = this.toDateString,
                 minYear = min,
-                maxYear = max;
+                maxYear = max,
+                html = "";
 
                 minYear = minYear - minYear % 10;
                 maxYear = maxYear - maxYear % 10;
@@ -1551,11 +1592,18 @@ var __meta__ = { // jshint ignore:line
                     maxYear = minYear + 9;
                 }
 
+                if (options.showHeader) {
+                    html += '<table tabindex="0" role="grid" class="k-content k-meta-view" cellspacing="0"><caption class="k-meta-header">';
+                    html += this.title(options.date, options.min, options.max);
+                    html += '</caption><tbody><tr role="row">';
+                }
+
                 return view({
                     start: createDate(year - year % 100 - 10, 0, 1),
                     min: createDate(minYear, 0, 1),
                     max: createDate(maxYear, 0, 1),
                     otherMonth : options.otherMonth,
+                    html : html,
                     setter: this.setDate,
                     build: function(date, idx) {
                         var start = date.getFullYear(),
@@ -1631,9 +1679,11 @@ var __meta__ = { // jshint ignore:line
             isWeekColumnVisible = options.isWeekColumnVisible,
             cellsPerRow = options.perRow || 4,
             otherMonth = options.otherMonth,
+            lastDayOfMonth = options.lastDayOfMonth,
             weekNumber = options.weekNumber || weekNumberTemplate,
             content = options.content || cellTemplate,
             empty = options.empty || emptyCellTemplate,
+            otherMonthTemplate = options.otherMonthCellTemplate || otherMonthCellTemplate,
             html = options.html || '<table tabindex="0" role="grid" class="k-content k-meta-view" cellspacing="0"><tbody><tr role="row">';
             if(isWeekColumnVisible) {
                 html += weekNumber(weekNumberBuild(start));
@@ -1643,8 +1693,8 @@ var __meta__ = { // jshint ignore:line
         for(; idx < length; idx++) {
             if (idx > 0 && idx % cellsPerRow === 0) {
                 html += '</tr><tr role="row">';
-                if(isWeekColumnVisible) {
-                    html += weekNumber(weekNumberBuild(start));
+                if (isWeekColumnVisible) {
+                    html += otherMonth || (+start <= +lastDayOfMonth) ? weekNumber(weekNumberBuild(start)) : weekNumber({ weekNumber : "&nbsp;"});
                 }
             }
 
@@ -1653,7 +1703,7 @@ var __meta__ = { // jshint ignore:line
 
             data = build(start, idx, options.disableDates);
 
-            html += (data.cssClass.indexOf(OTHERMONTH) !== -1 && !otherMonth) ? empty(data) : isInRange(start, min, max) ? content(data) : empty(data);
+            html += (data.cssClass.indexOf(OTHERMONTH) !== -1 && !otherMonth) ? otherMonthTemplate(data) : isInRange(start, min, max) ? content(data) : empty(data);
 
             setter(start, 1);
         }

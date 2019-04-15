@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | Telerik UI for ASP.NET Core Tag Helpers
+page_title: MultiViewCalendar | Telerik UI for ASP.NET Core Tag Helpers
 description: "Learn the basics when working with the Kendo UI MultiViewCalendar tag helper for ASP.NET Core (MVC 6 or ASP.NET Core MVC)."
 slug: overview_multiviewcalendar_taghelper_aspnetcore
 position: 1
@@ -29,7 +29,7 @@ Below are listed the steps for you to follow when configuring the Kendo UI Multi
 
 ###### Example
 
-```tab-tagHelper
+```tagHelper
 
     <kendo-multiviewcalendar name="multiviewcalendar"
                              min="new DateTime(2010, 1, 1, 10, 0, 0)"
@@ -38,7 +38,7 @@ Below are listed the steps for you to follow when configuring the Kendo UI Multi
     </kendo-multiviewcalendar>
 
 ```
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
             .Name("MultiViewCalendar") //The name of the MultiViewCalendar is mandatory. It specifies the "id" attribute of the widget.
@@ -49,8 +49,6 @@ Below are listed the steps for you to follow when configuring the Kendo UI Multi
 ```
 
 ## Functionality and Features
-
-The MultiViewCalendar provides configuration options that can be set during initialization. The available properties are:
 
 * [Active view]({% slug active_view_multiviewcalendar_taghelper_aspnetcore %})
 * [Multiple views]({% slug multiple_views_multiviewcalendar_taghelper_aspnetcore %})
@@ -70,7 +68,7 @@ The following example demonstrates how to subscribe to events by a handler name.
 
 ###### Example
 
-```tab-tagHelper
+```tagHelper
 
     <kendo-multiviewcalendar name="multiviewcalendar" on-change="calendar_change" on-navigate="calendar_navigate">
     </kendo-multiviewcalendar>
@@ -85,7 +83,7 @@ The following example demonstrates how to subscribe to events by a handler name.
     </script>
 
 ```
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
           .Name("MultiViewCalendar")

@@ -103,7 +103,8 @@ var __meta__ = { // jshint ignore:line
             }
 
             that._initialOpen = true;
-            that._aria(id);
+            that._ariaLabel();
+            that._ariaSetLive();
             that._dataSource();
             that._ignoreCase();
             that._popup();
@@ -127,6 +128,8 @@ var __meta__ = { // jshint ignore:line
             if (disabled) {
                 that.enable(false);
             }
+
+            that._ariaSetSize(that.value().length);
 
             kendo.notify(that);
             that._toggleCloseVisibility();
@@ -208,14 +211,17 @@ var __meta__ = { // jshint ignore:line
                         .removeClass(FOCUSEDCLASS)
                         .removeAttr(ID);
 
+                    that._currentTag.find(".k-select").attr("aria-hidden", true);
+
                     that.input.removeAttr("aria-activedescendant");
                 }
 
                 if (candidate) {
                     candidate.addClass(FOCUSEDCLASS).attr(ID, that._tagID);
 
-                    that.input
-                        .attr("aria-activedescendant", that._tagID);
+                    candidate.find(".k-select").removeAttr("aria-hidden");
+
+                    that.input.attr("aria-activedescendant", that._tagID);
                 }
 
                 that._currentTag = candidate;
@@ -391,6 +397,7 @@ var __meta__ = { // jshint ignore:line
                 option = that.element[0].children[customIndex];
                 option.selected = false;
 
+                listView._deselect([customIndex]);
                 listView.removeAt(position);
                 tag.remove();
                 done();
@@ -409,7 +416,7 @@ var __meta__ = { // jshint ignore:line
             var that = this;
 
             if (that.options.tagMode === "single"){
-                that.value([]);
+                that.listView.value([]);
             } else{
                 that.tagList.children().each(function(index, tag) {
                     that._removeTag($(tag), false);
@@ -604,11 +611,14 @@ var __meta__ = { // jshint ignore:line
             }
 
             listView.value(value);
-            that._old = listView.value(); //get a new array reference
+            that._old = that._valueBeforeCascade = listView.value(); //get a new array reference
 
             if (!clearFilters) {
                 that._fetchData();
             }
+
+            that._ariaSetSize(that.value().length);
+
             that._toggleCloseVisibility();
         },
 
@@ -735,6 +745,9 @@ var __meta__ = { // jshint ignore:line
                 that.element.trigger(CHANGE);
             }
             that.popup.position();
+
+            that._ariaSetSize(value.length);
+
             that._toggleCloseVisibility();
         },
 
@@ -769,6 +782,7 @@ var __meta__ = { // jshint ignore:line
             var visible = that.popup.visible();
             var dir = 0;
             var activeItemIdx;
+            var persistTagList;
 
             if(key !== keys.ENTER) {
                 this._multipleSelection = false;
@@ -936,9 +950,17 @@ var __meta__ = { // jshint ignore:line
                 that._state = ACCEPT;
 
                 if (that.options.tagMode === "single") {
+                    persistTagList = that.persistTagList;
+
+                    if (persistTagList) {
+                        that.persistTagList = false;
+                    }
+
                     listView.value([]);
                     that._change();
                     that._close();
+
+                    that.persistTagList = persistTagList;
                     return;
                 }
 
@@ -1148,6 +1170,8 @@ var __meta__ = { // jshint ignore:line
 
         _search: function() {
             var that = this;
+
+            clearTimeout(that._typingTimeout);
 
             that._typingTimeout = setTimeout(function() {
                 var value = that._inputValue();
@@ -1378,7 +1402,9 @@ var __meta__ = { // jshint ignore:line
                 "autocomplete": "off",
                 "role": "listbox",
                 "title": element[0].title,
-                "aria-expanded": false
+                "aria-expanded": false,
+                "aria-haspopup": "listbox",
+                "aria-autocomplete": "list"
             });
         },
 
@@ -1387,7 +1413,7 @@ var __meta__ = { // jshint ignore:line
                 tagList = that._innerWrapper.children("ul");
 
             if (!tagList[0]) {
-                tagList = $('<ul role="listbox" unselectable="on" class="k-reset"/>').appendTo(that._innerWrapper);
+                tagList = $('<ul unselectable="on" class="k-reset"/>').appendTo(that._innerWrapper);
             }
 
             that.tagList = tagList;
@@ -1411,9 +1437,9 @@ var __meta__ = { // jshint ignore:line
             that.tagTextTemplate = tagTemplate = tagTemplate ? kendo.template(tagTemplate) : defaultTemplate;
 
             that.tagTemplate = function(data) {
-                return '<li class="k-button" unselectable="on"><span unselectable="on">' +
+                return '<li role="option" aria-selected="true" class="k-button" unselectable="on"><span unselectable="on">' +
                         tagTemplate(data) +
-                        '</span><span unselectable="on" aria-label="' +
+                        '</span><span aria-hidden="true" unselectable="on" aria-label="' +
                         (isMultiple ? "delete" : "open") +
                         '" class="k-select"><span class="k-icon ' +
                         (isMultiple ? "k-i-close" : "k-i-arrow-60-down") + '">' +
@@ -1455,11 +1481,26 @@ var __meta__ = { // jshint ignore:line
                 wrapper[0].style.cssText = element[0].style.cssText;
                 wrapper[0].title = element[0].title;
 
-                $('<div class="k-multiselect-wrap k-floatwrap" unselectable="on" />').insertBefore(element);
+                $('<div class="k-multiselect-wrap k-floatwrap" role="listbox" unselectable="on" />').insertBefore(element);
             }
 
             that.wrapper = wrapper.addClass(element[0].className).css("display", "");
             that._innerWrapper = $(wrapper[0].firstChild);
+        },
+
+        _ariaSetSize: function(value) {
+            var that = this;
+            var selectedItems = that.tagList.children();
+
+            if(value && selectedItems.length) {
+                selectedItems.attr("aria-setsize", value);
+            }
+        },
+
+        _ariaSetLive: function() {
+            var that = this;
+
+            that.ul.attr("aria-live", !that._isFilterEnabled() ? "off" : "polite");
         }
     });
 

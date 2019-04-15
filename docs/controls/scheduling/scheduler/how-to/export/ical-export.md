@@ -12,7 +12,7 @@ The following example demonstrates how to extract Kendo UI Scheduler events to a
 
 ###### Example
 
-```html
+```dojo
     <script src="https://rawgit.com/nwcell/ics.js/master/ics.js"></script>
     <div id="scheduler"></div>
     <br />
@@ -123,8 +123,6 @@ The following example demonstrates how to extract Kendo UI Scheduler events to a
 ```
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI Scheduler:
 
 * [Scheduler JavaScript API Reference](/api/javascript/ui/scheduler)
 * [How to Create Recurrence Editor Using Mobile Editor]({% slug howto_createrecurrenceeditor_byusingmobileeditor_scheduler %})

@@ -3,7 +3,7 @@ title: Day Template
 page_title: Week Number Column | Kendo UI MultiViewCalendar
 description: "Customize the content of each cell by using cell templates when working with the Kendo UI MultiViewCalendar."
 slug: day_template_multiviewcalendar
-position: 5
+position: 4
 ---
 
 # Day Template
@@ -14,7 +14,7 @@ The following example demonstrates how to create a MultiViewCalendar by using a 
 
 ###### Example
 
-```html
+```dojo
     <div id="multiViewCalendar"></div>
 
     <script>
@@ -36,8 +36,6 @@ The template wraps the `value` in a `<div>` HTML element. The structure of the d
     };
 
 ## See Also
-
-Other articles on the Kendo UI MultiViewCalendar:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the MultiViewCalendar Widget](/aspnet-mvc/helpers/multiviewcalendar/overview)
 * [MultiViewCalendar JavaScript API Reference](/api/javascript/ui/multiviewcalendar)

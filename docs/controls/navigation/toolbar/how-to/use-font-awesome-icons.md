@@ -11,7 +11,7 @@ The example below demonstrates how to use [FontAwesome icons](http://fortawesome
 
 ###### Example
 
-```html
+```dojo
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
     <style>
@@ -35,8 +35,6 @@ The example below demonstrates how to use [FontAwesome icons](http://fortawesome
 ```
 
 ## See Also
-
-Other articles on the Kendo UI ToolBar:
 
 * [ToolBar JavaScript API Reference](/api/javascript/ui/toolbar)
 * [How to Close ToolBar Popup Manually]({% slug howto_closetoolbarpopupmanually_toolbar %})

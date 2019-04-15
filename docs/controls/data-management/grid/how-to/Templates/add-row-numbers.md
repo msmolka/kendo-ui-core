@@ -1,7 +1,7 @@
 ---
 title: Add Row Numbers
-page_title: Add Row Numbers | Kendo UI Grid
-description: "Learn how to implement row numbers to a Kendo UI Grid widget."
+page_title: jQuery Grid Documentation | Add Row Numbers | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to implement row numbers to the widget."
 slug: howto_addrownumbers_grid
 ---
 
@@ -11,7 +11,7 @@ The following example demonstrates how to implement row numbers in a Grid by usi
 
 ###### Example
 
-```html
+```dojo
   <div id="grid"></div>
     <script>
       var record = 0;

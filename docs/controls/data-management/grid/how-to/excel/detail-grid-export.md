@@ -1,7 +1,7 @@
 ---
 title: Export Detail Grids
-page_title:  Export Detail Grids | Kendo UI Grid
-description: "Learn how to export to Excel master and detail Kendo UI Grids."
+page_title:  jQuery Grid Documentation | Export Detail Grids | Kendo UI
+description: "Get started with Kendo UI for jQuery enabling you to export to Excel master and detail Grids."
 slug: howto_exportto_excel_masterand_detail_grid
 ---
 
@@ -13,7 +13,7 @@ To get the workbook of the detail Grids, the demos use the [`excelExport`](/api/
 
 ###### Example - detail Grid export to Excel (all pages and details)
 
-```html
+```dojo
 <div id="grid"></div>
 <script>
   // used to wait for the children to finish async export
@@ -208,7 +208,7 @@ To get the workbook of the detail Grids, the demos use the [`excelExport`](/api/
 
 ###### Example - detail Grid export to Excel (current page only)
 
-```html
+```dojo
 <div id="grid"></div>
 <script>
   // used to wait for the children to finish async export

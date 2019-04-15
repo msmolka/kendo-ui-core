@@ -16,7 +16,7 @@ This page is contained in the `Views\Home\Index.cshtml` and `Scripts\App\home-in
 
 **Figure 1. A snapshot of the Kendo UI Music Store main lists**
 
-![kendo-music-store-web-main-lists-screenshot](/tutorials/tutorial-kendo-music-store/music-store-web/images/kendo-music-store-web-main-lists-screenshot.png)
+![kendo-music-store-web-main-lists-screenshot](images/kendo-music-store-web-main-lists-screenshot.png)
 
 To implement the lists of the **Featured Artist** and **Top Selling** albums, start with simple HTML markup to represent the two ListView widgets.
 
@@ -202,8 +202,6 @@ Now you can make our HTML that uses our custom binding.
 You indicated that the `<img>` element will be bound to the custom `"rotateImages"` binding, using the `"bannerImages"` property of the view model as its data. Through the use of the additional `data-` attribute, you also indicated that your image will update every 5000 milliseconds (5 seconds).
 
 ## See Also
-
-Other articles on the Kendo UI Music Store Web Application sample project:
 
 * [Overview of the Kendo UI Music Store Sample Project]({% slug overview_muscistoretutorial_aspnetmvc %})
 * [Set Up the Kendo UI Music Store Web App]({% slug projectsetup_muscistorewebapp_aspnetmvc %})

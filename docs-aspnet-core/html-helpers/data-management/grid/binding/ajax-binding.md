@@ -1,7 +1,7 @@
 ---
 title: Ajax Binding
-page_title: Ajax Binding | Telerik UI for ASP.NET Core HtmlHelpers
-description: "Learn the basics when working with the Grid HtmlHelper for ASP.NET Core (MVC 6 or ASP.NET Core MVC)."
+page_title: Ajax Binding | Kendo UI Grid HtmlHelper for ASP.NET Core
+description: "Learn how to implement Ajax Binding with Kendo UI Grid HtmlHelper for ASP.NET Core (MVC 6 or ASP.NET Core MVC)."
 slug: htmlhelpers_grid_aspnetcore_ajaxbinding
 previous_url: /aspnet-core/helpers/html-helpers/grid/ajax-binding
 ---
@@ -44,42 +44,40 @@ Below are listed the steps for you to follow when configuring the Kendo UI Grid 
 
     ###### Example
 
-            public IActionResult Customers_Read([DataSourceRequest]DataSourceRequest request)
-            {
-            }
+        public IActionResult Customers_Read([DataSourceRequest]DataSourceRequest request)
+        {
+        }
 
 1. Use the `ToDataSourceResult` extension method to convert the Products to a `Kendo.Mvc.UI.DataSourceResult` object. This extension method will page, filter, sort, or group your data using the information provided by the `DataSourceRequest` object. To use the `ToDataSourceResult` extension method, import the `Kendo.Mvc.Extensions` namespace.
 
     ###### Example
 
-            public ActionResult Customers_Read([DataSourceRequest]DataSourceRequest request)
+        public ActionResult Customers_Read([DataSourceRequest]DataSourceRequest request)
+        {
+            using (var northwind = new SampleContext())
             {
-                using (var northwind = new SampleContext())
-                {
-                    IEnumerable<Customers> customers = northwind.Customers;
-                    DataSourceResult result = customers.ToDataSourceResult(request);
-                }
+                IEnumerable<Customers> customers = northwind.Customers;
+                DataSourceResult result = customers.ToDataSourceResult(request);
             }
+        }
 
 1. Return the `DataSourceResult` as JSON. Configure the Kendo UI Grid for Ajax binding.
 
     ###### Example
 
-            public ActionResult Customers_Read([DataSourceRequest]DataSourceRequest request)
+        public ActionResult Customers_Read([DataSourceRequest]DataSourceRequest request)
+        {
+            using (var northwind = new SampleContext())
             {
-                using (var northwind = new SampleContext())
-                {
-                    IEnumerable<Customers> customers = northwind.Customers;
-                    DataSourceResult result = customers.ToDataSourceResult(request);
-                    return Json(result);
-                }
+                IEnumerable<Customers> customers = northwind.Customers;
+                DataSourceResult result = customers.ToDataSourceResult(request);
+                return Json(result);
             }
+        }
 
 1. In the view, configure the Grid to use the action method created in the previous steps.
 
     ###### Example
-
-    ```tab-Razor
 
         @(Html.Kendo().Grid<KendoGridAjaxBinding.Models.Customers>()
               .Name("grid")
@@ -99,7 +97,6 @@ Below are listed the steps for you to follow when configuring the Kendo UI Grid 
               .Pageable() // Enable paging
               .Sortable() // Enable sorting
         )
-    ```
 
 1. Build and run the application.
 

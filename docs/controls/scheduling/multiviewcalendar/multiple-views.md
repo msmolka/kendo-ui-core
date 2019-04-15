@@ -8,11 +8,13 @@ position: 3
 
 # Multiple Views
 
-The Kendo UI MultiViewCalendar allows to define the number of views/months to be displayed at a time. In some scenarios it might be necessary to display more than two months. This is helpful especially in case of range selection among a couple of months.
+The Kendo UI MultiViewCalendar allows you to define the number of views and months that are displayed at a time.
+
+In some scenarios it might be necessary to display more than two months. This is helpful especially in case of range selection among a couple of months.
 
 ###### Example
 
-```html
+```dojo
     <input id="numberOfViews" />
     <button id="numberOfViewsBtn">Apply Changes</button>
     <div id="multiViewCalendar"></div>
@@ -37,15 +39,13 @@ The Kendo UI MultiViewCalendar allows to define the number of views/months to be
     function click() {
         var numberOfViews = $("#numberOfViews").data().kendoNumericTextBox.value();
         if (numberOfViews > 0) {
-            $("#multiViewCalendar").data().kendoMultiViewCalendar.setOptions({ numberOfVies: numberOfViews });
+            $("#multiViewCalendar").data().kendoMultiViewCalendar.setOptions({ views: numberOfViews });
         }
     }
 </script>
 ```
 
 ## See Also
-
-Other articles on the Kendo UI MultiViewCalendar:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the MultiViewCalendar Widget](/aspnet-mvc/helpers/multiviewcalendar/overview)
 * [MultiViewCalendar JavaScript API Reference](/api/javascript/ui/multiviewcalendar)

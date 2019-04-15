@@ -1,7 +1,7 @@
 ---
 title: Customize Page Layout
-page_title: Customize Page Layout | Kendo UI Grid
-description: "Learn how to customize the page layout of a Kendo UI Grid in PDF."
+page_title: jQuery Grid Documentation | Customize Page Layout | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to customize the page layout in PDF."
 previous_url: /framework/drawing/how-to/custom-page-layout, /kendo-mvc/controls/data-management/grid/how-to/pdf-export/custom-page-layout
 slug: howto_customize_page_layout_pdf_grid
 ---
@@ -17,7 +17,7 @@ refer to the article on [PDF export of a page template]({% slug exporting_pdf_ke
 
 * [JavaScript API Reference: kendo.drawing](/api/javascript/drawing)
 * [JavaScript API Reference: kendo.geometry](/api/javascript/geometry)
-* [Grid JavaScript API Reference](/api/javascript/ui/grid)
+* [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
 * [How to Customize Page Layout]({% slug howto_customize_page_layout_pdf_grid %})
 * [How to Export All Pages]({% slug howto_export_all_pagesto_pdf_grid %})
 * [How to Export All Pages and Full Page Content]({% slug howto_export_allpagesand_full_page_content_pdf_grid %})

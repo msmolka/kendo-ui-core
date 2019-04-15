@@ -1,7 +1,7 @@
 ---
 title: Configure Color for Alternating Rows
-page_title:  Configure Color for Alternating Rows | Kendo UI Grid
-description: "Learn how to configure the background color for alternating rows in the Kendo UI Grid widget."
+page_title:  jQuery Grid Documentation | Color for Alternating Rows | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to configure the background color for alternating rows."
 slug: howto_configure_color_alternating_rows_grid
 ---
 
@@ -13,7 +13,7 @@ To set the background color of the alternating rows, the demo uses the [`backgro
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>
 <script>
     $("#grid").kendoGrid({

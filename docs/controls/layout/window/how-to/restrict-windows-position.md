@@ -11,7 +11,7 @@ The example below demonstrates how to restrict the movement of a Kendo UI Window
 
 ###### Example
 
-```html
+```dojo
     <div id="window">
       Window content
     </div>
@@ -55,8 +55,6 @@ The example below demonstrates how to restrict the movement of a Kendo UI Window
 ```
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI Window:
 
 * [Window JavaScript API Reference](/api/javascript/ui/window)
 * [How to Add Close Button inside Modal Windows]({% slug howto_addclosebutton_insidemodalwindows_window %})

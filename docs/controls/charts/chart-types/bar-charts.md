@@ -36,7 +36,7 @@ The [Kendo UI Column Chart](http://demos.telerik.com/kendo-ui/bar-charts/column)
 
 **Figure 1: A sample Column Chart with categories**
 
-![Column Chart with categories](/controls/charts/chart-column-categories.png)
+![Column Chart with categories](../chart-column-categories.png)
 
 ### Bar Chart
 
@@ -60,11 +60,9 @@ Setting the `type` property on the `series` object to `"bar"` renders horizontal
 
 **Figure 2: A sample Bar Chart**
 
-![Bar Chart](/controls/charts/chart-types/chart-bar.png)
+![Bar Chart](chart-bar.png)
 
 ## See Also
-
-Other articles on Kendo UI Charts and chart types:
 
 * [Overview of the Chart Widgets]({% slug overview_kendoui_charts_widget %})
 * [Data Series Charts]({% slug seriestypeofcharts_widget %})

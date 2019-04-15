@@ -196,7 +196,7 @@ Below are listed the steps for you to follow when creating a PHP file which retu
 
 **Step 1** Create a new PHP file called `products.php`. This file will return data in JSON format. The data source is configured to request it via the [`url`](/api/php/Kendo/Data/DataSourceTransportRead#url) setting.
 
-**Step 2** Copy `/wrappers/php/lib/DataSourceResult.php` to your web site root and include it.
+**Step 2** Copy `/wrappers/php/lib/DataSourceResult.php` to your website root and include it.
 
 ###### Example
 
@@ -234,8 +234,6 @@ Below are listed the steps for you to follow when creating a PHP file which retu
         ?>
 
 ## See Also
-
-Other articles on Telerik UI for PHP and on the DropDownList:
 
 * [Overview of the DropDownList PHP Class]({% slug overview_dropdownlist_uiforphp %})
 * [Local Binding of the DropDownList PHP Class]({% slug localbinding_dropdownlist_uiforphp %})

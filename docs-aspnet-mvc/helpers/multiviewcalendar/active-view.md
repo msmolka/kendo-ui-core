@@ -1,6 +1,6 @@
 ---
 title: Active View
-page_title: Active View | Kendo UI MultiViewCalendarr HtmlHelper
+page_title: Active View | Kendo UI MultiViewCalendar HtmlHelper for ASP.NET MVC
 description: "Define the first view that the Kendo UI MultiViewCalendar initially renders."
 slug: active_view_multiviewcalendar_aspnetmvc
 position: 2
@@ -8,7 +8,9 @@ position: 2
 
 # Active View
 
-To define the first rendered view, use the `Start` option. To control the navigation depth, set the `Depth` option.
+To define the first view which the MultiViewCalendar initially renders, use the `Start` option.
+
+To control the navigation depth, set the `Depth` option.
 
 The following views are predefined:
 
@@ -17,13 +19,13 @@ The following views are predefined:
 * `decade`&mdash;Shows the years of the decade.
 * `century`&mdash;Shows the decades of the century.
 
-### Selectable Month Calendars
+## Selectable Month Calendars
 
 The following example demonstrates how to create a MultiViewCalendar that allows users to select a month.
 
 ###### Example
 
-```tab-ASPX
+```ASPX
 
         <%: Html.Kendo().MultiViewCalendar()
             .Name("MultiViewCalendar")
@@ -31,7 +33,7 @@ The following example demonstrates how to create a MultiViewCalendar that allows
             .Depth(CalendarView.Year)
         %>
 ```
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
             .Name("MultiViewCalendar")
@@ -41,8 +43,6 @@ The following example demonstrates how to create a MultiViewCalendar that allows
 ```
 
 ## See Also
-
-Other articles on the Kendo UI MultiViewCalendar:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the MultiViewCalendar Widget](/helpers/multiviewcalendar/overview)
 * [MultiViewCalendar JavaScript API Reference](http://docs.telerik.com/kendo-ui/api/javascript/ui/multiviewcalendar)

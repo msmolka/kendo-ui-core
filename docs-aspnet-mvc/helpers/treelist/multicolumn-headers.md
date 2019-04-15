@@ -1,6 +1,6 @@
 ---
 title: Multicolumn Headers
-page_title: Multicolumn Headers | Kendo UI TreeList HtmlHelper
+page_title: Multicolumn Headers | Kendo UI TreeList HtmlHelper for ASP.NET MVC
 description: "Learn how to apply the multicolumn headers feature to the Kendo UI TreeList for ASP.NET MVC."
 slug: multicolumn_headers_mvc_treelist_helper
 position: 3
@@ -33,10 +33,8 @@ That common header in its turn can be a child of another upper `MultiColumn` hea
 
 The above definition will be presented in the following output:
 
-<img src="/helpers/treelist/images/treelist-multicolumn-headers.png">
+![Multi-column headers](images/treelist-multicolumn-headers.png)
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI TreeList:
 
 * [JavaScript API Reference](https://docs.telerik.com/kendo-ui/api/javascript/ui/treelist)

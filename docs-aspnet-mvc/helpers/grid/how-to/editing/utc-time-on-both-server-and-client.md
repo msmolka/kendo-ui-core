@@ -1,6 +1,6 @@
 ---
 title: Use UTC on Both Client and Server
-page_title: Use UTC on Both Client and Server | Kendo UI Grid HtmlHelper
+page_title: Use UTC on Both Client and Server | Kendo UI Grid HtmlHelper for ASP.NET MVC
 description: "Configure the Kendo UI Grid to use the enum type for both displaying and editing."
 slug: howto_useutctimeonclientandserver_gridaspnetmv
 ---
@@ -84,7 +84,7 @@ Below are listed the 2 corresponding steps for you to follow.
                 for (var name in obj) {
                     var prop = obj[name];
                     if (typeof (prop) === "string" && prop.indexOf("/Date(") == 0) {
-                        obj[name] = prop.replace(/\d+/, function (n) {
+                        obj[name] = prop.replace(/-?\d+/, function (n) {
                             var offsetMiliseconds = new Date(parseInt(n)).getTimezoneOffset() * 60000;
                             return parseInt(n) + offsetMiliseconds
                         });

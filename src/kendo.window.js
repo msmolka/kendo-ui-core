@@ -75,7 +75,12 @@
             REFRESHICON = ".k-window-titlebar .k-i-refresh",
             WINDOWEVENTSHANDLED = "WindowEventsHandled",
             zero = /^0[a-z]*$/i,
-            isLocalUrl = kendo.isLocalUrl;
+            isLocalUrl = kendo.isLocalUrl,
+            SIZE = {
+                small: "k-window-sm",
+                medium: "k-window-md",
+                large: "k-window-lg"
+            };
 
         function defined(x) {
             return (typeof x != "undefined");
@@ -315,6 +320,7 @@
                 var width = options.width;
                 var height = options.height;
                 var maxHeight = options.maxHeight;
+                var sizeClass = options.size;
                 var dimensions = ["minWidth","minHeight","maxWidth","maxHeight"];
                 var contentBoxSizing = wrapper.css("box-sizing") == "content-box";
 
@@ -363,6 +369,10 @@
 
                 if (!options.visible) {
                     wrapper.hide();
+                }
+
+                if (sizeClass && SIZE[sizeClass]) {
+                    wrapper.addClass(SIZE[sizeClass]);
                 }
             },
 
@@ -495,32 +505,36 @@
             },
 
             setOptions: function(options) {
+                var that = this;
+                var sizeClass = that.options.size;
                 // make a deep extend over options.position telerik/kendo-ui-core#844
                 var cachedOptions = JSON.parse(JSON.stringify(options));
-                extend(options.position, this.options.position);
+                extend(options.position, that.options.position);
                 extend(options.position, cachedOptions.position);
 
-                Widget.fn.setOptions.call(this, options);
-                var scrollable = this.options.scrollable !== false;
+                Widget.fn.setOptions.call(that, options);
+                var scrollable = that.options.scrollable !== false;
 
-                this.restore();
+                that.restore();
 
                 if (typeof options.title !== "undefined") {
-                    this.title(options.title);
+                    that.title(options.title);
                 }
 
-                this._dimensions();
-                this._position();
-                this._resizable();
-                this._draggable();
-                this._actions();
+                that.wrapper.removeClass(SIZE[sizeClass]);
+                that._dimensions();
+
+                that._position();
+                that._resizable();
+                that._draggable();
+                that._actions();
                 if (typeof options.modal !== "undefined") {
-                    var visible = this.options.visible !== false;
-
-                    this._overlay(options.modal && visible);
+                    var visible = that.options.visible !== false;
+                    that._enableDocumentScrolling();
+                    that._overlay(options.modal && visible);
                 }
 
-                this.element.css(OVERFLOW, scrollable ? "" : "hidden");
+                that.element.css(OVERFLOW, scrollable ? "" : "hidden");
             },
 
             events:[
@@ -556,6 +570,7 @@
                 actions: ["Close"],
                 autoFocus: true,
                 modal: false,
+                size: "auto",
                 resizable: true,
                 draggable: true,
                 minWidth: 90,
@@ -717,6 +732,10 @@
                     .toggle(visible)
                     .css(ZINDEX, parseInt(wrapper.css(ZINDEX), 10) - 1);
 
+                if (this.options.modal.preventScroll && !this.containment) {
+                    this._stopDocumentScrolling();
+                }
+
                 return overlay;
             },
 
@@ -802,6 +821,7 @@
                     newTop = this.minTop + (this.maxTop - this.minTop) / 2;
                     newLeft = this.minLeft + (this.maxLeft - this.minLeft) / 2;
                 } else {
+                    that._scrollIsAppended = true;
                     newLeft = scrollLeft + Math.max(0, (documentWindow.width() - wrapper.width()) / 2);
                     newTop = scrollTop + Math.max(0, (documentWindow.height() - wrapper.height() - toInt(wrapper, "paddingTop")) / 2);
                 }
@@ -824,7 +844,8 @@
                     wrapper = that.wrapper,
                     titleBar = wrapper.children(KWINDOWTITLEBAR),
                     titleElement = titleBar.children(KWINDOWTITLE),
-                    titleBarHeight;
+                    titleBarHeight,
+                    display, visibility;
 
                 if (!arguments.length) {
                     return titleElement.html();
@@ -851,7 +872,18 @@
                         titleElement.html(encoded ? kendo.htmlEncode(value) : value);
                     }
 
-                    titleBarHeight = parseInt(outerHeight(titleBar), 10);
+                    visibility = wrapper.css("visibility");
+                    display = wrapper.css("display");
+
+                    if (visibility === HIDDEN) {
+                        wrapper.css({ display: "" });
+                        titleBarHeight = parseInt(outerHeight(titleBar), 10);
+                        wrapper.css({ display: display });
+                    } else {
+                        wrapper.css({ visibility: HIDDEN, display: "" });
+                        titleBarHeight = parseInt(outerHeight(titleBar), 10);
+                        wrapper.css({ visibility: visibility, display: display });
+                    }
 
                     wrapper.css("padding-top", titleBarHeight);
                     titleBar.css("margin-top", -titleBarHeight);
@@ -959,8 +991,8 @@
                     that._stopDocumentScrolling();
                 }
 
-                if(options.pinned && !that._isPinned){
-                    that.pin();
+                if(this.options.pinned && !this._isPinned){
+                    this.pin();
                 }
 
                 return that;
@@ -975,6 +1007,7 @@
 
                 this.element.css(OVERFLOW, scrollable ? "" : "hidden");
                 kendo.resize(this.element.children());
+
                 this.trigger(ACTIVATE);
             },
 
@@ -994,8 +1027,15 @@
                     } else {
                         this._overlay(false).remove();
                     }
+                    if (options.modal.preventScroll) {
+                        this._enableDocumentScrolling();
+                    }
                 } else if (modals.length) {
                     this._object(modals.last())._overlay(true);
+
+                    if (options.modal.preventScroll) {
+                        this._stopDocumentScrolling();
+                    }
                 }
             },
 
@@ -1203,19 +1243,21 @@
                 that.options.width = restoreOptions.width;
                 that.options.height = restoreOptions.height;
 
-                that._enableDocumentScrolling();
-
-                if (this._containerScrollTop && this._containerScrollTop > 0) {
-                    container.scrollTop(this._containerScrollTop);
+                if (!that.options.modal.preventScroll) {
+                    that._enableDocumentScrolling();
                 }
-                if (this._containerScrollLeft && this._containerScrollLeft > 0) {
-                    container.scrollLeft(this._containerScrollLeft);
+
+                if (that._containerScrollTop && that._containerScrollTop > 0) {
+                    container.scrollTop(that._containerScrollTop);
+                }
+                if (that._containerScrollLeft && that._containerScrollLeft > 0) {
+                    container.scrollLeft(that._containerScrollLeft);
                 }
 
                 options.isMaximized = options.isMinimized = false;
 
-                this.wrapper.removeAttr("tabindex");
-                this.wrapper.removeAttr("aria-labelled-by");
+                that.wrapper.removeAttr("tabindex");
+                that.wrapper.removeAttr("aria-labelled-by");
 
                 that.resize();
 
@@ -1397,9 +1439,10 @@
                     position.top = top;
                     position.left = left;
 
-                    if (!this.containment || this.containment.css("position") !== "fixed") {
+                    if (that._scrollIsAppended && (!this.containment || this.containment.css("position") !== "fixed")) {
                         position.top -= win.scrollTop();
                         position.left -= win.scrollLeft();
+                        that._scrollIsAppended = false;
                     }
 
                     wrapper.css(extend(position, {position: "fixed"}));
@@ -1430,6 +1473,7 @@
 
                 if (!that.options.isMaximized) {
                     that._isPinned = false;
+                    that._scrollIsAppended = true;
                     that.options.pinned = false;
 
                     if (containment) {

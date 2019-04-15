@@ -18,7 +18,7 @@ The milestones of the approach are:
 
 ###### Example
 
-```html
+```dojo
 <style>
 
   .k-tabstrip-items li .k-button {
@@ -79,8 +79,6 @@ The milestones of the approach are:
 ```
 
 ## See Also
-
-Other articles on the Kendo UI TabStrip:
 
 * [TabStrip JavaScript API Reference](/api/javascript/ui/tabstrip)
 * [How to Display Buttons at the Bottom]({% slug howto_displaybuttonsatthebottom_tabstrip %})

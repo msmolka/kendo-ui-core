@@ -19,9 +19,7 @@ For more information on the HtmlHelper, refer to the article on the [Scheduler H
 
 The following example demonstrates how to define the Scheduler by using the Scheduler HtmlHelper.
 
-###### Example
-
-```tab-Razor
+```Razor
     @(Html.Kendo().Scheduler<Kendo.Mvc.Examples.Models.Scheduler.TaskViewModel>()
         .Name("scheduler")
         .Date(new DateTime(2013, 6, 13))
@@ -50,7 +48,7 @@ The following example demonstrates how to define the Scheduler by using the Sche
         )
     )
 ```
-```tab-Controller
+```Controller
     public class SchedulerController : Controller
     {
     	private SchedulerTaskService taskService;
@@ -107,6 +105,12 @@ The following example demonstrates how to define the Scheduler by using the Sche
     	}
     }
 ```
+
+## Reset Series
+
+As of the R1 2017 release, exceptions are no longer automatically removed when the user edits a series. Changes that are made to specific occurrences are persisted during series editing.
+
+If a series contains an exception, the Scheduler renders a **Reset Series** button within the **Edit** dialog of the series which allows the user to reset the series by removing existing exceptions.
 
 ## Configuration
 

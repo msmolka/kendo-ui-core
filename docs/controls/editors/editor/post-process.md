@@ -40,8 +40,6 @@ The following example demonstrates how to remove all paragraphs before posting t
 <!--*-->
 ## See Also
 
-Other articles on the Kendo UI Editor:
-
 * [Overview of the Editor Widget]({% slug overview_kendoui_editor_widget %})
 * [Image Browser]({% slug image_browser_editor_widget %})
 * [Set Selections]({% slug set_selections_editor_widget %})
@@ -49,5 +47,5 @@ Other articles on the Kendo UI Editor:
 * [Prevent Cross-Site Scripting]({% slug prevent_xss_editor_widget %})
 * [Troubleshooting]({% slug troubleshooting_editor_widget %})
 * [Editor JavaScript API Reference](/api/javascript/ui/editor)
-
-For how-to examples on the Kendo UI Editor widget, browse its [**How To** documentation folder]({% slug howto_handleblurandfocuseventsangular_editor %}).
+* [How-To Examples]({% slug howto_handleblurandfocuseventsangular_editor %})
+* [Knowledge Base Section](/knowledge-base)

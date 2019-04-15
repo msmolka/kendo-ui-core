@@ -1,7 +1,7 @@
 ---
 title: Edit Records Using External Forms
-page_title: Edit Records Using External Forms | Kendo UI Grid
-description: "Learn how to edit records in Kendo UI Grid by using an external form."
+page_title: jQuery Grid Documentation | Editing Records via External Forms | Kendo UI
+description: "Get started with the editing functionality of the jQuery Grid by Kendo UI and learn how to edit records via external form."
 slug: howto_edit_records_using_external_forms_grid
 ---
 
@@ -13,7 +13,7 @@ The following example demonstrates how to achieve this behavior, create editors 
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>
 <div id="editForm">
     <h2>Edit Form</h2>
@@ -187,9 +187,6 @@ The following example demonstrates how to achieve this behavior, create editors 
 * [MVVM Value Binding](http://docs.telerik.com/kendo-ui/framework/mvvm/bindings/value)
 * [Kendo UI Validator](http://docs.telerik.com/kendo-ui/framework/validator/overview)
 * [Data Source Methods](http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#methods)
-
-Other articles on the Kendo UI Grid and how-to examples related to its editing functionality:
-
 * [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
 * [How to Add New Rows When Tabbing out of the Last One]({% slug howto_add_new_rows_when_tabbingoutof_thelast_one_grid %})
 * [How to Build Custom dataSource for Custom Editor]({% slug howto_build_custom_datasourcefor_custom_editor_grid %})

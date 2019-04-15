@@ -10,7 +10,7 @@ position: 5
 
 **Figure 1. A snapshot of the Kendo UI Music Store Social Networking page**
 
-![social-overview](/tutorials/tutorial-kendo-music-store/music-store-dashboard/images/social-overview.png)
+![social-overview](images/social-overview.png)
 
 The **Social Stats** page contains various views of social networking data taken from the Kendo UI Music Store. This includes Facebook Likes, Twitter tweets, Google Plus pluses, and Pintrest pins. The different social networks can be selected to show their data in the main graph view, potentially combining the views and adding axes to the graph.
 
@@ -41,7 +41,7 @@ Note the `buildSocialStatsSeries` and `buildSocialStatsValueAxis` functions. The
 
 **Figure 2. A snapshot of the social tiles**
 
-![social-tiles](/tutorials/tutorial-kendo-music-store/music-store-dashboard/images/social-tiles.png)
+![social-tiles](images/social-tiles.png)
 
 These tiles are constructed by using standard declarative markup in HTML and JavaScript events. The following example demonstrates the HTML.
 
@@ -157,8 +157,6 @@ The `buildSocialStatsSeries` is similarly constructed, but provides information 
 Combined, these functions make the data presentation of the chart dynamic, and allow for the user to select multiple views while remaining robust and clear to develop.
 
 ## See Also
-
-Other articles on the Kendo UI Music Store Dashboard sample project:
 
 * [Overview of the Kendo UI Music Store Sample Project]({% slug overview_muscistoretutorial_aspnetmvc %})
 * [Set Up the Kendo UI Music Store Dashboard Project]({% slug projectsetup_muscistoredashboard_aspnetmvc %})

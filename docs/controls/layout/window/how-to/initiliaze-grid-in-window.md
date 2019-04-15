@@ -15,7 +15,7 @@ The example below demonstrates how to use the `activate` event when initializing
 
 ###### Example
 
-```html
+```dojo
     <body>
       <button id="openBtn">Open</button>
       <div id="wnd">
@@ -57,8 +57,6 @@ The example below demonstrates how to use the `activate` event when initializing
 ```
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI Window:
 
 * [Initialize the Grid inside a Hidden Container](/web/grid/appearance#initialize-the-grid-inside-a-hidden-container)
 * [JavaScript API Reference: Configuration of Window Animations](/api/javascript/ui/window/configuration/animation)

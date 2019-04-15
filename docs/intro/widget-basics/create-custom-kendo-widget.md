@@ -356,7 +356,7 @@ The demonstration below uses two widgets that are initialized. The first one tak
 
 ###### Example
 
-```html
+```dojo
    <div id="repeater"></div>
 
     <div id="container">
@@ -604,7 +604,7 @@ In the complete example below note that when you add an item to the DataSource, 
 
 ###### Example
 
-```html
+```dojo
         <label for="newItem">Enter A New Item</label>
         <input id="newItem" data-bind="value: newItem" class="k-input" />
         <button class="k-button" data-bind="click: add">Add Item</button>
@@ -714,7 +714,7 @@ The following example combines the snippets and exhibits the full code.
 
 ###### Example
 
-```html
+```dojo
     <script>
       (function ($) {
         var kendo = window.kendo;
@@ -776,8 +776,6 @@ The following example combines the snippets and exhibits the full code.
 Custom widgets that inherit from Kendo UI widgets are not subject to technical support service, unless the question or issue can be discussed in the context of the originating widget that is provided in the Kendo UI installer.
 
 ## See Also
-
-Other articles on Kendo UI widget basics:
 
 * [Get Started with Kendo UI]({% slug getting_started_installation_kendoui %})
 * [Kendo UI CDN Services]({% slug kendoui_cdn_services_installation %})

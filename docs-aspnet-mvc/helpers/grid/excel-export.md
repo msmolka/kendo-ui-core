@@ -1,6 +1,6 @@
 ---
 title: Excel Export
-page_title: Excel Export | Kendo UI Grid HtmlHelper
+page_title: Excel Export | Kendo UI Grid HtmlHelper for ASP.NET MVC
 description: "Export the Kendo UI Grid for ASP.NET MVC to Excel."
 slug: excelexport_gridhelper_aspnetmvc
 position: 4
@@ -20,9 +20,7 @@ For more information on this issue, refer to [this online demo](http://demos.tel
 
 The following example demonstrates how to enable the Excel export functionality.
 
-###### Example
-
-```tab-ASPX
+```ASPX
     <%: Html.Kendo().Grid<MvcApplication.Models.ProductViewModel>()
         .Name("grid")
         .ToolBar(tools => tools.Excel())
@@ -35,7 +33,7 @@ The following example demonstrates how to enable the Excel export functionality.
         )
     %>
 ```
-```tab-Razor
+```Razor
     @(Html.Kendo().Grid<MvcApplication.Models.ProductViewModel>()
         .Name("grid")
         .ToolBar(tools => tools.Excel())
@@ -79,9 +77,7 @@ By default, the Kendo UI Grid exports only the current page of data. To export a
 
 The following example demonstrates how to export all the data.
 
-###### Example
-
-```tab-ASPX
+```ASPX
     <%: Html.Kendo().Grid<MvcApplication.Models.ProductViewModel>()
         .Name("grid")
         .ToolBar(tools => tools.Excel())
@@ -95,7 +91,7 @@ The following example demonstrates how to export all the data.
     )
     %>
 ```
-```tab-Razor
+```Razor
     @(Html.Kendo().Grid<MvcApplication.Models.ProductViewModel>()
         .Name("grid")
         .ToolBar(tools => tools.Excel())
@@ -141,7 +137,7 @@ For more information on how to export multiple Grids to a separate Excel sheet i
 
 ### Use Server-Side Processing
 
-To export huge datasets to Excel, a well-suited solution is the new [RadSpreadStreamProcessing library](http://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) which is part of the [Telerik Document Processing (TDP) by Progress](http://docs.telerik.com/devtools/document-processing/introduction).  
+To export huge datasets to Excel, a well-suited solution is the new [RadSpreadStreamProcessing library](http://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) which is part of the [Telerik Document Processing (TDP) by Progress](http://docs.telerik.com/devtools/document-processing/introduction).
 
 TDP handles the data import, export, and processing from the following formats:
 
@@ -161,9 +157,6 @@ For examples on how to export Excel files, refer to the [example on the integrat
 * [Create Excel Documents with Kendo UI](http://docs.telerik.com/kendo-ui/framework/excel/introduction)
 * [Save Files with Kendo UI](http://docs.telerik.com/kendo-ui/framework/save-files/introduction)
 * [API Reference: kendo.ooxml.Workbook](http://docs.telerik.com/kendo-ui/api/javascript/ooxml/workbook)
-
-Other articles on the Kendo UI Grid for ASP.NET MVC:
-
 * [Overview of the Grid HtmlHelper]({% slug overview_gridhelper_aspnetmvc %})
 * [Configuration of the Grid HtmlHelper]({% slug configuration_gridhelper_aspnetmvc %})
 * [Scaffolding]({% slug scaffoldinggrid_aspnetmvc %})
@@ -174,9 +167,6 @@ Other articles on the Kendo UI Grid for ASP.NET MVC:
 * [Troubleshooting for the Grid HtmlHelper]({% slug troubleshoot_gridhelper_aspnetmvc %})
 * [API Reference of the Grid HtmlHelper](http://docs.telerik.com/aspnet-mvc/api/Kendo.Mvc.UI.Fluent/GridBuilder)
 * [Overview of the Kendo UI Grid Widget](http://docs.telerik.com/kendo-ui/controls/data-management/grid/overview)
-
-Articles on Telerik UI for ASP.NET MVC:
-
 * [Overview of Telerik UI for ASP.NET MVC]({% slug overview_aspnetmvc %})
 * [Fundamentals of Telerik UI for ASP.NET MVC]({% slug fundamentals_aspnetmvc %})
 * [Scaffolding in Telerik UI for ASP.NET MVC]({% slug scaffolding_aspnetmvc %})

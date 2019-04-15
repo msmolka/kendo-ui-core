@@ -24,7 +24,7 @@ Select **Internet Options** > **Security** > **Internet** (or **Local intranet**
 
 **Figure 2. Options and settings to apply to render the chart graphics**
 
-![IEscript behaviors](/styles-and-layout/chart-ie-script-behaviors.png)
+![IEscript behaviors](../../../../styles-and-layout/chart-ie-script-behaviors.png)
 
 ## Export
 
@@ -44,7 +44,7 @@ The example below demonstrates how to embed fonts in exported PDF.
 
 ###### Example
 
-```html
+```dojo
 <button class='export-pdf k-button'>Save as PDF</button>
 
 <div id="diagram"></div>
@@ -189,13 +189,8 @@ The example below demonstrates how to embed fonts in exported PDF.
 
 ## See Also
 
-Other articles on styling, appearance, and rendering of Kendo UI widgets:
-
 * [Themes and Appearance of the Kendo UI Widgets]({% slug themesandappearnce_kendoui_desktopwidgets %})
 * [Rendering Modes for Data Visualization]({% slug renderingmodesfor_datavisualization_kendouistyling %})
-
-Other articles on troubleshooting:
-
 * [Common Issues in Kendo UI]({% slug troubleshooting_common_issues_kendoui %})
 * [Kendo UI JavaScript Errors]({% slug troubleshooting_javascript_errors_kendoui %})
 * [Kendo UI Performance Issues]({% slug troubleshooting_system_memory_symptoms_kendoui %})
@@ -209,7 +204,6 @@ Other articles on troubleshooting:
 * [Common Issues in Kendo UI MultiSelect]({% slug troubleshooting_common_issues_multiselect_kendoui %})
 * [Common Issues in Kendo UI Scheduler]({% slug troubleshooting_scheduler_widget %})
 * [Common Issues in Kendo UI Upload]({% slug troubleshooting_upload_widget %})
-* [Common Issues Related to Styling, Appearance, and Rendering]({% slug commonissues_troubleshooting_kendouistyling %})
 * [Common Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting)
 * [Validation Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting-validation)
 * [Scaffolding Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting-scaffolding)

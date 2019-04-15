@@ -20,7 +20,7 @@ A Kendo UI Upload in a synchronous mode behaves like a regular file input. The s
 
 **Figure 1: An Upload in the synchronous mode**
 
-![](/controls/editors/upload/upload-sync.png)
+![Upload Sync](upload-sync.png)
 
 The Upload initializes from an existing file input that is placed in a form. The array syntax in the input name is used to hint the Upload handler to treat the photos as an array.
 
@@ -46,7 +46,7 @@ In this mode, the Kendo UI Upload requires dedicated server handlers to store an
 
 **Figure 2: An Upload in the asynchronous mode**
 
-![](/controls/editors/upload/upload-async.png)
+![Upload Async](upload-async.png)
 
 The asynchronous mode is implemented using the [HTML5 File API](https://en.wikipedia.org/wiki/HTML5_File_API). The upload will gracefully degrade and continue to function in legacy browsers using a hidden `iframe`.
 
@@ -98,20 +98,7 @@ The Upload has a fallback mechanism when it is placed inside a `form` and is con
 
 The uploaded files must be handled both in the save handler and in the form submit action, as in synchronous mode.
 
-### Programmatic Trigger of Asynchronous Upload
-
-The Upload widget does not provide a public API method for asynchronous uploading of the already selected files, when `autoUpload` is set to `false`. To achieve the same result, it is possible to trigger the `click` event of the widget's **Upload** button.
-
-###### Example
-
-    var upload = $("UploadID").data("kendoUpload");
-    upload.wrapper.find("button.k-upload-selected").click();
-
-The [`wrapper`]({% slug widgetwrapperandelement_references_gettingstarted %}) property returns the outermost element of the Upload.
-
 ## See Also
-
-Other articles on the Kendo UI Upload:
 
 * [Overview of the Upload Widget]({% slug overview_kendoui_upload_widget %})
 * [Drag and Drop]({% slug dragandrop_upload_widget %})

@@ -1,6 +1,6 @@
 ---
 title: Use Inline Editors in Editor Templates
-page_title: Use Inline Editors in Editor Templates | Kendo UI Editor HtmlHelper
+page_title: Use Inline Editors in Editor Templates | Kendo UI Editor HtmlHelper for ASP.NET MVC
 description: "Use an inline Editor in an Editor template in ASP.NET MVC applications."
 slug: howto_useinlineeditorineditortemplate_editoraspnetmvc
 ---
@@ -13,22 +13,22 @@ The reason for this behavior is that the inline mode renders a DOM element which
 
 ###### Example
 
-```tab-Razor
-@model string
 
-@(Html.Kendo().EditorFor(model => model)
-    .Name(Html.NameFor(model => model) + "_Editor")
-    .Tag("div")
-    .Tools(tools => tools.Clear().Bold().Italic().Underline())
-    .Events(events => events.Change(@"function (ev){
-    var hiddenInput =  $('#" + Html.NameFor(model => model) + @"');
-    hiddenInput.val(ev.sender.value());
-    hiddenInput.change();
-}"))
-)
+    @model string
 
-@Html.HiddenFor(model => model)
-```
+    @(Html.Kendo().EditorFor(model => model)
+        .Name(Html.NameFor(model => model) + "_Editor")
+        .Tag("div")
+        .Tools(tools => tools.Clear().Bold().Italic().Underline())
+        .Events(events => events.Change(@"function (ev){
+            var hiddenInput =  $('#" + Html.NameFor(model => model) + @"');
+            hiddenInput.val(ev.sender.value());
+            hiddenInput.change();
+        }"))
+    )
+
+    @Html.HiddenFor(model => model)
+
 
 ## See Also
 

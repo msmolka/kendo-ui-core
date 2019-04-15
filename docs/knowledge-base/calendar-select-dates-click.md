@@ -33,7 +33,7 @@ How can I select or deselect multiple dates only by clicking them and without us
 1. Get the clicked date and add it to a collection of the selected dates.
 1. Set the selected dates for the Calendar by using the [`selectDates`](https://docs.telerik.com/kendo-ui/api/javascript/ui/calendar/configuration/selectdates) method.
 
-```html
+```dojo
 <div id="calendar"></div>
 
 <script>
@@ -45,20 +45,22 @@ How can I select or deselect multiple dates only by clicking them and without us
 
 
         $("#calendar").on("mousedown", "td", function (e) {
+        // use "touchstart" for touch devices: $("#calendar").on("touchstart", "td", function (e) {
 
             // get item if the user clicked on an item template
             var clickedItem = $(e.target).closest("td[role='gridcell']");
 
             // prevent click event for item elements
             clickedItem.on("click", function (e) {
+            //use "touchend" for touch devices: clickedItem.on("touchend", function (e) {
+
                 e.stopPropagation();
                 e.preventDefault();
             });
 
             if (clickedItem.length > 0) {
                 var calendar = $("#calendar").getKendoCalendar();
-                var clickedDateString = clickedItem.children("a")[0].title;
-                var clickedDate = new Date(clickedDateString);
+                var clickedDate = kendo.calendar.toDateObject(clickedItem.children("a"));
 
                 var selectedDates = calendar.selectDates();
 

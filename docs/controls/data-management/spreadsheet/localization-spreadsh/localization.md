@@ -60,7 +60,7 @@ Each message, depending on its location or function representation within the wi
 
 When you apply JavaScript to update a particular message, indicate it by using its namespace.
 
-```html
+```dojo
 
     <div id="spreadsheet"></div>
 
@@ -92,8 +92,6 @@ When you apply JavaScript to update a particular message, indicate it by using i
 ```
 
 ## See Also
-
-Other articles on Kendo UI Spreadsheet and localization:
 
 * [List of `colorpicker` Messages]({% slug localization_colorpicker_messages_spreadsheet_widget %})
 * [List of `borderpalette` Messages]({% slug localization_borderpalette_messages_spreadsheet_widget %})

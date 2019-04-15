@@ -1,7 +1,7 @@
 ---
 title: Use FontAwesome Icons in Kendo UI Grid
-page_title:  Use FontAwesome Icons in Custom Command Buttons | Kendo UI Grid
-description: "Learn how to use FontAwesome icons in the Kendo UI Grid widget."
+page_title:  jQuery Grid Documentation | FontAwesome Icons in Buttons | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to use FontAwesome icons with the Grid's built-in buttons."
 slug: howto_use_fontawesomeiconsin_custom_command_buttons_grid
 ---
 
@@ -11,7 +11,7 @@ The example below demonstrates how to use FontAwesome icons with the Kendo UI Gr
 
 ###### Example
 
-```html
+```dojo
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <script src="https://demos.telerik.com/kendo-ui/content/shared/js/people.js"></script>
 

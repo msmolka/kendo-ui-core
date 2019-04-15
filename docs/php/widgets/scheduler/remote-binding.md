@@ -509,7 +509,7 @@ Below are listed the steps for you to follow when creating a PHP file which perf
 
 **Step 1** Create a new PHP file called `tasks.php`. This file will perform CRUD data operations.
 
-**Step 2** Copy `/wrappers/php/lib/DataSourceResult.php` to your web site root and include it.
+**Step 2** Copy `/wrappers/php/lib/DataSourceResult.php` to your website root and include it.
 
 ###### Example
 
@@ -609,8 +609,6 @@ Below are listed the steps for you to follow when creating a PHP file which perf
         ?>
 
 ## See Also
-
-Other articles on Telerik UI for PHP and on the Scheduler:
 
 * [Overview of the Scheduler PHP Class]({% slug overview_scheduler_uiforphp %})
 * [Local Binding of the Scheduler PHP Class]({% slug localbinding_scheduler_uiforphp %})

@@ -1,7 +1,7 @@
 ---
 title: Filter by Date Only
-page_title: Filter by Date Only | Kendo UI Grid
-description: "Learn how to filter date columns in the Kendo UI Grid widget."
+page_title: jQuery Grid Documentation | Filter by Date | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to filter date columns in the widget."
 previous_url: /controls/data-management/grid/how-to/filter-by-date
 slug: howto_filter_date_columns_grid
 ---
@@ -25,7 +25,7 @@ To create the helper field:
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>
     <script>
       var sampleData = [
@@ -93,7 +93,7 @@ To achieve the filter change:
 
 ###### Example
 
-```html
+```dojo
 <div id="grid"></div>
     <script>
       $("#grid").kendoGrid({

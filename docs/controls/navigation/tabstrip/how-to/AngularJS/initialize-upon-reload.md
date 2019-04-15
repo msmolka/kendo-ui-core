@@ -21,7 +21,7 @@ To ensure that the Kendo UI TabStrip is properly initialized, choose one of the 
 
 ###### Example
 
-```html
+```dojo
     <div ng-app="foo">
 
        <div ng-controller="mine">
@@ -58,8 +58,6 @@ To ensure that the Kendo UI TabStrip is properly initialized, choose one of the 
 ```
 
 ## See Also
-
-Other articles on the Kendo UI TabStrip:
 
 * [TabStrip JavaScript API Reference](/api/javascript/ui/tabstrip)
 * [How to Add Close Button to Tabs]({% slug howto_addclosebuttontotabs_tabstrip %})

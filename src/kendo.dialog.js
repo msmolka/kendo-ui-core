@@ -23,6 +23,7 @@
             KWINDOW = ".k-window",
             KICONCLOSE = ".k-dialog-close",
             KCONTENTCLASS = "k-content k-window-content k-dialog-content",
+            KCONTENTSELECTOR = ".k-window-content",
             KCONTENT = ".k-content",
             KSCROLL = "k-scroll",
             KTITLELESS = "k-dialog-titleless",
@@ -39,12 +40,24 @@
             ZINDEX = "zIndex",
             BODY = "body",
             INITOPEN = "initOpen",
+            TOUCHSTART = "touchstart",
+            TOUCHMOVE = "touchmove",
             OPEN = "open",
             CLOSE = "close",
             SHOW = "show",
             HIDE = "hide",
             WIDTH = "width",
+            SIZE = {
+                small: "k-window-sm",
+                medium: "k-window-md",
+                large: "k-window-lg"
+            },
+            HIDDEN = "hidden",
+            OVERFLOW = "overflow",
+            DATADOCOVERFLOWRULE = "original-overflow-rule",
+            DATAHTMLTAPYRULE = "tap-y",
             HUNDREDPERCENT = 100,
+            CSSFLEXBOX = kendo.support.cssFlexbox,
             messages = {
                 okText  : "OK",
                 cancel : "Cancel",
@@ -110,6 +123,8 @@
 
             setOptions: function(options) {
                 var that = this;
+                var sizeClass = that.options.size;
+
                 options = $.extend(that.options, options);
 
                 Widget.fn.setOptions.call(that, options);
@@ -130,12 +145,20 @@
 
                 that.wrapper.show();
                 that._closable(that.wrapper);
+
+                that.wrapper.removeClass(SIZE[sizeClass]);
                 that._dimensions();
 
                 if (!options.visible) {
                     that.wrapper.hide();
                 } else {
                     that._triggerOpen();
+                }
+
+                if (typeof options.modal !== "undefined") {
+                    var visible = that.options.visible !== false;
+                    that._enableDocumentScrolling();
+                    that._overlay(options.modal && visible);
                 }
             },
 
@@ -145,6 +168,7 @@
                     options = that.options,
                     width = options.width,
                     height = options.height,
+                    sizeClass = options.size,
                     dimensions = ["minWidth", "minHeight", "maxWidth", "maxHeight"];
 
                 for (var i = 0; i < dimensions.length; i++) {
@@ -172,6 +196,10 @@
                     }
 
                     this._setElementHeight();
+                }
+
+                if (sizeClass && SIZE[sizeClass]) {
+                    wrapper.addClass(SIZE[sizeClass]);
                 }
             },
 
@@ -267,6 +295,10 @@
                     this._removeWaiAriaOverlay();
                 }
 
+                if (this.options.modal.preventScroll) {
+                    this._stopDocumentScrolling();
+                }
+
                 return overlay;
             },
 
@@ -296,12 +328,12 @@
 
             _closeClick: function(e) {
                 e.preventDefault();
-                this.close();
+                this.close(false);
             },
 
             _closeKeyHandler: function(e) {
                 if (buttonKeyTrigger(e) || e.keyCode == keys.ESC) {
-                    this.close();
+                    this.close(false);
                 }
             },
 
@@ -311,7 +343,7 @@
                     keyCode = e.keyCode;
 
                 if (keyCode == keys.ESC && !that._closing && options.closable) {
-                    that.close();
+                    that.close(false);
                 }
             },
 
@@ -383,8 +415,9 @@
                 var isStretchedLayout = (this.options.buttonLayout === "stretched");
                 var buttonLayout = isStretchedLayout ? "stretched" : "normal";
                 var actionbar = $(templates.actionbar({ buttonLayout: buttonLayout }));
+
                 this._addButtons(actionbar);
-                if(isStretchedLayout) {
+                if(isStretchedLayout && !CSSFLEXBOX) {
                     this._normalizeButtonSize(actionbar);
                 }
                 wrapper.append(actionbar);
@@ -411,8 +444,9 @@
                         .data("action", action.action)
                         .on("click", actionClick)
                         .on("keydown", actionKeyHandler);
-                    if(o.buttonLayout === "stretched") {
-                        if(i == length - 1){
+
+                    if (o.buttonLayout === "stretched" && !CSSFLEXBOX) {
+                        if (i == length - 1) {
                              buttonSize = HUNDREDPERCENT - i*buttonSize;
                         }
                         btn.css(WIDTH, buttonSize + "%");
@@ -461,7 +495,7 @@
                 if (buttonKeyTrigger(e)) {
                     this._runActionBtn(e.currentTarget);
                 } else if (e.keyCode == keys.ESC) {
-                    this.close();
+                    this.close(false);
                 }
             },
 
@@ -475,7 +509,7 @@
                     preventClose = (isFunction(action) && action({ sender: that }) === false);
 
                 if (!preventClose) {
-                    that.close();
+                    that.close(false);
                 }
             },
 
@@ -592,8 +626,12 @@
                 return that;
             },
 
-            close: function() {
-                this._close(true);
+            close: function(systemTriggered) {
+                if(!arguments.length) {
+                    systemTriggered = true;
+                }
+
+                this._close(systemTriggered);
                 this._stopCenterOnResize();
                 return this;
             },
@@ -668,8 +706,94 @@
 
                 if (hideOverlay) {
                     this._overlay(false).remove();
+
+                    if (options.modal.preventScroll) {
+                        this._enableDocumentScrolling();
+                    }
                 } else if (modals.length) {
                     this._object(modals.last())._overlay(true);
+
+                    if (options.modal.preventScroll) {
+                        this._stopDocumentScrolling();
+                    }
+                }
+            },
+
+            _stopDocumentScrolling: function(){
+                var that = this;
+
+                var $body = $("body");
+                that._storeOverflowRule($body);
+                $body.css(OVERFLOW, HIDDEN);
+
+                var $html = $("html");
+                var html = $html[0];
+                that._storeOverflowRule($html);
+                $html.css(OVERFLOW, HIDDEN);
+
+                // prevent touch due to bug in ios
+                if (kendo.support.mobileOS.ios) {
+                    html.addEventListener(TOUCHSTART, that._touchStart, { passive: false });
+                    html.addEventListener(TOUCHMOVE, that._touchMove, { passive: false });
+                }
+            },
+
+            _touchStart: function (e) {
+                $(this).data(DATAHTMLTAPYRULE, e.changedTouches[0].pageY);
+            },
+
+            _touchMove: function (e) {
+                var target = e.target;
+                var $target = $(e.target);
+                var upScroll = e.changedTouches[0].pageY - $(this).data(DATAHTMLTAPYRULE) > 0;
+                var preventYScroll = $target.is(KCONTENTSELECTOR) &&
+                    (upScroll && $target.scrollTop() === 0) ||
+                    (!upScroll && $target.scrollTop() === target.scrollHeight - target.clientHeight);
+                if (!$target.is(KCONTENTSELECTOR) || preventYScroll) {
+                    e.preventDefault();
+                }
+            },
+
+            _enableDocumentScrolling: function(){
+                var that = this;
+                var $body = $(document.body);
+                var $html = $("html");
+                var html = $html[0];
+
+                that._restoreOverflowRule($body);
+                that._restoreOverflowRule($html);
+
+                if (kendo.support.mobileOS.ios) {
+                    $html.removeData(DATAHTMLTAPYRULE);
+                    html.removeEventListener(TOUCHSTART, that._touchStart, { passive: false });
+                    html.removeEventListener(TOUCHMOVE, that._touchMove, { passive: false });
+                }
+            },
+
+            _storeOverflowRule: function($element){
+                if(this._isOverflowStored($element)){
+                    return;
+                }
+
+                var overflowRule = $element.get(0).style.overflow;
+
+                if(typeof overflowRule === "string"){
+                    $element.data(DATADOCOVERFLOWRULE, overflowRule);
+                }
+            },
+
+            _isOverflowStored: function ($element){
+                return typeof $element.data(DATADOCOVERFLOWRULE) === "string";
+            },
+
+            _restoreOverflowRule: function($element){
+                var overflowRule = $element.data(DATADOCOVERFLOWRULE);
+
+                if(overflowRule !== null && overflowRule !== undefined){
+                    $element.css(OVERFLOW, overflowRule);
+                    $element.removeData(DATADOCOVERFLOWRULE);
+                } else {
+                    $element.css(OVERFLOW, "");
                 }
             },
 
@@ -823,6 +947,7 @@
                 buttonLayout: "stretched",
                 actions: [],
                 modal: true,
+                size: "auto",
                 width: null,
                 height: null,
                 minWidth: 0,
@@ -1020,7 +1145,7 @@
                 "</div>"
             ),
             close: template("<a role='button' href='\\#' class='k-button k-bare k-button-icon k-window-action k-dialog-action k-dialog-close' title='#: messages.close #' aria-label='#: messages.close #' tabindex='-1'><span class='k-icon k-i-close'></span></a>"),
-            actionbar: template("<div class='k-button-group k-dialog-buttongroup k-dialog-button-layout-#: buttonLayout #' role='toolbar' />"),
+            actionbar: template("<div class='k-dialog-buttongroup k-dialog-button-layout-#: buttonLayout #' role='toolbar' />"),
             overlay: "<div class='k-overlay' />",
             alertWrapper: template("<div class='k-widget k-window k-dialog' role='alertdialog' />"),
             alert: "<div />",

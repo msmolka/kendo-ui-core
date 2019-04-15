@@ -1,6 +1,6 @@
 ---
 title: Use the RangeSliderFor Method
-page_title: Use the RangeSliderFor Method | Kendo UI RangeSlider HtmlHelper
+page_title: Use the RangeSliderFor Method | Kendo UI Slider HtmlHelper for ASP.NET MVC
 description: "Use the RangeSliderFor method to update a model in ASP.NET MVC applications."
 slug: howto_userangesliderfor_slideraspnetmv
 ---
@@ -15,14 +15,14 @@ The following example demonstrates a very basic approach for using, consuming, a
 
 ##### Example
 
-```tab-MyModel.cs
+```Model
 public class MyModel
 {
     public int ID { get; set; }
     public double[] values { get; set; }
 }
 ```
-```tab-HomeController.cs
+```Controller
 public ActionResult Index()
 {
     return View(new MyModel { ID = 1, values=new double[] { 1, 2 } });
@@ -34,7 +34,7 @@ public ActionResult UpdateMyModel(MyModel model)
     return View("Index", model);
 }
 ```
-```tab-Razor
+```Razor
 @model TelerikMvcApp.Models.MyModel
 
 @using (Html.BeginForm("UpdateMyModel", "Home"))

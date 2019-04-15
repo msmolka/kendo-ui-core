@@ -226,6 +226,7 @@ If the `dataSource` option is an existing [kendo.data.SchedulerDataSource](/api/
          }
       }
     });
+    </script>
 
 #### Example - set dataSource as a JavaScript array
 
@@ -1349,6 +1350,30 @@ The tooltip of the previous navigation button.
     $("#scheduler").kendoScheduler({
       messages: {
         previous: "Previous"
+      },
+      date: new Date("2013/6/6"),
+      dataSource: [
+        {
+          id: 1,
+          start: new Date("2013/6/6 08:00 AM"),
+          end: new Date("2013/6/6 09:00 AM"),
+          title: "Interview"
+        }
+      ]
+    });
+    </script>
+
+### messages.resetSeries `String`
+
+The text of the reset series button.
+
+#### Example - set the "previous" message
+
+    <div id="scheduler"></div>
+    <script>
+    $("#scheduler").kendoScheduler({
+      messages: {
+        resetSeries: "Reset Series"
       },
       date: new Date("2013/6/6"),
       dataSource: [
@@ -2996,6 +3021,32 @@ The text similar to "Edit Recurring Item" displayed in the scheduler event edito
       messages: {
         recurrenceMessages: {
             editWindowTitle: "Edit Recurring Event"
+        }
+      },
+      dataSource: [
+        {
+          id: 1,
+          start: new Date("2013/6/6 08:00 AM"),
+          end: new Date("2013/6/6 09:00 AM"),
+          title: "Interview"
+        }
+      ]
+    });
+    </script>
+
+### messages.recurrenceMessages.resetSeriesWindowTitle `String`
+
+The title of the prompt dialog opened to confirm the resetting of a series event.
+
+#### Example - set the "resetSeriesWindowTitle" scheduler editor message
+
+    <div id="scheduler"></div>
+    <script>
+    $("#scheduler").kendoScheduler({
+      date: new Date("2013/6/6"),
+      messages: {
+        recurrenceMessages: {
+            resetSeriesWindowTitle: "Reset Series"
         }
       },
       dataSource: [

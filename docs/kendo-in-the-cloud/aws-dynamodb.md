@@ -1,12 +1,12 @@
 ---
-title: Consuming Data from Amazon DynamoDB
-page_title: Create and Consume Data from AWS DynamoDB Table | Kendo UI in the Cloud
+title: Amazon DynamoDB
+page_title: Amazon DynamoDB | Kendo UI in the Cloud
 description: "Learn how to create and implement an Amazon DynamoDB table, and retrieve, write, and edit data in it with the Kendo UI Grid."
 slug: aws_dynamodb
 position: 3
 ---
 
-# Consuming Data from Amazon DynamoDB
+#  Amazon DynamoDB
 
 This article provides a step-by-step tutorial on how to create a table in [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) and configure the [Kendo UI Grid]({% slug overview_kendoui_grid_widget %}) to retrieve, create, update, and destroy items in that table.
 
@@ -31,19 +31,19 @@ The following instructions demonstrate how to create a user identity and use tha
 
 	**Figure 1: Adding a new user**
 
-	![Add new user](/kendo-in-the-cloud/images/add-user-initial.png)
+	![Add new user](images/add-user-initial.png)
 
 1. On the permissions step, select **Attach existing policies directly**. In the search field, type `dynamodb` and check the **AmazonDynamoDBFullAccess** option in the table. Click **Next: Review** > **Create user**.
 
 	**Figure 2: Configuring the user permissions**
 
-	![Configure permissions](/kendo-in-the-cloud/images/add-user-permissions.png)
+	![Configure permissions](images/add-user-permissions.png)
 
 1. From the summary view of the newly created user, copy the `Access key ID` and the `Secret access key`.
 
 	**Figure 3: Getting the user credentials**
 
-	![Get credentials](/kendo-in-the-cloud/images/add-user-credentials.png)
+	![Get credentials](images/add-user-credentials.png)
 
 ## Configuring the Grid for Consuming and Manipulating Available DynamoDB Data
 
@@ -107,10 +107,10 @@ The following instructions demonstrate how to create a user identity and use tha
 				{ AttributeName: "id", KeyType: "HASH" }
 			],
 			// The type of the key attribute is "string" ("S")
-			AttributeDefinitions: [       
+			AttributeDefinitions: [
 				{ AttributeName: "id", AttributeType: "S" }
 			],
-			ProvisionedThroughput: {       
+			ProvisionedThroughput: {
 				ReadCapacityUnits: 5,
 				WriteCapacityUnits: 5
 			}
@@ -177,7 +177,7 @@ The following instructions demonstrate how to create a user identity and use tha
 		if (err) {
 		  options.error(err);
 		} else {
-		  options.success(data.Items);          
+		  options.success(data.Items);
 		}
 	  });
 	};

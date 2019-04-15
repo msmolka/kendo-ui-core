@@ -644,6 +644,7 @@ var __meta__ = { // jshint ignore:line
             var caretIdx = caret(element)[0];
             var key = that._last;
             var idx;
+            var accentFoldingFiltering = that.dataSource.options.accentFoldingFiltering;
 
             if (key == keys.BACKSPACE || key == keys.DELETE) {
                 that._last = undefined;
@@ -661,12 +662,12 @@ var __meta__ = { // jshint ignore:line
             }
 
             if (caretIdx <= 0) {
-                caretIdx = value.toLowerCase().indexOf(word.toLowerCase()) + 1;
+                caretIdx = (accentFoldingFiltering ? value.toLocaleLowerCase(accentFoldingFiltering) : value.toLowerCase()).indexOf(accentFoldingFiltering ? word.toLocaleLowerCase(accentFoldingFiltering) : word.toLowerCase()) + 1;
             }
 
             if (word) {
                 word = word.toString();
-                idx = word.toLowerCase().indexOf(value.toLowerCase());
+                idx = (accentFoldingFiltering ? word.toLocaleLowerCase(accentFoldingFiltering) : word.toLowerCase()).indexOf(accentFoldingFiltering ? value.toLocaleLowerCase(accentFoldingFiltering) : value.toLowerCase());
                 if (idx > -1) {
                     value += word.substring(idx + value.length);
                 }
@@ -780,7 +781,7 @@ var __meta__ = { // jshint ignore:line
                         that._placeholder(true);
                     }
 
-                    that._old = that._accessor();
+                    that._old = that._valueBeforeCascade = that._accessor();
                     that._oldIndex = that.selectedIndex;
 
                     that._prev = that.input.val();
@@ -974,7 +975,7 @@ var __meta__ = { // jshint ignore:line
                 that._firstItem();
             } else if (key === keys.END) {
                 that._lastItem();
-            } else if (key === keys.ENTER || key === keys.TAB) {
+            } else if (key === keys.ENTER || (key === keys.TAB && that.popup.visible())) {
                 var current = that.listView.focus();
                 var dataItem = that.dataItem();
                 var shouldTrigger = true;
@@ -1057,6 +1058,8 @@ var __meta__ = { // jshint ignore:line
         _search: function() {
             var that = this;
 
+            clearTimeout(that._typingTimeout);
+
             that._typingTimeout = setTimeout(function() {
                 var value = that.text();
 
@@ -1090,9 +1093,9 @@ var __meta__ = { // jshint ignore:line
                 wrapper[0].style.cssText = element[0].style.cssText;
             }
 
-            that.wrapper = wrapper.addClass("k-widget k-combobox k-header")
-                                  .addClass(element[0].className)
-                                  .css("display", "");
+            that.wrapper = wrapper.addClass("k-widget k-combobox")
+                .addClass(element[0].className)
+                .css("display", "");
         },
 
         _clearSelection: function(parent, isFiltered) {

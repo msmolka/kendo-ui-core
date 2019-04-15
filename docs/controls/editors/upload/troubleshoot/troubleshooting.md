@@ -15,11 +15,11 @@ position: 1
 
 The [Kendo UI Upload widget](http://demos.telerik.com/kendo-ui/upload/index) uses an opacity filter to overlay the default file input's **Select** button. This filter is implemented as an ActiveX control in Internet Explorer 8 versions and older. As such, it is subject to security settings and can be disabled. Below is the sample image of an affected component:
 
-![](/controls/editors/upload/upload-activex.png)
+![Upload ActiveX](../upload-activex.png)
 
 **Solution** In Internet Explorer set the following option to **Enable**: **Internet Options** > **Security** > **Internet** (or Local intranet) > **Custom Level** > **Binary and script behaviors**.
 
-![](/controls/editors/upload/upload-ie-script-behaviors.png)
+![Upload Behaviors](../upload-ie-script-behaviors.png)
 
 ## Performance Issues
 
@@ -59,16 +59,11 @@ When a server error occurs, the complete server response is logged in the consol
 
 ## See Also
 
-Other articles on Kendo UI Upload:
-
 * [Overview of the Upload Widget]({% slug overview_kendoui_upload_widget %})
 * [Drag and Drop]({% slug dragandrop_upload_widget %})
 * [Send and Receive Metadata]({% slug metadata_upload_widget %})
 * [Modes of Operation]({% slug modes_upload_widget %})
 * [Browser Support]({% slug browsersupport_upload_widget %})
-
-Other articles on troubleshooting:
-
 * [Common Issues in Kendo UI]({% slug troubleshooting_common_issues_kendoui %})
 * [Kendo UI JavaScript Errors]({% slug troubleshooting_javascript_errors_kendoui %})
 * [Kendo UI Performance Issues]({% slug troubleshooting_system_memory_symptoms_kendoui %})
@@ -82,7 +77,6 @@ Other articles on troubleshooting:
 * [Common Issues in Kendo UI Editor]({% slug troubleshooting_editor_widget %})
 * [Common Issues in Kendo UI MultiSelect]({% slug troubleshooting_common_issues_multiselect_kendoui %})
 * [Common Issues in Kendo UI Scheduler]({% slug troubleshooting_scheduler_widget %})
-* [Common Issues Related to Styling, Appearance, and Rendering]({% slug commonissues_troubleshooting_kendouistyling %})
 * [Common Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting)
 * [Validation Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting-validation)
 * [Scaffolding Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting-scaffolding)

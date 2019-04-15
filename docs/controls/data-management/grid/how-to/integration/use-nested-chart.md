@@ -1,7 +1,7 @@
 ---
 title: Use Nested Chart
-page_title: Use Nested Chart | Kendo UI Grid
-description: "Learn how to nest a Kendo UI Chart inside the Grid template."
+page_title: jQuery Grid Documentation | Use Nested Chart | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to nest a chart inside the Grid template."
 previous_url: /controls/data-management/grid/how-to/use-nested-chart
 slug: howto_use_nested_charts_grid
 ---
@@ -12,7 +12,7 @@ The following example demonstrates how to nest a Kendo UI Chart inside the Grid 
 
 ###### Example
 
-```html
+```dojo
     <script>
       var firstNames = ["Nancy", "Andrew", "Janet", "Margaret", "Steven", "Michael", "Robert", "Laura", "Anne", "Nige"],
           lastNames = ["Davolio", "Fuller", "Leverling", "Peacock", "Buchanan", "Suyama", "King", "Callahan", "Dodsworth", "White"],

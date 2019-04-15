@@ -34,7 +34,81 @@ var __meta__ = { // jshint ignore:line
         UNDEFINED = "undefined",
         getterCache = {},
         setterCache = {},
-        slice = [].slice;
+        slice = [].slice,
+        // avoid extending the depricated properties in latest verions of jQuery
+        noDepricateExtend = function() {
+            var src, copyIsArray, copy, name, options, clone,
+                target = arguments[ 0 ] || {},
+                i = 1,
+                length = arguments.length,
+                deep = false;
+
+            // Handle a deep copy situation
+            if ( typeof target === "boolean" ) {
+                deep = target;
+
+                // skip the boolean and the target
+                target = arguments[ i ] || {};
+                i++;
+            }
+
+            // Handle case when target is a string or something (possible in deep copy)
+            if ( typeof target !== "object" && !jQuery.isFunction( target ) ) {
+                target = {};
+            }
+
+            // extend jQuery itself if only one argument is passed
+            if ( i === length ) {
+                target = this;
+                i--;
+            }
+
+            for ( ; i < length; i++ ) {
+
+                // Only deal with non-null/undefined values
+                if ( ( options = arguments[ i ] ) != null ) {
+
+                    // Extend the base object
+                    for ( name in options ) {
+                        // filters, concat and : properties are depricated in the jQuery 3.3.0
+                        // accessing these properties throw a warning when jQuery migrate is included
+                        if (name == "filters" || name == "concat" || name == ":") {
+                            continue;
+                        }
+                        src = target[ name ];
+                        copy = options[ name ];
+
+                        // Prevent never-ending loop
+                        if ( target === copy ) {
+                            continue;
+                        }
+
+                        // Recurse if we're merging plain objects or arrays
+                        if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
+                            ( copyIsArray = jQuery.isArray( copy ) ) ) ) {
+
+                            if ( copyIsArray ) {
+                                copyIsArray = false;
+                                clone = src && jQuery.isArray( src ) ? src : [];
+
+                            } else {
+                                clone = src && jQuery.isPlainObject( src ) ? src : {};
+                            }
+
+                            // Never move original objects, clone them
+                            target[ name ] = noDepricateExtend( deep, clone, copy );
+
+                        // Don't bring in undefined values
+                        } else if ( copy !== undefined ) {
+                            target[ name ] = copy;
+                        }
+                    }
+                }
+            }
+
+            // Return the modified object
+            return target;
+        };
 
     kendo.version = "$KENDO_VERSION".replace(/^\s+|\s+$/g, '');
 
@@ -1663,18 +1737,23 @@ function pad(number, digits, end) {
         var browser = support.browser,
             percentage,
             outerWidth = kendo._outerWidth,
-            outerHeight = kendo._outerHeight;
+            outerHeight = kendo._outerHeight,
+            parent = element.parent(),
+            windowOuterWidth = outerWidth(window);
 
-        if (!element.parent().hasClass("k-animation-container")) {
+        parent.removeClass("k-animation-container-sm");
+
+        if (!parent.hasClass("k-animation-container")) {
             var width = element[0].style.width,
                 height = element[0].style.height,
                 percentWidth = percentRegExp.test(width),
-                percentHeight = percentRegExp.test(height);
+                percentHeight = percentRegExp.test(height),
+                forceWidth = element.hasClass("k-tooltip") || element.is(".k-menu-horizontal.k-context-menu");
 
             percentage = percentWidth || percentHeight;
 
-            if (!percentWidth && (!autosize || (autosize && width))) { width = autosize ? outerWidth(element) + 1 : outerWidth(element); }
-            if (!percentHeight && (!autosize || (autosize && height))) { height = outerHeight(element); }
+            if (!percentWidth && (!autosize || (autosize && width) || forceWidth)) { width = autosize ? outerWidth(element) + 1 : outerWidth(element); }
+            if (!percentHeight && (!autosize || (autosize && height)) || element.is(".k-menu-horizontal.k-context-menu")) { height = outerHeight(element); }
 
             element.wrap(
                          $("<div/>")
@@ -1683,6 +1762,7 @@ function pad(number, digits, end) {
                              width: width,
                              height: height
                          }));
+            parent = element.parent();
 
             if (percentage) {
                 element.css({
@@ -1694,27 +1774,13 @@ function pad(number, digits, end) {
                 });
             }
         } else {
-            var wrapper = element.parent(".k-animation-container"),
-                wrapperStyle = wrapper[0].style;
+            wrapResize(element, autosize);
+        }
 
-            if (wrapper.is(":hidden")) {
-                wrapper.css({
-                    display: "",
-                    position: ""
-                });
-            }
+        if(windowOuterWidth < outerWidth(parent)){
+            parent.addClass("k-animation-container-sm");
 
-            percentage = percentRegExp.test(wrapperStyle.width) || percentRegExp.test(wrapperStyle.height);
-
-            if (!percentage) {
-                wrapper.css({
-                    width: autosize ? outerWidth(element) + 1 : outerWidth(element),
-                    height: outerHeight(element),
-                    boxSizing: "content-box",
-                    mozBoxSizing: "content-box",
-                    webkitBoxSizing: "content-box"
-                });
-            }
+            wrapResize(element, autosize);
         }
 
         if (browser.msie && math.floor(browser.version) <= 7) {
@@ -1722,7 +1788,34 @@ function pad(number, digits, end) {
             element.children(".k-menu").width(element.width());
         }
 
-        return element.parent();
+        return parent;
+    }
+
+    function wrapResize(element, autosize) {
+        var percentage,
+            outerWidth = kendo._outerWidth,
+            outerHeight = kendo._outerHeight,
+            wrapper = element.parent(".k-animation-container"),
+            wrapperStyle = wrapper[0].style;
+
+        if (wrapper.is(":hidden")) {
+            wrapper.css({
+                display: "",
+                position: ""
+            });
+        }
+
+        percentage = percentRegExp.test(wrapperStyle.width) || percentRegExp.test(wrapperStyle.height);
+
+        if (!percentage) {
+            wrapper.css({
+                width: autosize ? outerWidth(element) + 1 : outerWidth(element),
+                height: outerHeight(element),
+                boxSizing: "content-box",
+                mozBoxSizing: "content-box",
+                webkitBoxSizing: "content-box"
+            });
+        }
     }
 
     function deepExtend(destination) {
@@ -2593,7 +2686,6 @@ function pad(number, digits, end) {
         wrap: wrap,
         deepExtend: deepExtend,
         getComputedStyles: getComputedStyles,
-        webComponents: kendo.webComponents || [],
         isScrollable: isScrollable,
         scrollLeft: scrollLeft,
         size: size,
@@ -3307,6 +3399,11 @@ function pad(number, digits, end) {
                 }
             }
 
+            // kendo.View is not a ui plugin
+            if (role === "view") {
+                return element.data("kendoView");
+            }
+
             if (suites) {
                 if (suites[0]) {
                     for (i = 0, length = suites.length; i < length; i ++) {
@@ -3377,13 +3474,13 @@ function pad(number, digits, end) {
     }
 
     function visible(element) {
-        return $.expr.filters.visible(element) &&
+        return $.expr.pseudos.visible(element) &&
             !$(element).parents().addBack().filter(function() {
                 return $.css(this,"visibility") === "hidden";
             }).length;
     }
 
-    $.extend($.expr[ ":" ], {
+    $.extend($.expr.pseudos, {
         kendoFocusable: function(element) {
             var idx = $.attr(element, "tabindex");
             return focusable(element, !isNaN(idx) && idx > -1);
@@ -3522,7 +3619,7 @@ function pad(number, digits, end) {
         return new kendoJQuery.fn.init(selector, context);
     }
 
-    extend(true, kendoJQuery, $);
+    noDepricateExtend(true, kendoJQuery, $);
 
     kendoJQuery.fn = kendoJQuery.prototype = new $();
 

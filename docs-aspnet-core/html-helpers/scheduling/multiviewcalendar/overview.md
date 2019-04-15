@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | Telerik UI for ASP.NET Core HtmlHelpers
+page_title: MultiViewCalendar | Telerik UI for ASP.NET Core HtmlHelpers
 description: "Learn the basics when working with the Kendo UI MultiViewCalendar HtmlHelper for ASP.NET Core (MVC 6 or ASP.NET Core MVC)."
 slug: overview_multiviewcalendar_htmlhelper_aspnetcore
 position: 1
@@ -29,7 +29,7 @@ Below are listed the steps for you to follow when configuring the Kendo UI Multi
 
 ###### Example
 
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
             .Name("MultiViewCalendar") //The name of the MultiViewCalendar is mandatory. It specifies the "id" attribute of the widget.
@@ -41,12 +41,10 @@ Below are listed the steps for you to follow when configuring the Kendo UI Multi
 
 ## Functionality and Features
 
-The MultiViewCalendar provides configuration options that can be set during initialization. The available properties are:
-
 * [Active view]({% slug active_view_multiviewcalendar_htmlhelper_aspnetcore %})
 * [Multiple views]({% slug multiple_views_multiviewcalendar_htmlhelper_aspnetcore %})
-* [Day template]({% slug day_template_multiviewcalendar_htmlhelper_aspnetcore %})
 * [Selection]({% slug selection_multiviewcalendar_htmlhelper_aspnetcore %})
+* [Day template]({% slug day_template_multiviewcalendar_htmlhelper_aspnetcore %})
 * [Disable dates]({% slug disabled_dates_multiviewcalendar_htmlhelper_aspnetcore %})
 * [Week column]({% slug week_column_multiviewcalendar_htmlhelper_aspnetcore %})
 * [Keyboard navigation]({% slug keyboard_navigation_multiviewcalendar_htmlhelper_aspnetcore %})
@@ -61,7 +59,7 @@ The following example demonstrates how to subscribe to events by a handler name.
 
 ###### Example
 
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
           .Name("MultiViewCalendar")
@@ -87,7 +85,7 @@ The following example demonstrates how to subscribe to events by a template dele
 
 ###### Example
 
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
           .Name("MultiViewCalendar")

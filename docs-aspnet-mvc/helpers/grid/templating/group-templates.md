@@ -1,6 +1,6 @@
 ---
 title: Group Templates
-page_title: Group Templates | Kendo UI Grid HtmlHelper
+page_title: Group Templates | Kendo UI Grid HtmlHelper for ASP.NET MVC
 description: "Learn how to customize the group rows when the data of the Kendo UI Grid HtmlHelper for ASP.NET Core (MVC 6 or ASP.NET Core MVC) is grouped."
 slug: htmlhelpers_group_templates_grid_aspnetcore
 position: 4
@@ -32,61 +32,57 @@ Both `ClientGroupHeaderColumnTemplate` and `ClientGroupFooterTemplate` work in a
 
 Due to the fact that `ClientGroupHeaderTemplate` is displayed next to the expanding icon of the group row, it takes precedence over the `ClientGroupHeaderColumnTemplate` of the first visible column. If you want to show the `ClientGroupHeaderColumnTemplate` content for the first column of the Grid, do not set the `ClientGroupHeaderTemplate` for the group column. The following Grid configuration shows that commenting the `ClientGroupHeaderTemplate` for the **Units In Stock** column shows the `ClientGroupHeaderColumnTemplate` for the **Product Name** column.
 
-###### Example
-
-```tab-ASPX
-
-        <%: Html.Kendo().Grid<Kendo.Mvc.Examples.Models.ProductViewModel>()
-            .Name("Grid")
-            .Columns(columns =>
+```ASPX
+    <%: Html.Kendo().Grid<Kendo.Mvc.Examples.Models.ProductViewModel>()
+        .Name("Grid")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.ProductName)
+                .ClientGroupHeaderColumnTemplate("Count: #=count#");
+            columns.Bound(p => p.UnitPrice).Format("{0:C}");
+            columns.Bound(p => p.UnitsOnOrder);
+            columns.Bound(p => p.UnitsInStock);
+                //.ClientGroupHeaderTemplate("Min: #= min #");
+        })
+        .Pageable()
+        .Sortable()
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Aggregates(aggregates =>
             {
-                columns.Bound(p => p.ProductName)
-                    .ClientGroupHeaderColumnTemplate("Count: #=count#");
-                columns.Bound(p => p.UnitPrice).Format("{0:C}");
-                columns.Bound(p => p.UnitsOnOrder);
-                columns.Bound(p => p.UnitsInStock);
-                    //.ClientGroupHeaderTemplate("Min: #= min #");
+                aggregates.Add(p => p.UnitsInStock).Min();
+                aggregates.Add(p => p.ProductName).Count();
             })
-            .Pageable()
-            .Sortable()
-            .DataSource(dataSource => dataSource
-                .Ajax()
-                .Aggregates(aggregates =>
-                {
-                    aggregates.Add(p => p.UnitsInStock).Min();
-                    aggregates.Add(p => p.ProductName).Count();
-                })
-                .Group(groups => groups.Add(p => p.UnitsInStock))
-                .Read(read => read.Action("Aggregates_Read", "Grid"))
-            )
-        %>
-```
-```tab-Razor
-
-        @(Html.Kendo().Grid<Kendo.Mvc.Examples.Models.ProductViewModel>()
-            .Name("Grid")
-            .Columns(columns =>
-            {
-                columns.Bound(p => p.ProductName)
-                    .ClientGroupHeaderColumnTemplate("Count: #=count#");
-                columns.Bound(p => p.UnitPrice).Format("{0:C}");
-                columns.Bound(p => p.UnitsOnOrder);
-                columns.Bound(p => p.UnitsInStock);
-                    //.ClientGroupHeaderTemplate("Min: #= min #");
-            })
-            .Pageable()
-            .Sortable()
-            .DataSource(dataSource => dataSource
-                .Ajax()
-                .Aggregates(aggregates =>
-                {
-                    aggregates.Add(p => p.UnitsInStock).Min();
-                    aggregates.Add(p => p.ProductName).Count();
-                })
-                .Group(groups => groups.Add(p => p.UnitsInStock))
-                .Read(read => read.Action("Aggregates_Read", "Grid"))
-            )
+            .Group(groups => groups.Add(p => p.UnitsInStock))
+            .Read(read => read.Action("Aggregates_Read", "Grid"))
         )
+    %>
+```
+```Razor
+    @(Html.Kendo().Grid<Kendo.Mvc.Examples.Models.ProductViewModel>()
+        .Name("Grid")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.ProductName)
+                .ClientGroupHeaderColumnTemplate("Count: #=count#");
+            columns.Bound(p => p.UnitPrice).Format("{0:C}");
+            columns.Bound(p => p.UnitsOnOrder);
+            columns.Bound(p => p.UnitsInStock);
+                //.ClientGroupHeaderTemplate("Min: #= min #");
+        })
+        .Pageable()
+        .Sortable()
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Aggregates(aggregates =>
+            {
+                aggregates.Add(p => p.UnitsInStock).Min();
+                aggregates.Add(p => p.ProductName).Count();
+            })
+            .Group(groups => groups.Add(p => p.UnitsInStock))
+            .Read(read => read.Action("Aggregates_Read", "Grid"))
+        )
+    )
 ```
 
 **Figure 3: Grid with GroupHeaderColumnTemplate for first column applied and no GroupHeaderTemplate**
@@ -96,8 +92,6 @@ Due to the fact that `ClientGroupHeaderTemplate` is displayed next to the expand
 In a server-binding scenario, you can set the group templates without the `Client` prefix&mdash;`GroupHeaderTemplate`, `GroupHeaderColumnTemplate`, and `GroupFooterTemplate`. For more information, refer to the demo on [server aggregates of the Grid](https://demos.telerik.com/aspnet-mvc/grid/serveraggregates).
 
 ## See Also
-
-Other articles on the Kendo UI Grid for ASP.NET MVC:
 
 * [Overview of the Grid HtmlHelper]({% slug overview_gridhelper_aspnetmvc %})
 * [Configuration of the Grid HtmlHelper]({% slug configuration_gridhelper_aspnetmvc %})

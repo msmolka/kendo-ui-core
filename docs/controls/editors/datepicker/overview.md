@@ -100,7 +100,7 @@ When you disable dates by setting an array, list the days that need to be disabl
 
 ###### Example
 
-```html
+```dojo
     <input id="datePicker" />
 
     <script>
@@ -117,7 +117,7 @@ When you disable dates by adding a function, determine its return value as `true
 
 ###### Example
 
-```html
+```dojo
     <input id="datePicker" />
 
     <script>
@@ -151,7 +151,7 @@ To simulate a different calendar type, such as Lunar, use the JavaScript `Date` 
 
 ###### Example
 
-```html
+```dojo
 <fieldset>
     <label for="gregorianStyle">Gregorian year:</label>
     <input id="gregorianStyle" type="text" />
@@ -192,8 +192,6 @@ You can use the [DateInput]({% slug overview_kendoui_dateinput_widget %}) as the
 
 
 ## See Also
-
-Other articles on the Kendo UI DatePicker:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the DatePicker Widget](/aspnet-mvc/helpers/datepicker/overview)
 * [Overview of the DatePicker JSP Tag]({% slug overview_datepicker_uiforjsp %})

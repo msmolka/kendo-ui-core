@@ -12,7 +12,7 @@ The [Kendo UI Stock Chart widget](http://demos.telerik.com/kendo-ui/financial/in
 
 **Figure 1: A sample Stock Chart**
 
-![Stock Chart](/controls/charts/stockchart/stock-chart.png)
+![Stock Chart](stock-chart.png)
 
 The series types supported by the Stock Charts are:
 
@@ -179,8 +179,6 @@ Define the main and the Navigator series.
 
 
 ## See Also
-
-Other articles on Kendo UI Charts and chart types:
 
 * [Stock Chart Data Binding]({% slug databinding_kendoui_stockcharts %})
 * [Overview of the Chart Widgets]({% slug overview_kendoui_charts_widget %})

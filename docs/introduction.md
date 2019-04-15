@@ -1,10 +1,10 @@
 ---
-title: Welcome to Kendo UI for jQuery!
+title: Introduction
 page_title: Introduction | Progress Kendo UI
 description: "Learn about the Kendo UI controls, their distributions, frameworks, tools, and utilities."
 previous_url: /index
 slug: welcometo_kendoui
-position: 1
+position: 2
 ---
 
 # Welcome to Kendo UI for jQuery!
@@ -22,15 +22,6 @@ Kendo UI is a comprehensive framework which comes with a library of 70+ UI widge
 * [Evaluate Kendo UI Professional](http://www.telerik.com/download/kendo-ui)
 * [Get a License](http://www.telerik.com/purchase/kendo-ui)
 * [License Agreement](http://www.telerik.com/purchase/license-agreement/kendo-ui)
-
-#### Progress<sup>®</sup> Kendo UI Wrappers for React
-
-[Kendo UI Wrappers for React](http://docs.telerik.com/kendo-ui-wrappers-react/introduction) are part of the Kendo UI suite. They provide an easy way to use and configure Kendo UI widgets in your React application.
-
-* [Browser Support]({% slug wbe_browserand_operating_system_support %})
-* [Get a License](http://www.telerik.com/purchase/kendo-ui)
-* [License Agreement](http://www.telerik.com/purchase/license-agreement/kendo-ui)
-* [Documentation](http://docs.telerik.com/kendo-ui-wrappers-react/introduction)
 
 #### Progress<sup>®</sup> Kendo UI Wrappers for Vue
 
@@ -120,5 +111,6 @@ Kendo UI is also incorporated into products such as [Telerik Platform](http://ww
 ## Learning Resources
 
 * [Kendo UI Dojo Interactive Learning Platform](http://dojo.telerik.com/)
-* [Kendo UI Support and Learning Resources](http://www.telerik.com/support/kendo-ui)
+* [Kendo UI for jQuery Virtual Classroom](https://progress.exceedlms.com/student/path/366724-kendo-ui-jquery)
 * [Kendo UI YouTube Channel](https://www.youtube.com/user/kendouiTV)
+* [Other Kendo UI Support and Learning Resources](http://www.telerik.com/support/kendo-ui)

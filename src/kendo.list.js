@@ -83,10 +83,12 @@ var __meta__ = { // jshint ignore:line
 
             id = element.attr(ID);
 
-            if (id) {
-                that.list.attr(ID, id + "-list");
-                that.ul.attr(ID, id + "_listbox");
+            if (!id) {
+                id = kendo.guid();
             }
+
+            that.list.attr(ID, id + "-list");
+            that.ul.attr(ID, id + "_listbox");
 
             if (options.columns && options.columns.length) {
                 that.ul.removeClass("k-list").addClass("k-grid-list");
@@ -424,7 +426,7 @@ var __meta__ = { // jshint ignore:line
         },
 
         _pushFilterExpression: function (newExpression, filter) {
-            if (isValidFilterExpr(filter) && $.trim(filter.value).length) {
+            if (isValidFilterExpr(filter) && filter.value !== "") {
                 newExpression.filters.push(filter);
             }
         },
@@ -557,9 +559,10 @@ var __meta__ = { // jshint ignore:line
             var that = this;
             var widgetOptions = that.options;
             var ignoreCase = widgetOptions.ignoreCase;
+            var accentFoldingFiltering = that.dataSource.options.accentFoldingFiltering;
 
             return {
-                value: ignoreCase ? value.toLowerCase() : value,
+                value: ignoreCase ? (accentFoldingFiltering ? value.toLocaleLowerCase(accentFoldingFiltering) : value.toLowerCase()) : value,
                 field: field,
                 operator: widgetOptions.filter,
                 ignoreCase: ignoreCase
@@ -715,7 +718,7 @@ var __meta__ = { // jshint ignore:line
             } else if (ariaLabelledBy){
                 focusedElm.attr("aria-labelledby", ariaLabelledBy);
             } else if (labelElm.length){
-                var labelId = labelElm.attr("id") || that._generateLabelId(labelElm, inputId);
+                var labelId = labelElm.attr("id") || that._generateLabelId(labelElm, inputId || kendo.guid());
                 focusedElm.attr("aria-labelledby", labelId);
             }
         },
@@ -745,7 +748,8 @@ var __meta__ = { // jshint ignore:line
                 value = optionValue;
             }
 
-            if (value !== unifyType(that._old, typeof value)) {
+            if (value !== unifyType(that._old, typeof value) &&
+                value !== unifyType(that._oldText, typeof value)) { // _oldText should be compared for ComboBox when arbitrary text is added https://github.com/telerik/kendo-ui-core/issues/4496
                 trigger = true;
             } else if (that._valueBeforeCascade !== undefined && that._valueBeforeCascade !== unifyType(that._old, typeof that._valueBeforeCascade) && that._userTriggered) {
                 trigger = true;
@@ -764,6 +768,8 @@ var __meta__ = { // jshint ignore:line
                     }
                 }
                 that._oldIndex = index;
+                // _oldText should be compared for ComboBox when arbitrary text is added https://github.com/telerik/kendo-ui-core/issues/4496
+                that._oldText = that.text && that.text();
 
                 if (!that._typing) {
                     // trigger the DOM change event so any subscriber gets notified
@@ -931,15 +937,19 @@ var __meta__ = { // jshint ignore:line
             var li = this.ul.children(".k-first:first");
             var groupHeader = this.listView.content.prev(GROUPHEADER);
             var padding = 0;
+            var direction = 'right';
 
             if (groupHeader[0] && groupHeader[0].style.display !== "none") {
                 if (height !== "auto") {
                     padding = kendo.support.scrollbar();
                 }
 
-                padding += parseFloat(li.css("border-right-width"), 10) + parseFloat(li.children(".k-group").css("padding-right"), 10);
+                if(this.element.parents('.k-rtl').length) {
+                    direction = 'left';
+                }
 
-                groupHeader.css("padding-right", padding);
+                padding += parseFloat(li.css("border-" + direction + "-width"), 10) + parseFloat(li.children(".k-group").css("padding-" + direction), 10);
+                groupHeader.css("padding-" + direction, padding);
             }
         },
 
@@ -1360,6 +1370,7 @@ var __meta__ = { // jshint ignore:line
                 }
 
                 var activeFilter = that.filterInput && that.filterInput[0] === activeElement();
+                var selection;
 
                 if (current) {
                     dataItem = listView.dataItemByIndex(listView.getElementIndex(current));
@@ -1373,7 +1384,7 @@ var __meta__ = { // jshint ignore:line
                         return;
                     }
 
-                    that._select(current);
+                    selection = that._select(current);
                 } else if (that.input) {
                     if (that._syncValueAndText() || that._isSelect) {
                         that._accessor(that.input.val());
@@ -1388,7 +1399,13 @@ var __meta__ = { // jshint ignore:line
                 if (activeFilter && key === keys.TAB) {
                     that.wrapper.focusout();
                 } else {
-                    that._blur();
+                    if (selection && typeof selection.done === "function") {
+                        selection.done(function () {
+                            that._blur();
+                        });
+                    } else {
+                        that._blur();
+                    }
                 }
 
                 that.close();
@@ -1793,8 +1810,8 @@ var __meta__ = { // jshint ignore:line
                 endY = tapPosition(e);
 
                 if (Math.abs(endY - startY) < 10) {
-                    e.preventDefault();
-                    that.trigger("click", { item: $(e.target.closest(ITEMSELECTOR)) });
+                    that._touchTriggered = true;
+                    that._triggerClick($(e.target).closest(ITEMSELECTOR).get(0));
                 }
             });
         },
@@ -2073,10 +2090,20 @@ var __meta__ = { // jshint ignore:line
         },
 
         _click: function(e) {
+            if (this._touchTriggered)
+            {
+                this._touchTriggered = false;
+                return;
+            }
+
             if (!e.isDefaultPrevented()) {
-                if (!this.trigger("click", { item: $(e.currentTarget) })) {
-                    this.select(e.currentTarget);
-                }
+                this._triggerClick(e.currentTarget);
+            }
+        },
+
+        _triggerClick: function (item) {
+            if (!this.trigger("click", { item: $(item) })) {
+                this.select(item);
             }
         },
 

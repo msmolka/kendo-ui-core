@@ -1,7 +1,7 @@
 ---
 title: Export Multiple Grids
-page_title: Export Multiple Grids | Kendo UI Grid
-description: "Learn how to export to Excel more than one Kendo UI Grid."
+page_title: jQuery Grid Documentation | Export Multiple Grids | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to export two Grids in the same Excel document."
 slug: howto_export_excel_multiple_grids_grid
 ---
 
@@ -13,7 +13,7 @@ Each Grid is exported in a separate Excel sheet. For additional information abou
 
 ###### Example
 
-```html
+```dojo
 <button id="export" class="k-button"><span class="k-icon k-i-excel"></span>Export to Excel</button>
 <div id="products"></div>
 <div id="orders"></div>

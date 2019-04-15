@@ -8,6 +8,7 @@ position: 1
 ---
 
 # DropDownTree HtmlHelper Overview
+
 As of the Kendo UI R2 2018, the DropDownTree is available in the Telerik UI for ASP.NET Core suite.
 
 The DropDownTree HtmlHelper extension is a server-side wrapper for the [Kendo UI DropDownTree](http://demos.telerik.com/kendo-ui/dropdowntree/index) widget.
@@ -20,7 +21,7 @@ The following example demonstrates how to define the DropDownTree by using the D
 
 ###### Example
 
-```tab-Razor
+```Razor
     @(Html.Kendo().DropDownTree()
         .Name("dropdowntree")
         .DataTextField("Name")
@@ -31,7 +32,7 @@ The following example demonstrates how to define the DropDownTree by using the D
         )
     )
 ```
-```tab-Controller
+```Controller
     public class DropDownTreeController : Controller
     {
         public IActionResult Index()
@@ -76,7 +77,6 @@ The following example demonstrates the basic configuration of the DropDownTree H
 
 ###### Example
 
-```
     @(Html.Kendo().DropDownTree()
         .Name("dropdowntree")
         .Checkboxes(true)
@@ -96,7 +96,6 @@ The following example demonstrates the basic configuration of the DropDownTree H
             console.log(dropdowntree);
         });
     </script>
-```
 
 ## See Also
 

@@ -11,7 +11,7 @@ The example below demonstrates how to display content loaded via the DataSource 
 
 ###### Example
 
-```html
+```dojo
 <div data-role="view" data-init="onInit">
     <div data-role="collapsible" data-collapse="onCollapse" data-expand="onExpand">
         <h3>Header</h3>
@@ -45,8 +45,6 @@ The example below demonstrates how to display content loaded via the DataSource 
 ```
 
 ## See Also
-
-Other articles on the Hybrid UI Collapsible:
 
 * [Hybrid UI Collapsible JavaScript API Reference](/api/javascript/mobile/ui/collapsible)
 * [Overview of the Hybrid UI Collapsible]({% slug overview_hybridcollapsible %})

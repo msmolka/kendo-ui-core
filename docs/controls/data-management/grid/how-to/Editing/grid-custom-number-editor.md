@@ -1,7 +1,7 @@
 ---
 title: Create Custom Number Editor Using NumericTextBox
-page_title: Create Custom Number Editor Using NumericTextBox | Kendo UI Grid
-description: "Learn how to create a custom number editor in a Kendo UI Grid widget using the Kendo UI NumericTextBox."
+page_title: jQuery Grid Documentation | Create Custom Number Editor | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to create a custom number editor using the Kendo UI NumericTextBox."
 slug: howto_create_custom_number_editor_numerictextbox_grid
 ---
 
@@ -11,7 +11,7 @@ The following example demonstrates how to create a Grid with a custom number edi
 
 ###### Example
 
-```html
+```dojo
   <div>I want to change 11.11% discount to 22.22% via editing. But 22.00% is thrown back at input of 0.2222</div>
   <div id="grid"/>
   <script>

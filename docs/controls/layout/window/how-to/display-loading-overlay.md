@@ -13,7 +13,7 @@ The loading overlay must be displayed over the Window [widget `element`](/framew
 
 ###### Example
 
-```html
+```dojo
     <div id="example">
         <button id="showOverlay" class="k-button">Show overlay</button>
         <p>Click on the Refresh button to remove the overlay.</p>
@@ -51,8 +51,6 @@ The loading overlay must be displayed over the Window [widget `element`](/framew
 ```
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI Window:
 
 * [Window JavaScript API Reference](/api/javascript/ui/window)
 * [How to Add **Close** Button inside Modal Windows]({% slug howto_addclosebutton_insidemodalwindows_window %})

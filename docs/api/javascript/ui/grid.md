@@ -1,7 +1,7 @@
 ---
 title: Grid
-page_title: Configuration, methods and events of Kendo UI Grid
-description: Code examples for Grid UI widget configuration. Learn how to use methods and which events to set once the grid UI widget detail is initialized and expanded.
+page_title: jQuery Grid Documentation | Configuration, Methods, Events | Kendo UI
+description: Get started with code examples for the jQuery Grid by Kendo UI and learn how to use methods and which events to set once the widget detail is initialized.
 res_type: api
 component: grid
 ---
@@ -1856,25 +1856,36 @@ The fields which can be used in the template are:
 * aggregates - provides access to all available aggregates, e.g. `aggregates.fieldName1.sum` or `aggregates.fieldName2.average`
 * items - the data items for current group. Returns groups if the data items are grouped (in case there are child groups)
 
+> **Important**
+>
+> To use aggregates from other fields in the `column.groupHeaderTemplate` add them to the **other** [`columns.aggregates`](#columns.aggregates).
+
 #### Example - set the group header template
 
     <div id="grid"></div>
     <script>
-    $("#grid").kendoGrid({
-      columns: [
-        { field: "name" },
-        { field: "age",
-          groupHeaderTemplate: "Age: #= value # total: #= count #"
-        }
-      ],
-      dataSource: {
-        data: [
-          { name: "Jane Doe", age: 30 },
-          { name: "John Doe", age: 30 }
+     var grid = $("#grid").kendoGrid({
+        groupable: true,
+        columns: [
+            { field: "name" },
+            {
+                field: "age",
+                groupHeaderTemplate: "Age:#= value # total: #= count # Max Year: #= aggregates.year.max #",
+                aggregates: ["count"]
+            },
+            { field: "year", aggregates: ["max"] }
         ],
-        group: { field: "age", aggregates: [ { field: "age", aggregate: "count" }] }
-      }
-    });
+        dataSource: {
+            data: [
+                { name: "Jane Doe", age: 30, year: 1978 },
+                { name: "John Doe", age: 30, year: 1980 }
+            ],
+            group: {
+                field: "age", aggregates: [{ field: "age", aggregate: "count" },
+                { field: "age", aggregate: "max" }, { field: "year", aggregate: "max" }]
+            }
+        }
+    }).data("kendoGrid");
     </script>
 
 #### Example - use items field inside the group header template
@@ -1922,7 +1933,7 @@ The fields which can be used in the template are:
 > If the template is declared as a function the group field is accessible only through the data field,
 > e.g. `data.fieldName1.group.value`.
 
-#### Example - set the group header template
+#### Example - set the group footer template
 
     <div id="grid"></div>
     <script>
@@ -1943,7 +1954,7 @@ The fields which can be used in the template are:
     });
     </script>
 
-#### Example - set the group header template as function
+#### Example - set the group footer template as function
 
     <div id="grid"></div>
     <script>
@@ -3512,6 +3523,73 @@ Enables or disables column filtering in the Excel file. Not to be mistaken with 
     });
     </script>
 
+### excel.collapsible `Boolean` *(default: false)*
+
+Enables or disables collapsible (grouped) rows, for grids with aggregates.
+
+#### Example - enable collapsible rows in the output Excel file
+
+    <div id="grid"></div>
+    <script>
+     $("#grid").kendoGrid({
+       toolbar: ["excel"],
+       excel: {
+         fileName: "excel-collapsible.xlsx",
+         proxyURL: "https://demos.telerik.com/kendo-ui/service/export",
+         filterable: true,
+         collapsible: true
+       },
+       dataSource: {
+         type: "odata",
+         transport: {
+           read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+         },
+         schema:{
+           model: {
+             fields: {
+               UnitsInStock: { type: "number" },
+               ProductName: { type: "string" },
+               UnitPrice: { type: "number" },
+               UnitsOnOrder: { type: "number" },
+               UnitsInStock: { type: "number" }
+             }
+           }
+         },
+         pageSize: 50,
+         group: {
+           field: "UnitsInStock", aggregates: [
+             { field: "ProductName", aggregate: "count" },
+             { field: "UnitPrice", aggregate: "sum"},
+             { field: "UnitsOnOrder", aggregate: "average" },
+             { field: "UnitsInStock", aggregate: "count" }
+           ]
+         },
+         aggregate: [
+           { field: "ProductName", aggregate: "count" },
+           { field: "UnitPrice", aggregate: "sum" },
+           { field: "UnitsOnOrder", aggregate: "average" },
+           { field: "UnitsInStock", aggregate: "min" },
+           { field: "UnitsInStock", aggregate: "max" }
+         ]
+       },
+       sortable: true,
+       pageable: true,
+       groupable: true,
+       filterable: true,
+       columnMenu: true,
+       reorderable: true,
+       resizable: true,
+       columns: [
+         { field: "ProductName", title: "Product Name", aggregates: ["count"], footerTemplate: "Total Count: #=count#", groupFooterTemplate: "Count: #=count#" },
+         { field: "UnitPrice", title: "Unit Price", aggregates: ["sum"] },
+         { field: "UnitsOnOrder", title: "Units On Order", aggregates: ["average"], footerTemplate: "Average: #=average#",
+           groupFooterTemplate: "Average: #=average#" },
+         { field: "UnitsInStock", title: "Units In Stock", aggregates: ["min", "max", "count"], footerTemplate: "Min: #= min # Max: #= max #",
+           groupHeaderTemplate: "Units In Stock: #= value # (Count: #= count#)" }
+       ]
+     });
+    </script>
+
 ### excel.forceProxy `Boolean` *(default: false)*
 If set to true, the content will be forwarded to [proxyURL](excel.proxyurl) even if the browser supports saving files locally.
 
@@ -4025,7 +4103,7 @@ The format string for selected items count in filter menu when [search](columns.
 
 ### filterable.messages.operator `String` *(default: "Operator")*
 
-The text of the operator item in filter menu (available in mobile mode only).
+The text displayed in the tooltip of the operator item in filter menu.
 
 #### Example - set the text of operator item
 
@@ -4053,9 +4131,39 @@ The text of the operator item in filter menu (available in mobile mode only).
     });
     </script>
 
+### filterable.messages.additionalOperator `String` *(default: "Additional operator")*
+
+The text displayed in the tooltip of the additional operator item in filter menu.
+
+#### Example - set the text of operator item
+
+    <div id="grid"></div>
+    <script>
+    $("#grid").kendoGrid({
+      columns: [
+        { field: "productName" },
+        { field: "category", values: [
+            { text: "Beverages", value: 1 },
+            { text: "Food", value: 2 },
+          ]
+        }
+      ],
+      dataSource: [
+        { productName: "Tea", category: 1 },
+        { productName: "Ham", category: 2 }
+      ],
+      mobile: "phone",
+      filterable: {
+        messages: {
+          additionalOperator: "Choose operator"
+        }
+      }
+    });
+    </script>
+
 ### filterable.messages.value `String` *(default: "Value")*
 
-The text of the value item in filter menu (available in mobile mode only).
+The text displayed in the tooltip of the value item in filter menu.
 
 #### Example - set the text of value item
 
@@ -4078,6 +4186,66 @@ The text of the value item in filter menu (available in mobile mode only).
       filterable: {
         messages: {
           value: "Choose value"
+        }
+      }
+    });
+    </script>
+
+### filterable.messages.additionalValue `String` *(default: "Additional value")*
+
+The text displayed in the tooltip of the additional value item in filter menu.
+
+#### Example - set the text of value item
+
+    <div id="grid"></div>
+    <script>
+    $("#grid").kendoGrid({
+      columns: [
+        { field: "productName" },
+        { field: "category", values: [
+            { text: "Beverages", value: 1 },
+            { text: "Food", value: 2 },
+          ]
+        }
+      ],
+      dataSource: [
+        { productName: "Tea", category: 1 },
+        { productName: "Ham", category: 2 }
+      ],
+      mobile: "phone",
+      filterable: {
+        messages: {
+          additionalValue: "Choose value"
+        }
+      }
+    });
+    </script>
+
+### filterable.messages.logic `String` *(default: "Logic")*
+
+The text displayed in the tooltip of the logic item in filter menu.
+
+#### Example - set the text of value item
+
+    <div id="grid"></div>
+    <script>
+    $("#grid").kendoGrid({
+      columns: [
+        { field: "productName" },
+        { field: "category", values: [
+            { text: "Beverages", value: 1 },
+            { text: "Food", value: 2 },
+          ]
+        }
+      ],
+      dataSource: [
+        { productName: "Tea", category: 1 },
+        { productName: "Ham", category: 2 }
+      ],
+      mobile: "phone",
+      filterable: {
+        messages: {
+          logic: "Choose logic"
         }
       }
     });
@@ -4436,6 +4604,31 @@ The text of the "starts with" filter operator.
     });
     </script>
 
+### filterable.operators.string.doesnotstartwith `String` *(default: "Does not start with")*
+
+The text of the "does not start with" filter operator.
+
+#### Example - set the string "does not start with" operator
+
+    <div id="grid"></div>
+    <script>
+    $("#grid").kendoGrid({
+      columns: [
+        { field: "name" }
+      ],
+      dataSource: [
+        { name: "Jane Doe" },
+        { name: "John Doe" }
+      ],
+      filterable: {
+        operators: {
+          string: {
+            doesnotstartwith: "Does not start"
+          }
+        }
+      }
+    });
+    </script>
 
 ### filterable.operators.string.contains `String` *(default: "Contains")*
 
@@ -4510,6 +4703,32 @@ The text of the "ends with" filter operator.
         operators: {
           string: {
             endswith: "Ends"
+          }
+        }
+      }
+    });
+    </script>
+
+### filterable.operators.string.doesnotendwith `String` *(default: "Does not end with")*
+
+The text of the "does not end with" filter operator.
+
+#### Example - set the string "does not end with" operator
+
+    <div id="grid"></div>
+    <script>
+    $("#grid").kendoGrid({
+      columns: [
+        { field: "name" }
+      ],
+      dataSource: [
+        { name: "Jane Doe" },
+        { name: "John Doe" }
+      ],
+      filterable: {
+        operators: {
+          string: {
+            doesnotendwith: "Does not end"
           }
         }
       }
@@ -6353,6 +6572,32 @@ If set to `true` the pager will display the refresh button. Clicking the refresh
     });
     </script>
 
+### pageable.responsive `Boolean` *(default: true)*
+
+If set to `false` the pager will not be responsive. By default the pager is responsive.
+
+#### Example - show the responsive button
+
+    <div id="grid"></div>
+    <script>
+    $("#grid").kendoGrid({
+      columns: [
+        { field: "productName" },
+        { field: "category" }
+      ],
+      dataSource: [
+        { productName: "Tea", category: "Beverages" },
+        { productName: "Coffee", category: "Beverages" },
+        { productName: "Ham", category: "Food" },
+        { productName: "Bread", category: "Food" }
+      ],
+      pageable: {
+        pageSize: 2,
+        responsive: false
+      }
+    });
+    </script>
+
 ### pageable.info `Boolean` *(default: true)*
 
 If set to `true` the pager will display information about the current page and total number of data items. By default the paging information is displayed.
@@ -7033,9 +7278,17 @@ Available template variables include:
 
 Set this to `true` to repeat the grid headers on each page.
 
+> **Important**
+>
+> Using a repeatHeaders requires setting [paper size](pdf.papersize)
+
 ### pdf.scale `Number` *(default: 1)*
 
 A scale factor.  In many cases, text size on screen will be too big for print, so you can use this option to scale down the output in PDF.  See the documentation in [drawDOM](/framework/drawing/drawing-dom#Scaling).
+
+> **Important**
+>
+> Using scale requires setting [paper size](pdf.papersize)
 
 ### pdf.proxyURL `String` *(default: null)*
 
@@ -7832,6 +8085,25 @@ The [Pager widget](/api/javascript/ui/pager) attached to the Grid.
 
 The jQuery object which represents the grid table element.
 
+#### Example - get the Grid alternating rows
+
+    <div id="grid"></div>
+    <script>
+      $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30},
+          { name: "John Doe", age: 33},
+        ]
+      });
+      var grid = $("#grid").data("kendoGrid");
+      var altRows = grid.table.find("tr.k-alt");
+      altRows.css("background", "#afeeee");
+    </script>
+
 ### tbody `jQuery`
 
 The jQuery object which represents the table body. Contains all grid table rows.
@@ -8579,6 +8851,31 @@ Obtains an Array of the DOM elements, which correspond to the data items from th
 
 `Array` The currently rendered data table rows (`<tr>` elements).
 
+#### Example - use items method to access all Grid rows
+
+    <button id="selectAll">Select All Rows</button>
+    <div id="grid"></div>
+    <script>
+      $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        selectable: "multiple, row"
+      });
+
+      $("#selectAll").on("click", function(){
+        var grid = $("#grid").data("kendoGrid");
+        var allRows = grid.items();
+
+        grid.select(allRows);
+      });
+    </script>
+
 ### lockColumn
 
 Locks (freezes) a column, allowing users to see it at all times when scrolling.
@@ -8894,6 +9191,9 @@ A string, DOM element or jQuery object which represents the table row(s) or cell
 ### selectedKeyNames
 
 Gets an array that holds the id field values of the selected rows.
+
+> **Note:** In order for the method to return the selected IDs you need to define an ID field in [`schema.model`](/api/javascript/data/datasource/configuration/schema.model).
+
 
 #### Returns
 
@@ -9324,7 +9624,7 @@ The data item to which the table row is bound.
 
 ##### e.type `String`
 
-The type of the cell close action - can be either "save" or "cancel". The "cancel" type is triggered when the grid keyboard navigation is enabled by "navigateble: true" and Esc key is used for cell close action.
+The type of the cell close action - can be either "save" or "cancel". The "cancel" type is triggered when the grid keyboard navigation is enabled by "navigatable: true" and Esc key is used for cell close action.
 
 ##### e.sender `kendo.ui.Grid`
 

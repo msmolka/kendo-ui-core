@@ -302,7 +302,7 @@ Allows customization of the week column header text. Set the value to make the w
         });
     </script>
 
-### numberOfViews `Number` *(default: 2)*
+### views `Number` *(default: 2)*
 
 This property controls how many months to be shown at same time. By default it shows two months.
 
@@ -311,7 +311,7 @@ This property controls how many months to be shown at same time. By default it s
     <div id="multiViewCalendar"></div>
     <script>
         $("#multiViewCalendar").kendoMultiViewCalendar({
-            numberOfViews: 3
+            views: 3
         });
     </script>
 
@@ -383,6 +383,19 @@ Specifies which dates to be selected when the multiViewCalendar is initialized.
     </script>
 
 > Check [Selection](http://demos.telerik.com/kendo-ui/multiviewcalendar/selection) for a live demo.
+
+### showViewHeader `Boolean` *(default: false)*
+
+If set to true will render a header for every view.
+
+#### Example - set two dates to be selected upon multiViewCalendar initialization
+
+    <div id="multiViewCalendar"></div>
+    <script>
+        $("#multiViewCalendar").kendoMultiViewCalendar({
+            showViewHeader: true
+        });
+    </script>
 
 ### weekNumber `Boolean` *(default: false)*
 
@@ -631,6 +644,16 @@ Navigates to the upper view.
 
 Gets/Sets the selected dates for the multiViewCalendar.
 
+#### Parameters
+
+##### dates `Array`
+
+A list of the dates to be selected.
+
+#### Returns
+
+`Array` The currently selected dates.
+
 > **Important:** This method requires the [selectable](/api/javascript/ui/multiviewcalendar/configuration/selectable): "multiple" option to be set.
 
 #### Example - gets the selected dates of the widget
@@ -665,6 +688,16 @@ Gets/Sets the selected dates for the multiViewCalendar.
 
 Gets/Sets the selected range for the multiViewCalendar.
 
+#### Parameters
+
+##### range `Object`
+
+The range to set. It should have a start and end properties with the respective dates.
+
+#### Returns
+
+`Object` The selected range of the multiViewCalendar. The object has a start and end properties.
+
 > **Important:** This method requires the [selectable](/api/javascript/ui/multiviewcalendar/configuration/selectable): "range" option to be set.
 
 #### Example - gets the selected range for the widget
@@ -694,7 +727,7 @@ Gets/Sets the selected range for the multiViewCalendar.
 
         var multiViewCalendar = $("#multiViewCalendar").data("kendoMultiViewCalendar");
 
-        multiViewCalendar.selectRange(new Date(2018, 9, 10), new Date(2018, 10, 10));
+        multiViewCalendar.selectRange({ start: new Date(2018, 9, 10), end: new Date(2018, 10, 10) });
     </script>
 
 ### value

@@ -1057,25 +1057,25 @@ var __meta__ = { // jshint ignore:line
         }
 
         function textOp(impl) {
-            return function(a, b, ignore) {
+            return function(a, b, ignore, accentFoldingFiltering) {
                 b += "";
                 if (ignore) {
-                    a = "(" + a + " || '').toString().toLowerCase()";
-                    b = b.toLowerCase();
+                    a = "(" + a + " || '').toString()" + ((accentFoldingFiltering) ? ".toLocaleLowerCase('" + accentFoldingFiltering  +"')" : ".toLowerCase()");
+                    b = ((accentFoldingFiltering) ? b.toLocaleLowerCase(accentFoldingFiltering) : b.toLowerCase());
                 }
                 return impl(a, quote(b), ignore);
             };
         }
 
-        function operator(op, a, b, ignore) {
+        function operator(op, a, b, ignore, accentFoldingFiltering) {
             if (b != null) {
                 if (typeof b === STRING) {
                     var date = dateRegExp.exec(b);
                     if (date) {
                         b = new Date(+date[1]);
                     } else if (ignore) {
-                        b = quote(b.toLowerCase());
-                        a = "((" + a + " || '')+'').toLowerCase()";
+                        b = quote(((accentFoldingFiltering) ? b.toLocaleLowerCase(accentFoldingFiltering) : b.toLowerCase()));
+                        a = "((" + a + " || '')+'')" + ((accentFoldingFiltering) ? ".toLocaleLowerCase('" + accentFoldingFiltering  +"')" : ".toLowerCase()");
                     } else {
                         b = quote(b);
                     }
@@ -1128,11 +1128,11 @@ var __meta__ = { // jshint ignore:line
                 }
                 return quote(value);
             },
-            eq: function(a, b, ignore) {
-                return operator("==", a, b, ignore);
+            eq: function(a, b, ignore, accentFoldingFiltering) {
+                return operator("==", a, b, ignore, accentFoldingFiltering);
             },
-            neq: function(a, b, ignore) {
-                return operator("!=", a, b, ignore);
+            neq: function(a, b, ignore, accentFoldingFiltering) {
+                return operator("!=", a, b, ignore, accentFoldingFiltering);
             },
             gt: function(a, b, ignore) {
                 return operator(">", a, b, ignore);
@@ -1244,7 +1244,7 @@ var __meta__ = { // jshint ignore:line
                     filter = "__o[" + operatorFunctions.length + "](" + expr + ", " + operators.quote(filter.value) + ")";
                     operatorFunctions.push(operator);
                 } else {
-                    filter = operators[(operator || "eq").toLowerCase()](expr, filter.value, filter.ignoreCase !== undefined? filter.ignoreCase : true);
+                    filter = operators[(operator || "eq").toLowerCase()](expr, filter.value, filter.ignoreCase !== undefined? filter.ignoreCase : true, expression.accentFoldingFiltering);
                 }
             }
 
@@ -3689,7 +3689,8 @@ var __meta__ = { // jshint ignore:line
                 wrapGroupItems(data, model);
             }
 
-            if (that._changeHandler && that._data && that._data instanceof ObservableArray) {
+            if (that._changeHandler && that._data && that._data instanceof ObservableArray &&
+                !(that.options.useRanges && that.options.serverPaging)) {
                 that._data.unbind(CHANGE, that._changeHandler);
             } else {
                 that._changeHandler = proxy(that._change, that);
@@ -3871,7 +3872,7 @@ var __meta__ = { // jshint ignore:line
                 }
 
                 if (options.filter) {
-                    that._filter = options.filter = normalizeFilter(options.filter);
+                    that._filter = options.filter = (that.options.accentFoldingFiltering && !$.isEmptyObject(options.filter)) ? $.extend({}, normalizeFilter(options.filter), { accentFoldingFiltering: that.options.accentFoldingFiltering}) : normalizeFilter(options.filter);
                 }
 
                 if (options.group) {
@@ -3940,7 +3941,7 @@ var __meta__ = { // jshint ignore:line
                 }
             };
 
-            return this._query().then(fn);
+            return this._query().done(fn);
         },
 
         _query: function(options) {
@@ -4489,22 +4490,28 @@ var __meta__ = { // jshint ignore:line
 
         _removeModelFromRanges: function(model) {
             var that = this;
-            var result,
-                range;
+            var range;
 
             for (var idx = 0, length = this._ranges.length; idx < length; idx++) {
                 range = this._ranges[idx];
 
-                this._eachItem(range.data, function(items) {
-                    result = removeModel(items, model);
-                });
-
-                if (result) {
-                    break;
-                }
+                that._removeModelFromRange(range, model);
             }
 
             that._updateRangesLength();
+        },
+
+        _removeModelFromRange: function(range, model) {
+            this._eachItem(range.data, function(data) {
+                for (var idx = 0; idx < data.length; idx++) {
+                    var dataItem = data[idx];
+
+                    if (dataItem.uid && dataItem.uid == model.uid) {
+                        [].splice.call(data, idx, 1);
+                        break;
+                    }
+                }
+            });
         },
 
         _insertModelInRange: function(index, model) {
@@ -5022,8 +5029,9 @@ var __meta__ = { // jshint ignore:line
             var fields;
             var operators;
             var filter;
+            var accentFoldingFiltering = this.options.accentFoldingFiltering;
 
-            expressions = normalizeFilter(expressions);
+            expressions = accentFoldingFiltering ? $.extend({}, normalizeFilter(expressions), { accentFoldingFiltering: accentFoldingFiltering}) : normalizeFilter(expressions);
 
             if (!expressions || expressions.filters.length === 0) {
                 this._updateHierarchicalFilter(function(){return true;});

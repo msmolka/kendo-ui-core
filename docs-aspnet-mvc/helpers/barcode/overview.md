@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | Kendo UI Barcode HtmlHelper
+page_title: Barcode | Telerik UI for ASP.NET MVC HtmlHelpers
 description: "Get started with the server-side wrapper for the Kendo UI Barcode widget for ASP.NET MVC."
 slug: overview_barcodehelper_aspnetmvc
 position: 1
@@ -20,49 +20,41 @@ Below are listed the steps for you to follow when configuring the Kendo UI Barco
 
     ###### Example
 
-            public ActionResult Index()
-            {
-                return View();
-            }
+        public ActionResult Index()
+        {
+            return View();
+        }
 
 1. Add a Barcode.
 
-    ###### Example
-
-    ```tab-ASPX
-
-            <%: Html.Kendo().Barcode()
-                    .Name("barcode") //The name of the Barcode is mandatory. It specifies the "id" attribute of the widget.
-                    .Value("foo") //Set the value of the Barcode.
-            %>
+    ```ASPX
+        <%: Html.Kendo().Barcode()
+                .Name("barcode") //The name of the Barcode is mandatory. It specifies the "id" attribute of the widget.
+                .Value("foo") //Set the value of the Barcode.
+        %>
     ```
-    ```tab-Razor
-
-            @(Html.Kendo().Barcode()
-                  .Name("barcode") //The name of the Barcode is mandatory. It specifies the "id" attribute of the widget.
-                  .Value("foo") //Set the value of the Barcode.
-            )
+    ```Razor
+        @(Html.Kendo().Barcode()
+                .Name("barcode") //The name of the Barcode is mandatory. It specifies the "id" attribute of the widget.
+                .Value("foo") //Set the value of the Barcode.
+        )
     ```
 
 1. Choose the appropriate symbology (encoding) from the available options listed [here](http://docs.telerik.com/kendo-ui/api/javascript/dataviz/ui/barcode#configuration-type). Specify it through the Encoding method which accepts an `enum` value.
 
-    ###### Example
-
-    ```tab-ASPX
-
-            <%: Html.Kendo().Barcode()
-                    .Name("barcode")
-                    .Encoding(BarcodeSymbology.EAN13) //By default, Code39 encoding is used.
-                    .Value("foo")
-            %>
+    ```ASPX
+        <%: Html.Kendo().Barcode()
+                .Name("barcode")
+                .Encoding(BarcodeSymbology.EAN13) //By default, Code39 encoding is used.
+                .Value("foo")
+        %>
     ```
-    ```tab-Razor
-
-            @(Html.Kendo().Barcode()
-                  .Name("barcode")
-                  .Encoding(BarcodeSymbology.EAN13) //By default, Code39 encoding is used.
-                  .Value("foo")
-            )
+    ```Razor
+        @(Html.Kendo().Barcode()
+                .Name("barcode")
+                .Encoding(BarcodeSymbology.EAN13) //By default, Code39 encoding is used.
+                .Value("foo")
+        )
     ```
 
 ## Reference
@@ -73,18 +65,16 @@ To reference an existing Kendo UI Barcode instance, use the [`jQuery.data()`](ht
 
 ###### Example
 
-      //Put this after your Kendo UI Barcode for ASP.NET MVC declaration.
-      <script>
-      $(function() {
-          //Notice that the Name() of the Barcode is used to get its client-side instance.
-          var barcode = $("#barcode").data("kendoBarcode");
-          barcode.value("foo") //make sure you supply valid value for that encoding then the barcode will redraw automatically
-      });
-      </script>
+    //Put this after your Kendo UI Barcode for ASP.NET MVC declaration.
+    <script>
+        $(function() {
+            //Notice that the Name() of the Barcode is used to get its client-side instance.
+            var barcode = $("#barcode").data("kendoBarcode");
+            barcode.value("foo") //make sure you supply valid value for that encoding then the barcode will redraw automatically
+        });
+    </script>
 
 ## See Also
-
-Other articles on Telerik UI for ASP.NET MVC and on the Barcode:
 
 * [Telerik UI for ASP.NET MVC API Reference: BarCodeBuilder](http://docs.telerik.com/aspnet-mvc/api/Kendo.Mvc.UI.Fluent/BarcodeBuilder)
 * [Overview of Telerik UI for ASP.NET MVC]({% slug overview_aspnetmvc %})

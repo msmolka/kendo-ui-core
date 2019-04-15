@@ -12,11 +12,11 @@ The Kendo UI widgets follow the [W3C Web Content Accessibility Guidelines 2.1](h
 
 They set the standards for applications for providing accessible content. Depending on the number of guidelines that is followed when building an application, W3C defines three levels of accessibility conformance&mdash;A, AA, and AAA levels.
 
-The Kendo UI components also conform to the technical standards set out in Section 508 of the Rehabilitation Act. They represent the law that requires all Federal Agencies to make their electronic and information technology accessible to people with disabilities. For detailed information on the accessibility features according to the Section 508 Web content standards Kendo UI delivers, refer to the article about [Section 508]({% slug section508_accessibility_support %}).
+The Kendo UI components also conform to the technical standards set out in [Section 508 (Latest Amendment)](https://www.access-board.gov/the-board/laws/rehabilitation-act-of-1973#508) of the [Rehabilitation Act of 1973](https://legcounsel.house.gov/Comps/Rehabilitation%20Act%20Of%201973.pdf). They represent the law that requires all Federal Agencies to make their electronic and information technology accessible to people with disabilities. For detailed information on the accessibility features according to the Section 508 Web content standards Kendo UI delivers, refer to the article about [Section 508]({% slug section508_accessibility_support %}).
 
-Applications built with components that adhere to these guidelines will not only be accessible to people with disabilities, but also to users of all kinds of devices and interfaces such as desktop browser, voice browser, mobile phone, automobile-based personal computer, and so on.
+Applications built with components that adhere to these guidelines will not only be accessible to people with disabilities, but also to users of all kinds of devices and interfaces such as desktop browsers, voice browsers, mobile phones, automobile-based personal computers, and so on.
 
-The following table shows the Section 508 and WCAG 2.1 Compliance level of support for the Kendo UI widgets. The report is based on results from tests performed on our **Basic Usage** demos.
+The following table lists the Section 508 and WCAG 2.1 compliance levels of support for the Kendo UI widgets. The report is based on results from tests performed on our **Basic Usage** demos.
 
 **Table 1: 508 and WCAG 2.1 compliance with Kendo UI widgets**
 
@@ -81,11 +81,7 @@ Several Kendo UI widgets feature complex rendering which affects their accessibi
 
 Widgets, such as the ComboBox, MultiSelect, and NumericTextBox, hide their initial `input` or `select` element which breaks the [`label.for`](https://developer.mozilla.org/en/docs/Web/HTML/Element/label#attr-for) focus functionality on click. In general, the browser cannot focus hidden elements. This results in the inability of the `label` element to focus the corresponding widget.
 
-**Solution**
-
-Place the widget inside the `label` element which in turn focuses the first visible element. Avoid using the `for` attribute because when it is applied to the `label` element, the respective widget does not focus. Instead, use the `aria-labelledby` attribute on the input to point to its wrapping `label` element:
-
-###### Example
+**Solution** Place the widget inside the `label` element which in turn focuses the first visible element. Avoid using the `for` attribute because when it is applied to the `label` element, the respective widget does not focus. Instead, use the `aria-labelledby` attribute on the input to point to its wrapping `label` element:
 
 ```
   <label id="label">
@@ -101,11 +97,9 @@ Place the widget inside the `label` element which in turn focuses the first visi
 
 ### Messages Support
 
-Widgets, such as the Grid and Calendar, require additional configuration to enable them to successfully pass the Section 508 validation. Due to the fact that they render their content in tables, each table header element should contain text. To achieve this behavior, use the [`messages.expandCollapseColumnHeader`](/api/javascript/ui/grid/configuration/messages.expandcollapsecolumnheader) and [`messages.weekColumnHeader`](/api/javascript/ui/calendar/configuration/messages.weekcolumnheader) configuration options.
+Widgets, such as the Grid and Calendar, require additional configuration to enable them to successfully pass the Section 508 validation. Due to the fact that they render their content in tables, each table header element has to contain text. To achieve this behavior, use the [`messages.expandCollapseColumnHeader`](/api/javascript/ui/grid/configuration/messages.expandcollapsecolumnheader) and [`messages.weekColumnHeader`](/api/javascript/ui/calendar/configuration/messages.weekcolumnheader) configuration options.
 
-The following example demonstrates how to specify a text for the expand/collapse column.
-
-###### Example
+The following example demonstrates how to specify a text for the expand (collapse) column.
 
 ```
 	<div id="grid"></div>
@@ -133,8 +127,6 @@ The following example demonstrates how to specify a text for the expand/collapse
 ```
 
 The following example demonstrates how to specify a text for the week column header.
-
-###### Example
 
 ```
     <div id="calendar"></div>

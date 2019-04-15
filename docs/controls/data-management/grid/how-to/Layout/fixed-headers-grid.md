@@ -1,7 +1,7 @@
 ---
 title: Create Fixed Headers on Scroll
-page_title:  Create Fixed Headers on Scroll | Kendo UI Grid
-description: "Learn how to create fixed headers in the Kendo UI Grid widget."
+page_title:  jQuery Grid Documentation | Create Fixed Headers on Scroll | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to create fixed headers on scroll in the widget."
 slug: howto_create_fixed_headers_grid
 ---
 
@@ -28,7 +28,7 @@ The `fixed-header` class from the example applies the following CSS rules:
 
 ###### Example
 
-```html
+```dojo
     <script src="https://demos.telerik.com/kendo-ui/content/shared/js/products.js"></script>
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.flat.min.css"/>
     <h1>&darr; SCROLL &darr;</h1>

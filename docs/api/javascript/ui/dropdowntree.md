@@ -495,7 +495,7 @@ If an array, each level uses the field that is at the same index in the array, o
         $("#dropdowntree").kendoDropDownTree({
             dataSource: [{ text: "aitem1", value: 1 }, { text: "bitem2", value: 2 }],
             filter: "startsWith",
-            delay: 1000 // wait 1 second before clearing the user input
+            delay: 1000 // wait 1 second before filtering
         });
     </script>
 
@@ -1654,7 +1654,9 @@ The widget instance which fired the event.
 
 ### select
 
-Triggered when a node is being selected by the user. Cancellable.
+Triggered when a node is being selected by the user. Cancellable. When checkboxes are enabled, it is also triggered when a node is being deselected.
+
+> Note: We don't recommend using the 'select' event when [checkboxes](/api/javascript/ui/dropdowntree/configuration/checkboxes) are enabled because it is not triggered when the state of the checkbox is changed.
 
 #### Event Data
 

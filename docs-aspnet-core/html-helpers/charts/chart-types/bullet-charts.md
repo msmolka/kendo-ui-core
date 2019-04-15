@@ -57,7 +57,7 @@ The configuration from the previous example results in the following Bullet Char
 
 **Figure 1: A sample Bullet Chart**
 
-![Bullet Chart](/html-helpers/charts/chart-types/chart-bullet.png)
+![Bullet Chart](images/chart-bullet.png)
 
 ### Target Line Customization
 
@@ -84,11 +84,9 @@ The following example demonstrates how to use all three options to customize the
 
 **Figure 2: A Bullet Chart with custom target line**
 
-![Bullet Chart with Custom Line](/html-helpers/charts/chart-types/chart-bullet-target.png)
+![Bullet Chart with Custom Line](images/chart-bullet-target.png)
 
 ## See Also
-
-Other articles on Kendo UI Charts and chart types:
 
 * [Overview of the Kendo UI Chart Html Helper for ASP.NET Core ]({% slug htmlhelpers_charts_aspnetcore %})
 * [Area Charts]({% slug areacharts_aspnetcore_htmlhelper %})

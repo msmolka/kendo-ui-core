@@ -10,7 +10,7 @@ position: 11
 
 **Figure 1. A screenshot of the Kendo UI Music Store management charts**
 
-![kendo-manage-charts-screenshot](/tutorials/tutorial-kendo-music-store/music-store-web/images/kendo-manage-charts-screenshot.png)
+![kendo-manage-charts-screenshot](images/kendo-manage-charts-screenshot.png)
 
 When logged in the Music Store as an administrator, an additional button titled **Manage Store** is available in the upper-right corner. This opens the management graphs which can be used to monitor the sales status of the store. This page uses [Kendo UI widgets rendering data visualization](http://demos.telerik.com/kendo-ui/dataviz/overview/index.html) to display the graphs.
 
@@ -242,8 +242,6 @@ The ListView has `selectable: "single"` defined in its configuration, which puts
 In this function, take the selected date range item and update the `selectedDateRange` variable. Then the chart data is redrawn by updating its underlying data source, by calling its `.read()` method. The `baseUnit` for the chart is also changed based on the date range. For `Day`, `Week` and `Month`, the scale is set to a single day. For Year, the scale is set to one month. This is done by setting the `options.categoryAxis.baseUnit` property on the chart before it is redrawn.
 
 ## See Also
-
-Other articles on the Kendo UI Music Store Web Application sample project:
 
 * [Overview of the Kendo UI Music Store Sample Project]({% slug overview_muscistoretutorial_aspnetmvc %})
 * [Set Up the Kendo UI Music Store Web App]({% slug projectsetup_muscistorewebapp_aspnetmvc %})

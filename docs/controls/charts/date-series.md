@@ -63,7 +63,7 @@ Note that the dates match the source.
 
 **Figure 1: A chart with date category axis**
 
-![Chart with date category axis](/controls/charts/chart-category-date-axis.png)
+![Chart with date category axis](chart-category-date-axis.png)
 
 The example below demonstrates date series grouped by year.
 
@@ -107,7 +107,7 @@ Notice the way the chart now displays the maximum value for each year.
 
 **Figure 2: A chart with a grouped date category axis.**
 
-![Chart with grouped date category axis](/controls/charts/chart-category-date-axis-grouped.png)
+![Chart with grouped date category axis](chart-category-date-axis-grouped.png)
 
 ### Aggregates
 
@@ -324,8 +324,6 @@ The date axis supports specifying one format per base unit.
 The [`labels.format` property](/api/dataviz/chart#xAxis.labels.format) takes priority, if specified. The global `KendoUI` culture is used for formatting the dates. It can be overridden by setting [`labels.culture` property](/api/dataviz/chart#xAxis.labels.culture).
 
 ## See Also
-
-Other articles on Kendo UI Charts:
 
 * [Overview of the Chart Widgets]({% slug overview_kendoui_charts_widget %})
 * [Data Binding]({% slug databinding_charts_widget %})

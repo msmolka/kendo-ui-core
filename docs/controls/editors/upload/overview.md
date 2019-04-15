@@ -91,8 +91,6 @@ The following example demonstrates how to access an existing Upload instance.
 
 ## See Also
 
-Other articles and how-to examples on the Kendo UI Upload:
-
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the Upload Widget](/aspnet-mvc/helpers/upload/overview)
 * [Overview of the Upload JSP Tag]({% slug overview_upload_uiforjsp %})
 * [Overview of the Upload PHP Class](/php/widgets/upload/overview)
@@ -104,5 +102,5 @@ Other articles and how-to examples on the Kendo UI Upload:
 * [Troubleshooting]({% slug troubleshooting_upload_widget %})
 * [How to Serialize Form Data during Async Upload]({% slug howto_serialize_form_data_upload %})
 * [Upload JavaScript API Reference](/api/javascript/ui/upload)
-
-For how-to examples on the Kendo UI Upload widget, browse its [**How To** documentation folder]({% slug howto_remove_files_with_errors %}).
+* [How-To Examples]({% slug howto_remove_files_with_errors %})
+* [Knowledge Base Section](/knowledge-base)

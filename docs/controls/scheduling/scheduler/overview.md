@@ -197,6 +197,12 @@ When binding to a remote service, it is advisable, while not mandatory, to do th
         }
 3. Store the Scheduler event date fields (start and end) in UTC format as well. This allows for the easier migration of your data between servers in different timezones.
 
+## Reset Series
+
+As of the R1 2017 release, exceptions are no longer automatically removed when the user edits a series. Changes that are made to specific occurrences are persisted during series editing.
+
+If a series contains an exception, the Scheduler renders a **Reset Series** button within the **Edit** dialog of the series which allows the user to reset the series by removing existing exceptions.
+
 ## Configuration
 
 ### Views
@@ -459,8 +465,6 @@ The built-in views of the widget are designed to render a time-frame that ends o
 For more information on how to create custom views, refer to [this how-to example]({% slug howto_create_custom_view_inheriting_builtinview_scheduler %}).
 
 ## See Also
-
-Other articles on the Kendo UI Scheduler:
 
 * [Scheduler JavaScript API Reference](/api/javascript/ui/scheduler)
 * [Resources]({% slug resources_kendoui_scheduler_widget %})

@@ -26,7 +26,7 @@ To work around this issue, either:
 
 The following Dojo example demonstrates how to handle the issue by using `kendo-pack-fonts`. In Internet Explorer, open the implementation in full-screen mode.
 
-```html
+```dojo
  <script src="https://cdn.rawgit.com/telerik/kendo-pack-fonts/8dc63142/sample/fonts.js"></script>
     <div id="example">
       <div class="demo-section k-content wide">
@@ -111,7 +111,7 @@ The following Dojo example demonstrates how to handle the issue by using `kendo-
 
 **Figure 1: Chart in the Internet Explorer with its graphics failing to render**
 
-![Chart in IE](/styles-and-layout/chart-ie.png)
+![Chart in IE](../../../styles-and-layout/chart-ie.png)
 
 > **Important**
 >
@@ -123,7 +123,7 @@ Select **Internet Options** > **Security** > **Internet** (or **Local intranet**
 
 **Figure 2: Options and settings to apply to render the chart graphics**
 
-![IEscript behaviors](/styles-and-layout/chart-ie-script-behaviors.png)
+![IEscript behaviors](../../../styles-and-layout/chart-ie-script-behaviors.png)
 
 ### Chart Does Not Render with JavaScript Disabled
 
@@ -157,7 +157,7 @@ The following example demonstrates how to embed fonts in exported PDF.
 
 ###### Example
 
-```html
+```dojo
 <button class='export-pdf k-button'>Save as PDF</button>
 
 <div id="chart"></div>
@@ -214,13 +214,8 @@ The following example demonstrates how to embed fonts in exported PDF.
 
 ## See Also
 
-Other articles on styling, appearance, and rendering of Kendo UI widgets:
-
 * [Themes and Appearance of the Kendo UI Widgets]({% slug themesandappearnce_kendoui_desktopwidgets %})
 * [Rendering Modes for Data Visualization]({% slug renderingmodesfor_datavisualization_kendouistyling %})
-
-Other articles on troubleshooting:
-
 * [Performance Issues in Kendo UI Widgets for Data Visualization]({% slug tipsandtricks_kendouistyling %})
 * [Common Issues in Kendo UI]({% slug troubleshooting_common_issues_kendoui %})
 * [Kendo UI JavaScript Errors]({% slug troubleshooting_javascript_errors_kendoui %})
@@ -234,7 +229,6 @@ Other articles on troubleshooting:
 * [Common Issues in Kendo UI MultiSelect]({% slug troubleshooting_common_issues_multiselect_kendoui %})
 * [Common Issues in Kendo UI Scheduler]({% slug troubleshooting_scheduler_widget %})
 * [Common Issues in Kendo UI Upload]({% slug troubleshooting_upload_widget %})
-* [Common Issues Related to Styling, Appearance, and Rendering]({% slug commonissues_troubleshooting_kendouistyling %})
 * [Common Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting)
 * [Validation Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting-validation)
 * [Scaffolding Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting-scaffolding)

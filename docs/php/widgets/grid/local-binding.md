@@ -118,7 +118,7 @@ The `DataSourceResult` class is a helper utility on top of PDO which simplifies 
 
 **Step 1** Make sure you followed all the steps from the [introductory article on Telerik UI for PHP]({% slug overview_uiforphp %})&mdash;include the autoloader, JavaScript, and CSS files.
 
-**Step 2** Copy `/wrappers/php/lib/DataSourceResult.php` to your web site root and include it.
+**Step 2** Copy `/wrappers/php/lib/DataSourceResult.php` to your website root and include it.
 
 ###### Example
 
@@ -203,8 +203,6 @@ The `DataSourceResult` class is a helper utility on top of PDO which simplifies 
         ?>
 
 ## See Also
-
-Other articles on Telerik UI for PHP and on the Grid:
 
 * [Overview of the Grid PHP Class]({% slug overview_grid_uiforphp %})
 * [Remote Binding of the Grid PHP Class]({% slug remotebinding_grid_uiforphp %})

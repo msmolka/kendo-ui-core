@@ -38,7 +38,7 @@ To instantiate the Spreadsheet, use an empty `<div>` element, as demonstrated in
 
 ###### Example
 
-```html
+```dojo
 
     <div id="spreadsheet">
     </div>
@@ -100,8 +100,6 @@ For more information on the data-binding Spreadsheet functionality, refer to the
 The Spreadsheet is primarily targeted at desktop users. Its performance and functionalities are limited on mobile devices.
 
 ## See Also
-
-Other articles on the Kendo UI Spreadsheet:
 
 * [Custom Functions]({% slug custom_functions_spreadsheet_widget %})
 * [Custom Cell Editors]({% slug custom_editors_spreadsheet_widget %})

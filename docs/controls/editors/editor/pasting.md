@@ -38,7 +38,7 @@ The following example demonstrates how to copy the HTML content above the Editor
 
 ###### Example
 
-```html
+```dojo
     <p>Copy this is a paragraph that has some <span style="font-family:Impact, Charcoal, sans-serif;">inline </span><span style="font-family:Impact, Charcoal, sans-serif;color:#ffffff;background-color:#3366ff;">styles</span> and paste it in the Editor.</p>
     <hr />
     <textarea id="editor"></textarea>
@@ -63,7 +63,7 @@ The following example demonstrates how to adjust the MS Word specific options. T
 
 ###### Example
 
-```html
+```dojo
     <textarea id="editor"></textarea>
     <script>
     $("#editor").kendoEditor({
@@ -84,7 +84,7 @@ The following example demonstrates a simple logic to strip the `<strong>` tags f
 
 ###### Example
 
-```html
+```dojo
     <p>some text with <strong>bold text</strong> inside.</p>
     <hr />
     <textarea id="editor"></textarea>
@@ -101,8 +101,6 @@ The following example demonstrates a simple logic to strip the `<strong>` tags f
 
 ## See Also
 
-Other articles on the Kendo UI Editor:
-
 * [Overview of the Editor Widget]({% slug overview_kendoui_editor_widget %})
 * [Image Browser]({% slug image_browser_editor_widget %})
 * [Post-Process Content]({% slug post_process_content_editor_widget %})
@@ -110,5 +108,5 @@ Other articles on the Kendo UI Editor:
 * [Prevent Cross-Site Scripting]({% slug prevent_xss_editor_widget %})
 * [Troubleshooting]({% slug troubleshooting_editor_widget %})
 * [Editor JavaScript API Reference](/api/javascript/ui/editor)
-
-For how-to examples on the Kendo UI Editor widget, browse its [**How To** documentation folder]({% slug howto_handleblurandfocuseventsangular_editor %}).
+* [How-To Examples]({% slug howto_handleblurandfocuseventsangular_editor %})
+* [Knowledge Base Section](/knowledge-base)

@@ -18,7 +18,7 @@ To define the immutable elements in the content area, set the [`contenteditable`
 
 ###### Example
 
-```html
+```dojo
     <textarea id="editor">
         &lt;p&gt;A simple paragraph&lt;/p&gt;
         &lt;p contenteditable=&quot;false&quot;&gt;This paragraph cannot be edited&lt;/p&gt;
@@ -41,7 +41,7 @@ The `immutables.serialization` configuration option accepts the following parame
 
     ###### Example
 
-    ```html
+    ```dojo
         <textarea id="editor">
             &lt;p&gt;A simple paragraph&lt;/p&gt;
             &lt;p contenteditable=&quot;false&quot;&gt;This paragraph cannot be edited&lt;/p&gt;
@@ -64,7 +64,7 @@ The `immutables.serialization` configuration option accepts the following parame
 
     ###### Example
 
-    ```html
+    ```dojo
         <textarea id="editor">
             &lt;p&gt;A simple paragraph&lt;/p&gt;
             &lt;p contenteditable=&quot;false&quot;&gt;This paragraph cannot be edited&lt;/p&gt;
@@ -87,7 +87,7 @@ The `immutables.serialization` configuration option accepts the following parame
 
     ###### Example
 
-    ```html
+    ```dojo
         <textarea id="editor">
             &lt;p&gt;A simple paragraph&lt;/p&gt;
             &lt;p contenteditable=&quot;false&quot;&gt;This paragraph cannot be edited&lt;/p&gt;
@@ -117,7 +117,7 @@ The following example demonstrates how to use the `immutables.serialization` and
 
 ###### Example
 
-```html
+```dojo
     <textarea id="editor">
         &lt;p&gt;A simple paragraph&lt;/p&gt;
         &lt;p contenteditable=&quot;false&quot; style=&quot;text-align:left;&quot; &gt;This paragraph cannot be edited&lt;/p&gt;
@@ -146,7 +146,7 @@ If you use the [inline mode]({% slug overview_kendoui_editor_widget %}#inline-mo
 
 ###### Example
 
-```html
+```dojo
     <style>
     .k-editor [contenteditable='false']{
         opacity: 0.5;
@@ -166,8 +166,6 @@ If you use the [inline mode]({% slug overview_kendoui_editor_widget %}#inline-mo
 
 ## See Also
 
-Other articles on the Kendo UI Editor:
-
 * [Overview of the Editor Widget]({% slug overview_kendoui_editor_widget %})
 * [Image Browser]({% slug image_browser_editor_widget %})
 * [Post-Process Content]({% slug post_process_content_editor_widget %})
@@ -175,5 +173,5 @@ Other articles on the Kendo UI Editor:
 * [Prevent Cross-Site Scripting]({% slug prevent_xss_editor_widget %})
 * [Troubleshooting]({% slug troubleshooting_editor_widget %})
 * [Editor JavaScript API Reference](/api/javascript/ui/editor)
-
-For how-to examples on the Kendo UI Editor widget, browse its [**How To** documentation folder]({% slug howto_handleblurandfocuseventsangular_editor %}).
+* [How-To Examples]({% slug howto_handleblurandfocuseventsangular_editor %})
+* [Knowledge Base Section](/knowledge-base)

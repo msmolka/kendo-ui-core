@@ -13,7 +13,7 @@ The [Kendo UI ToolBar widget](http://demos.telerik.com/kendo-ui/toolbar/index) i
 
 The ToolBar consists of three main areas: ToolBar wrapper, overflow anchor, and command overflow popup. The wrapper holds all commands that can be placed within the available container width. The ones for which there is no space to fit in are moved to the command overflow popup.
 
-![ToolBar areas](/controls/navigation/toolbar/toolbar-areas.png)
+![ToolBar areas](toolbar-areas.png)
 
 ## Getting Started
 
@@ -516,8 +516,6 @@ The example below demonstrates how to use ToolBar events.
 
 
 ## See Also
-
-Other articles on Kendo UI ToolBar:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the ToolBar Widget](http://docs.telerik.com/aspnet-mvc/helpers/toolbar/overview)
 * [Overview of the ToolBar JSP Tag]({% slug overview_toolbar_uiforjsp %})

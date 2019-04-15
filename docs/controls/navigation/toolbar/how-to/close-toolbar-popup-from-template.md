@@ -11,7 +11,7 @@ The example below demonstrates how to close the Kendo UI ToolBar popup from a bu
 
 ###### Example
 
-```html
+```dojo
    <div id="toolbar"></div>
     </div>
 
@@ -34,8 +34,6 @@ The example below demonstrates how to close the Kendo UI ToolBar popup from a bu
 ```
 
 ## See Also
-
-Other articles on the Kendo UI ToolBar:
 
 * [ToolBar JavaScript API Reference](/api/javascript/ui/toolbar)
 * [How to Develop and Register Custom ToolBar Tools]({% slug howto_customtool_toolbar %})

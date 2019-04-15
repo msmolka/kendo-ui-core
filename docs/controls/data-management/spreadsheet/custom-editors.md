@@ -32,7 +32,7 @@ The following example demonstrates how to set up a color-picking custom editor.
 
 ###### Example
 
-```html
+```dojo
   <div id="spreadsheet" style="width: 100%;"></div>
   <script>
     kendo.spreadsheet.registerEditor("color", function(){
@@ -127,8 +127,6 @@ select a color.
 The `edit` method provides a complete flexibility. As an example, you can use a Popup widget&mdash;you are not obliged, nor required to use a Window. If you know that no two instances will be displayed simultaneously, cache the UI or create a fresh instance each time the `edit` is invoked. Note that the example above refers to a modal dialog.
 
 ## See Also
-
-Other articles on the Kendo UI Spreadsheet:
 
 * [Overview]({% slug overview_spreadsheet_widget %})
 * [Custom Functions]({% slug custom_functions_spreadsheet_widget %})

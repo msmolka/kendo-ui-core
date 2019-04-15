@@ -47,6 +47,46 @@ To allow the execution of scripts inside the Editor content:
 * Extract the `script` tags.
 * Place the `script` tags elsewhere on the page where they can be evaluated by the browser.
 
+## Serialization and Deserialization
+
+Script tags and DOM event attributes stripping, as well as value encoding, are built-in functionalities of the Editor. In addition, you can use the [`serialization.custom`](/api/javascript/ui/editor/configuration/serialization.custom) and [`deserialization.custom`](/api/javascript/ui/editor/configuration/deserialization.custom) options of the Editor, to implement your own sanitizing functionality.
+
+The following example demonstrates how to use the serialization and deserialization custom otpions, to sanitize the value of the Editor and remove `object` tags.
+
+###### Example
+
+```dojo
+<textarea id="editor"></textarea>
+<script>
+  function sanitizeHtml(html) {
+    var temp = $("<div></div>").html(html);
+    temp.find("object").remove();
+    return temp.html() || "\ufeff";
+  }
+
+  $("#editor").kendoEditor({
+    tools: [
+      "viewHtml"
+    ],
+    deserialization: {
+      custom: function(html) {
+        return sanitizeHtml(html);
+      }
+    },
+    serialization: {
+      custom: function(html) {
+        return sanitizeHtml(html);
+      }
+    }
+  });
+
+  var editor = $("#editor").getKendoEditor();
+
+  editor.value('<object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgic2VjdGVzdCIpPC9zY3JpcHQ+"></object>');
+  console.log(editor.value());
+</script>
+````
+
 ## Whitelist Tags
 
 The following list provides information on the libraries that allow processing HTML with a whitelist depending on your server-side platform:
@@ -58,8 +98,6 @@ The following list provides information on the libraries that allow processing H
 
 ## See Also
 
-Other articles on the Kendo UI Editor:
-
 * [Overview of the Editor Widget]({% slug overview_kendoui_editor_widget %})
 * [Image Browser]({% slug image_browser_editor_widget %})
 * [Post-Process Content]({% slug post_process_content_editor_widget %})
@@ -67,5 +105,5 @@ Other articles on the Kendo UI Editor:
 * [Set Selections]({% slug set_selections_editor_widget %})
 * [Troubleshooting]({% slug troubleshooting_editor_widget %})
 * [Editor JavaScript API Reference](/api/javascript/ui/editor)
-
-For how-to examples on the Kendo UI Editor widget, browse its [**How To** documentation folder]({% slug howto_handleblurandfocuseventsangular_editor %}).
+* [How-To Examples]({% slug howto_handleblurandfocuseventsangular_editor %})
+* [Knowledge Base Section](/knowledge-base)

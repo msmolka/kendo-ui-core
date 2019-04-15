@@ -918,7 +918,7 @@ Below are listed the steps for you to follow when configuring the Gantt for remo
 
 **Step 1** Create a new PHP file called `dependencies.php`. This file will perform CRUD operations.
 
-**Step 2** Copy `/wrappers/php/lib/DataSourceResult.php` to your web site root and include it.
+**Step 2** Copy `/wrappers/php/lib/DataSourceResult.php` to your website root and include it.
 
 ###### Example
 
@@ -1005,8 +1005,6 @@ Below are listed the steps for you to follow when configuring the Gantt for remo
         ?>
 
 ## See Also
-
-Other articles on Telerik UI for PHP and on the Gantt:
 
 * [Overview of the Gantt PHP Class]({% slug overview_gantt_uiforphp %})
 * [Local Binding of the Gantt PHP Class]({% slug localbinding_gantt_uiforphp %})

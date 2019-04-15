@@ -11,7 +11,7 @@ The example below demonstrates how to show a Kendo UI Tooltip only if the text o
 
 ###### Example
 
-```html
+```dojo
     <div id="content" style="width: 500px">
       <div id="grid"></div>
     </div>
@@ -73,8 +73,6 @@ The example below demonstrates how to show a Kendo UI Tooltip only if the text o
 ```
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI Tooltip:
 
 * [Tooltip JavaScript API Reference](/api/javascript/ui/tooltip)
 * [How to Show Only If Text Overflows with Ellipsis]({% slug howto_showonlyiftextoverflowswithellipsis_tooltip %})

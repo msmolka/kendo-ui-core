@@ -19,9 +19,9 @@ The Kendo UI Menu widget can be initialized in two ways:
 * Through HTML markup
 * Through a JSON data object
 
-> **Important**  
+> **Important**
 >
-> As Menu should be initialized after the DOM is fully loaded, make sure you create it within a `$(document).ready()` statement.
+> As the Menu has to be initialized after the DOM is fully loaded, make sure you create the widget within a `$(document).ready()` statement.
 
 #### Using HTML Markup
 
@@ -93,12 +93,74 @@ By initializing the Menu using JSON, you can use assign a select handler for eac
                 select: function (e) {                        // Item select event handler, optional
                     // e.sender - returns reference to the Kendo Menu widget
                     // e.target - returns the clicked element. Typically, the span.k-link element.
-    
+
                     // handle event
                 }
             })
         });
     </script>
+
+### Data Binding
+
+Using [`Kendo HierarchicalDataSource`](/api/framework/hierarchicaldatasource) is available as of the R2 2019 release.
+
+#### To Local Arrays
+
+The following example demonstrates how to create a Menu and bind it to a local data source.
+
+###### Example
+
+    <ul id="menu"></ul>
+
+    <script>
+    $(document).ready(function() {
+        $("#menu").kendoMenu({
+            dataSource: [
+                {
+                    text: "Item 1",
+                    expanded: true,
+                    items: [
+                        { text: "Item 1.1" },
+                        { text: "Item 1.2" }
+                    ]
+                },
+                { text: "Item 2" }
+            ]
+        })
+    });
+    </script>
+
+#### To Remote Services
+
+The following example demonstrates how to create a Menu and bind it to a remote HierarchicalDataSource.
+
+###### Example
+
+    <ul id="menu"></ul>
+
+    <script>
+    $(document).ready(function() {
+        $("#menu").kendoMenu({
+            dataTextField: "FullName",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "https://demos.telerik.com/kendo-ui/service/Employees",
+                        dataType: "jsonp"
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "EmployeeId",
+                        hasChildren: "HasEmployees"
+                    }
+                }
+            }
+        })
+    });
+    </script>
+
+For a complete reference on how to bind the PanelBar to different service end-points, refer to the API documentation on [`HierarchicalDataSource`](/api/framework/hierarchicaldatasource).
 
 ### Sample Case
 

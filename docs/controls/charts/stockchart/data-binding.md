@@ -32,7 +32,7 @@ The example below demonstrates a Stock Chart in a single data-binding mode.
 
 ###### Example
 
-```html
+```dojo
     <div id="stock-chart"></div>
     <script>
         $("#stock-chart").kendoStockChart({
@@ -88,7 +88,7 @@ The example below demonstrates a Stock Chart in the master and navigator data-bi
 
 ##### Example
 
-```html
+```dojo
     <div id="stock-chart"></div>
     <script>
     var stockDataSchema = {
@@ -176,8 +176,6 @@ The example below demonstrates a sample filter submitted by the Stock Chart for 
 ```
 
 ## See Also
-
-Other articles on Kendo UI Charts and chart types:
 
 * [Overview of the Chart Widgets]({% slug overview_kendoui_charts_widget %})
 * [Data Series Charts]({% slug seriestypeofcharts_widget %})

@@ -1,7 +1,7 @@
 ---
 title: Filter Grid as You Type
-page_title: Filter Grid as You Type | Kendo UI Grid
-description: "Learn how to filter Kendo UI Grid on the fly, as the user types in the filter row textbox."
+page_title: jQuery Grid Documentation | Filter as You Type | Kendo UI
+description: "Learn how to filter the jQuery Grid by Kendo UI on the fly, as the user types in the filter row textbox."
 previous_url: /controls/data-management/grid/how-to/grid-filter-as-you-type, /web/grid/how-to/grid-filter-as-you-type
 slug: howto_filter_gridas_you_type_grid
 ---
@@ -14,14 +14,14 @@ To achieve this behavior, provide for the following requirements:
 
 * Enable the [row filtering mode](/api/javascript/ui/grid/configuration/filterable.mode).
 * Use a custom [filter cell template](/api/javascript/ui/grid/configuration/columns.filterable.cell.template) for the desired Grid column.
-* The purpose of the filter cell template is to attach a `keydown` or `keypress` event handler to the textbox (`args.element`) and, within this handler, to trigger the `change` event of the textbox. The `change` event will trigger the filtering functionality of the Grid.
+* The purpose of the filter cell template is to attach a `data-value-update` attribute on the `input` event handler to the textbox (`args.element`) which will trigger the `change` event of the textbox. The `change` event will trigger the filtering functionality of the Grid.
 * [Change the default `"eq"` operator](/api/javascript/ui/grid/configuration/columns.filterable.cell.operator) of the column with `"contains"`, `"startswith"` or any other [supported operator](/api/javascript/data/datasource/configuration/filter.operator).
 
 The following example demonstrates how to filter the Grid on the fly, as the user types in the filter row textbox.
 
 ###### Example
 
-```html
+```dojo
     <div id="grid"></div>
 
     <script>
@@ -40,11 +40,7 @@ The following example demonstrates how to filter the Grid on the fly, as the use
               cell: {
                 operator: "contains",
                 template: function (args) {
-                  args.element.css("width", "90%").addClass("k-textbox").keydown(function(e){
-                    setTimeout(function(){
-                      $(e.target).trigger("change");
-                    });
-                  });
+                  args.element.css("width", "90%").addClass("k-textbox").attr("data-value-update", "input");
                 },
                 showOperators: false
               }

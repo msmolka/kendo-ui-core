@@ -141,7 +141,7 @@ To set a height that is smaller than 200px, use the approach demonstrated in the
 
 ###### Example
 
-```html
+```dojo
 <style>
 
     table.small-editor
@@ -279,8 +279,6 @@ You can also use custom styles with [higher specificity](https://developer.mozil
 
 ## See Also
 
-Other articles on the Kendo UI Editor:
-
 * [Editor JavaScript API Reference](/api/javascript/ui/editor)
 * [Image Browser]({% slug image_browser_editor_widget %})
 * [Post-Process Content]({% slug post_process_content_editor_widget %})
@@ -291,5 +289,5 @@ Other articles on the Kendo UI Editor:
 * [Overview of the ASP.NET MVC HtmlHelper Extension of the Editor Widget](/aspnet-mvc/helpers/editor/overview)
 * [Overview of the Editor JSP Tag]({% slug overview_editor_uiforjsp %})
 * [Overview of the Editor PHP Class](/php/widgets/editor/overview)
-
-For how-to examples on the Kendo UI Editor widget, browse its [**How To** documentation folder]({% slug howto_handleblurandfocuseventsangular_editor %}).
+* [How-To Examples]({% slug howto_handleblurandfocuseventsangular_editor %})
+* [Knowledge Base Section](/knowledge-base)

@@ -42,6 +42,25 @@
             overflow: hidden;
             padding: 1px 3px;
             background-clip: padding-box;
+
+            &.k-spreadsheet-has-comment:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                top: 0px;
+                right: 0px;
+                background: red;
+            }
+        }
+
+        .k-spreadsheet-cell-comment {
+            position: "absolute";
+            white-space: pre-wrap;
+            text-align: left;
+            background: #fe9;
+            border: 1px solid #000;
         }
     }
 
@@ -108,7 +127,7 @@
                 .k-dropdown-wrap {
                     border-radius: 0;
                     border-color: transparent;
-                    background: transparent;
+                    background-image: none;
                     box-shadow: none;
                     border-width: 0;
 
@@ -118,8 +137,6 @@
 
                     .k-select {
                         border-radius: 0;
-                        margin: -1px -1px -1px 0;
-                        padding: 1px 1px 1px 0;
                     }
                 }
             }
@@ -189,6 +206,11 @@
     > .k-spreadsheet-view {
         position: relative;
         .force-font();
+
+        // disabled cells in the Spreadsheet should allow navigation if link is used
+        .k-state-disabled {
+            pointer-events: auto;
+        }
     }
 
     .k-tabstrip-wrapper {

@@ -29,7 +29,7 @@ The following example demonstrates how to initialize the TreeList and bind it to
 
 ###### Example
 
-```html
+```dojo
 <div id="treelist"></div>
 
 <!-- Initialize the TreeList -->
@@ -66,7 +66,7 @@ The following example demonstrates how to enable the remote binding for the Tree
 
 ###### Example
 
-```html
+```dojo
 
     <div id="treelist"></div>
 
@@ -228,12 +228,12 @@ When scrolling is enabled, the TreeList renders two tables&mdash;one for the hea
 >
 > To achieve a maximum level of accessibility with assistive technologies for the TreeList, disable the scrolling feature.
 
-For more information on the scrolling functionality of the TreeList, refer to the article on the [appearance of the Grid]({% slug appearance_kendoui_grid_widget %})&mdash;in this respect, the two widgets are similar.
+For more information on the scrolling functionality of the TreeList, refer to the article on the [appearance of the Grid]({% slug scrolling_kendoui_grid_widget %})&mdash;in this respect, the two widgets are similar.
 
-* [Set 100% Height and Auto-Resize]({% slug appearance_kendoui_grid_widget %}#set-100-height-and-auto-resize)
-* [Remove the Vertical Scrollbar]({% slug appearance_kendoui_grid_widget %}#remove-the-vertical-scrollbar)
-* [Columns and Column Widths]({% slug appearance_kendoui_grid_widget %}#columns)
-* [Locked Columns]({% slug appearance_kendoui_grid_widget %}#locked-columns)
+* [Set 100% Height and Auto-Resize]({% slug height_kendoui_grid_widget %})
+* [Remove the Vertical Scrollbar]({% slug scrolling_kendoui_grid_widget %})
+* [Columns and Column Widths]({% slug column_widths_kendoui_grid_widget %})
+* [Locked Columns]({% slug locked_columns_kendoui_grid_widget %})
 
 More information about TreeList scrolling is available in the [Grid Appearance](/controls/data-management/grid/appearance) help article, as the two widgets are similar with this regard.
 
@@ -283,7 +283,7 @@ The following example demonstrates how to apply the [API of the TreeList](/api/j
 
 ###### Example
 
-```html
+```dojo
     <div id="treelist"></div>
     <script>
     $("#treelist").kendoTreeList({
@@ -323,7 +323,7 @@ The following example demonstrates how to subscribe to a TreeList event during t
 
 ###### Example
 
-```html
+```dojo
     <div id="treelist"></div>
     <script>
     $("#treelist").kendoTreeList({
@@ -349,7 +349,7 @@ The following example demonstrates how to subscribe to a TreeList event by using
 
 ###### Example
 
-```html
+```dojo
     <div id="treelist"></div>
     <script>
     function treelist_databound(e) {
@@ -383,7 +383,7 @@ The following example demonstrates how to access an existing TreeList instance.
 
 ###### Example
 
-```html
+```dojo
     <div id="treelist"></div>
     <script>
     $("#treelist").kendoTreeList({
@@ -405,8 +405,6 @@ The following example demonstrates how to access an existing TreeList instance.
 ```
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI TreeList:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension](/aspnet-mvc/helpers/treelist/overview)
 * [Overview of the JSP Tag]({% slug overview_treelist_uiforjsp %})

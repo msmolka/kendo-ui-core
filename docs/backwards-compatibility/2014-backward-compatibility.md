@@ -4,26 +4,20 @@ page_title: 2014 Releases | Kendo UI Backwards Compatibility
 description: "Learn about the breaking changes and backwards compatibility released by Kendo UI in 2014."
 previous_url: /backwards-compatibility/2014/2014-backward-compatibility
 slug: breakingchanges2014_kendoui
-position: 4
+position: 6
 ---
 
 # 2014 Releases
 
+This article lists the breaking changes in the Kendo UI 2014 releases.
+
 ## Kendo UI 2014 Q3 SP1
-
-### Changes from 2014 Q3 (2014.3.1119)
-
-#### Breaking Changes
 
 **Kendo UI Mobile Material Skins**
 
-To sync with the other mobile themes, the Material themes are renamed to **material-light** and **material-dark**.
+To sync with the other mobile themes, the Material themes are renamed to `material-light` and `material-dark`.
 
 ## Kendo UI 2014 Q3
-
-### Changes from 2014 Q2 SP2 (2014.2.1008)
-
-#### Breaking Changes
 
 **DataSource**
 
@@ -116,10 +110,6 @@ The measure aggregator of the [client pivot cube](/api/javascript/data/pivotdata
 
 ## Kendo UI 2014 Q2
 
-### Changes from 2014 Q1 SP2 (2014.1.528)
-
-#### Breaking Changes
-
 **TabStrip**
 
 * The Kendo UI Q2 2014 release introduces an additional TabStrip wrapper `div` which verifies that the changes in the height of the TabStrip will not affect the page scrolling position.
@@ -147,17 +137,13 @@ The deprecated `checkboxTemplate` configuration option has been removed. If you 
 
 **Editor**
 
-The deprecated `formatBlock` and `style` tools have been removed. See the 2013 Q2 release notes below on how to migrate to the `formatting` tool.
+The deprecated `formatBlock` and `style` tools have been removed. See the following 2013 Q2 release notes on how to migrate to the `formatting` tool.
 
 **Editor for ASP.NET MVC**
 
 The ImageBrowser controller now works with the `FileBrowserEntry` and `FileBrowserEntryType` types instead of the `ImageBrowserEntry` and `ImageBrowserEntryType` ones. This change is related to the introduction of the new FileBrowser tool.
 
 ## Kendo UI 2014 Q1 SP2 (2014.1.528)
-
-### Changes from 2014 Q1 SP1 (2014.1.416)
-
-#### Breaking Changes
 
 **Grid**
 
@@ -169,10 +155,6 @@ Clicking on an input, link, or button no longer triggers the selection.
 
 ## Kendo UI 2014 Q1
 
-### Changes from 2013 Q3 SP2 (2013.3.1324)
-
-#### Breaking Changes
-
 **Flat Theme**
 
 The button background is now grey. To revert to the previous behavior, use the `.k-primary` class.
@@ -183,8 +165,8 @@ The new skins for the mobile widgets in Kendo UI Web are **not compatible** with
 
 ## See Also
 
-Other articles on Kendo UI breaking changes and backwards compatibility:
-
+* [2019 Breaking Changes]({% slug breakingchanges2019_kendoui %})
+* [2018 Breaking Changes]({% slug breakingchanges2018_kendoui %})
 * [2017 Breaking Changes]({% slug breakingchanges2017_kendoui %})
 * [2016 Breaking Changes]({% slug breakingchanges2016_kendoui %})
 * [2015 Breaking Changes]({% slug breakingchanges2015_kendoui %})

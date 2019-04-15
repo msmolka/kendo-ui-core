@@ -1,7 +1,7 @@
 ---
 title: Expand Grids to Match the Height of TabStrip Containers within Splitter Panes
-page_title: Expand Grids to Match the Height of TabStrip Containers within Splitter Panes | Kendo UI Grid
-description: "Learn how to expand Kendo UI Grids that are located in Kendo UI TabStrip containers within a Kendo UI Splitter pane."
+page_title: jQuery Grid Documentation | Match TabStrip Container Height | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to expand it when it is located in a TabStrip container within a Splitter pane."
 slug: howto_expandtomatchtabstripinsplitter_grid
 ---
 
@@ -14,7 +14,7 @@ To achieve this behavior:
 * Expand the height of the TabStrip containers by using the approach in the [how-to example]({% slug howto_expandto100percentheightautoresize_tabstrip %}), which relies on the `window.resize` event. In this case, however, the [`resize` event has to be of the closest Splitter instance](http://docs.telerik.com/kendo-ui/api/javascript/ui/splitter/events/resize).
 * Assuming that its `<div>` is 100% high and automatically expands vertically, call the `resize()` method of the Grid.   
 For more information on how to resize individual Kendo UI widgets, refer to [this article]({% slug responsivewebdesign_integration_kendoui %}#individual-widget-resizing).   
-For more information on how to set the Grid to 100% height and auto-resize it, refer to [this this article]({% slug appearance_kendoui_grid_widget %}#set-a-100-height-and-auto-resize).
+For more information on how to set the Grid to 100% height and auto-resize it, refer to [this this article]({% slug height_kendoui_grid_widget %}).
 
 > **Important**
 >
@@ -24,7 +24,7 @@ The following example demonstrates how to expand a Grid that is located in a Tab
 
 ###### Example
 
-```html
+```dojo
     <style>
         html,
         body,

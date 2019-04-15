@@ -90,9 +90,11 @@ var __meta__ = { // jshint ignore:line
             if (candidate !== undefined) {
                 if (that._current) {
                     that._current
-                        .removeClass(SELECTED)
-                        .removeAttr(ARIA_SELECTED)
-                        .removeAttr(ID);
+                        .removeClass(SELECTED);
+                        if(that._current && that._current.length) {
+                            that._current[0].removeAttribute(ID);
+                            that._current[0].removeAttribute(ARIA_SELECTED);
+                        }
                 }
 
                 if (candidate) {
@@ -586,7 +588,9 @@ var __meta__ = { // jshint ignore:line
                     }
                 },
                 active: function(current) {
-                    element.removeAttr(ARIA_ACTIVEDESCENDANT);
+                    if(element && element.length) {
+                        element[0].removeAttribute(ARIA_ACTIVEDESCENDANT);
+                    }
                     if (current) {
                         element.attr(ARIA_ACTIVEDESCENDANT, timeView._optionID);
                     }
@@ -690,21 +694,30 @@ var __meta__ = { // jshint ignore:line
                 element = that.element.off(ns),
                 wrapper = that._inputWrapper.off(ns);
 
+            if (that._dateInput) {
+                that._dateInput._unbindInput();
+            }
+
             if (!readonly && !disable) {
                 wrapper
                     .addClass(DEFAULT)
                     .removeClass(STATEDISABLED)
                     .on(HOVEREVENTS, that._toggleHover);
 
-                element.removeAttr(DISABLED)
-                       .removeAttr(READONLY)
-                       .attr(ARIA_DISABLED, false)
+                if(element && element.length) {
+                    element[0].removeAttribute(DISABLED);
+                    element[0].removeAttribute(READONLY);
+                }
+                element.attr(ARIA_DISABLED, false)
                        .on("keydown" + ns, proxy(that._keydown, that))
                        .on("focusout" + ns, proxy(that._blur, that))
                        .on("focus" + ns, function() {
                            that._inputWrapper.addClass(FOCUSED);
                        });
 
+                if (that._dateInput) {
+                    that._dateInput._bindInput();
+                }
                arrow.on(CLICK, proxy(that._click, that))
                    .on(MOUSEDOWN, preventDefault);
             } else {
@@ -798,23 +811,28 @@ var __meta__ = { // jshint ignore:line
             that.timeView.toggle();
 
             if (!support.touch && element[0] !== activeElement()) {
-                element.focus();
+                element.trigger("focus");
             }
         },
 
         _change: function(value) {
-            var that = this;
+            var that = this,
+            oldValue = that.element.val(),
+            dateChanged;
 
             value = that._update(value);
+            dateChanged = !kendo.calendar.isEqualDate(that._old, value);
 
-            if (+that._old != +value) {
+            var valueUpdated = dateChanged && !that._typing;
+            var textFormatted = oldValue !== that.element.val();
+
+            if (valueUpdated || textFormatted) {
+                that.element.trigger(CHANGE);
+            }
+
+            if (dateChanged) {
                 that._old = value;
                 that._oldText = that.element.val();
-
-                if (!that._typing) {
-                    // trigger the DOM change event so any subscriber gets notified
-                    that.element.trigger(CHANGE);
-                }
 
                 that.trigger(CHANGE);
             }
@@ -916,8 +934,8 @@ var __meta__ = { // jshint ignore:line
             }
 
             wrapper[0].style.cssText = element[0].style.cssText;
-            that.wrapper = wrapper.addClass("k-widget k-timepicker k-header")
-                                  .addClass(element[0].className);
+            that.wrapper = wrapper.addClass("k-widget k-timepicker")
+                .addClass(element[0].className);
 
             element.css({
                 width: "100%",

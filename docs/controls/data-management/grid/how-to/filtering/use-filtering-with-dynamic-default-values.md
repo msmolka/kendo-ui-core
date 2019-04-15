@@ -1,7 +1,7 @@
 ---
 title: Use Grid Filtering with Dynamic Default Values
-page_title: Use Grid Filtering with Dynamic Default Values | Kendo UI Grid
-description: "Learn how to use dynamic default field values in a Kendo UI Grid when you apply its filtering functionality."
+page_title: jQuery Grid Documentation | Filter with Dynamic Default Values | Kendo UI
+description: "Learn how to use dynamic default field values in the jQuery Grid by Kendo UI when you apply its filtering functionality."
 previous_url: /controls/data-management/grid/how-to/use-filtering-with-dynamic-default-values
 slug: howto_gridfiltering_dynamicdefaultvalues_grid
 ---
@@ -22,7 +22,7 @@ As a result, the default category of the new record matches the current (filtere
 
 ###### Example
 
-```html
+```dojo
       <script src="https://demos.telerik.com/kendo-ui/content/shared/js/products.js" type="text/javascript"></script>
       <div id="example">
         <div id="grid"></div>

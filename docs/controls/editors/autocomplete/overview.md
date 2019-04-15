@@ -207,7 +207,7 @@ For more information on the capabilities and syntax of the templates, refer to t
 
 ### Item Templates
 
-The item template manages the way the list items of an AutoComplete are rendered.  
+The item template manages the way the list items of an AutoComplete are rendered.
 
 The following example demonstrates how to define an item template.
 
@@ -339,8 +339,6 @@ The following example demonstrates how to define a `noDataTemplate` template.
 
 ## See Also
 
-Other articles on the Kendo UI AutoComplete:
-
 * [Grouping Functionality]({% slug grouping_kendoui_autocomplete_widget %})
 * [Virtualization]({% slug virtualization_kendoui_autocomplete_widget %})
 * [How to Use Custom AngularJS Template]({% slug howto_use_custom_angularjs_templates_autocomplete %})
@@ -367,5 +365,5 @@ Articles on the Kendo UI MultiSelect:
 Articles on the Kendo UI DropDownList:
 
 * [Overview of the DropDownList Widget]({% slug overview_kendoui_dropdownlist_widget %})
-* [Cascading DropDownLists]({% slug cascading_kendoui_dropdownlist_widget %})
-* [DropDownList JavaScript API Reference](/api/javascript/ui/dropdownlist)
+* [Cascading DropDownLists]({% slug cascading_kendoui_combobox_widget %})
+* [JavaScript API Reference of the DropDownList](/api/javascript/ui/dropdownlist)

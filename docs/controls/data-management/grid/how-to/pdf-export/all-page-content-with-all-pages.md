@@ -1,7 +1,7 @@
 ---
 title: Export All Pages and Full Page Content
-page_title: Export All Pages and Full Page Content | Kendo UI Grid
-description: "Learn how to export all Kendo UI Grid pages and their full data and visual content."
+page_title: jQuery Grid Documentation | Export All Pages with Full Content  | Kendo UI
+description: "Get started with the jQuery Grid by Kendo UI and learn how to export the whole content in a PDF file."
 slug: howto_export_allpagesand_full_page_content_pdf_grid
 ---
 
@@ -11,7 +11,7 @@ The following example demonstrates how to export all Grid pages and their full p
 
 ###### Example
 
-```html
+```dojo
     <button class="k-button">Export Grid</button>
     <div id="header">
 		<h1>Export Grid</h1>
@@ -142,7 +142,7 @@ The following example demonstrates how to export all Grid pages and their full p
 
 ## See Also
 
-* [Grid JavaScript API Reference](/api/javascript/ui/grid)
+* [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
 * [How to Customize Page Layout]({% slug howto_customize_page_layout_pdf_grid %})
 * [How to Export All Pages]({% slug howto_export_all_pagesto_pdf_grid %})
 * [How to Export Multiple Pages with Variable Row Height]({% slug howto_export_multiple_pageswith_variable_rowheight_pdf_grid %})

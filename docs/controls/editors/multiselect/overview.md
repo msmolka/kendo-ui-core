@@ -378,11 +378,10 @@ The MultiSelect enables you to remove the values from the input area of the widg
 
 ## See Also
 
-Other articles on the Kendo UI MultiSelect:
-
 * [MultiSelect JavaScript API Reference](/api/javascript/ui/multiselect)
 * [Grouping Functionality]({% slug grouping_kendoui_multiselect_widget %})
 * [Virtualization]({% slug virtualization_kendoui_multiselect_widget %})
+* [Accessibility]({% slug accessibility_kendoui_multiselect_widget %})
 * [Troubleshooting]({% slug troubleshooting_common_issues_multiselect_kendoui %})
 * [How to Preselect Items on Load in AngularJS]({% slug howto_preselect_itemson_load_angular_multiselect %})
 * [How to Use MultiSelect with Bootstrap Modal Window]({% slug howto_use_multiselect_with_bootstrap_modal_window_multiselect %})
@@ -403,8 +402,8 @@ Articles on the Kendo UI ComboBox:
 Articles on the Kendo UI DropDownList:
 
 * [Overview of the DropDownList Widget]({% slug overview_kendoui_dropdownlist_widget %})
-* [Cascading DropDownLists]({% slug cascading_kendoui_dropdownlist_widget %})
-* [DropDownList JavaScript API Reference](/api/javascript/ui/dropdownlist)
+* [Cascading DropDownLists]({% slug cascading_kendoui_combobox_widget %})
+* [JavaScript API Reference of the DropDownList](/api/javascript/ui/dropdownlist)
 
 Articles on the Kendo UI AutoComplete:
 

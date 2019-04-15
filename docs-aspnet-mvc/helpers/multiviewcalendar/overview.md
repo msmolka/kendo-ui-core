@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | Kendo UI MultiViewCalendar HtmlHelper
+page_title: MultiViewCalendar | Telerik UI for ASP.NET MVC HtmlHelpers
 description: "Get started with the server-side wrapper for the Kendo UI MultiViewCalendar widget for ASP.NET MVC."
 slug: overview_multiviewcalendar_aspnetmvc
 position: 1
@@ -29,7 +29,7 @@ Below are listed the steps for you to follow when configuring the Kendo UI Multi
 
 ###### Example
 
-```tab-ASPX
+```ASPX
 
         <%: Html.Kendo().MultiViewCalendar()
             .Name("MultiViewCalendar") //The name of the MultiViewCalendar is mandatory. It specifies the "id" attribute of the widget.
@@ -38,7 +38,7 @@ Below are listed the steps for you to follow when configuring the Kendo UI Multi
             .Value(DateTime.Now) //Set the value of the MultiViewCalendar.
         %>
 ```
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
             .Name("MultiViewCalendar") //The name of the MultiViewCalendar is mandatory. It specifies the "id" attribute of the widget.
@@ -50,13 +50,11 @@ Below are listed the steps for you to follow when configuring the Kendo UI Multi
 
 ## Functionality and Features
 
-The MultiViewCalendar provides configuration options that can be set during initialization. The available properties are:
-
 * [Active view]({% slug active_view_multiviewcalendar_aspnetmvc %})
 * [Multiple views]({% slug multiple_views_multiviewcalendar_aspnetmvc %})
 * [Selection]({% slug selection_multiviewcalendar_aspnetmvc %})
 * [Day template]({% slug day_template_multiviewcalendar_aspnetmvc %})
-* [Disable dates]({% slug disabled_dates_multiviewcalendar_aspnetmvc %})
+* [Disabled dates]({% slug disabled_dates_multiviewcalendar_aspnetmvc %})
 * [Week column]({% slug week_column_multiviewcalendar_aspnetmvc %})
 * [Keyboard navigation]({% slug keyboard_navigation_multiviewcalendar_aspnetmvc %})
 
@@ -70,7 +68,7 @@ The following example demonstrates how to subscribe to events by a handler name.
 
 ###### Example
 
-```tab-ASPX
+```ASPX
 
         <%: Html.Kendo().MultiViewCalendar()
             .Name("MultiViewCalendar")
@@ -89,7 +87,7 @@ The following example demonstrates how to subscribe to events by a handler name.
         }
         </script>
 ```
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
           .Name("MultiViewCalendar")
@@ -115,7 +113,7 @@ The following example demonstrates how to subscribe to events by a template dele
 
 ###### Example
 
-```tab-Razor
+```Razor
 
         @(Html.Kendo().MultiViewCalendar()
           .Name("MultiViewCalendar")
@@ -133,6 +131,7 @@ The following example demonstrates how to subscribe to events by a template dele
           )
         )
 ```
+
 ## See Also
 
 * [Overview of Telerik UI for ASP.NET MVC]({% slug overview_aspnetmvc %})

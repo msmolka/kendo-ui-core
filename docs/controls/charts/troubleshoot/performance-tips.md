@@ -26,7 +26,7 @@ The example below demonstrates how to configure Canvas rendering.
 
 ###### Example
 
-```html
+```dojo
     <div id="chart"></div>
     <script>
         $(function() {
@@ -53,7 +53,7 @@ In this case you can use [inline binding]({% slug databinding_charts_widget %}),
 
 ###### Example
 
-```html
+```dojo
     <div id="chart"></div>
     <script>
     $("#chart").kendoChart({
@@ -77,7 +77,7 @@ The example below demonstrates how to do inline binding with objects.
 
 ###### Example
 
-```html
+```dojo
     <div id="chart"></div>
     <script>
     var seriesData = [
@@ -115,7 +115,7 @@ The example below demonstrates how to implement this approach.
 
 ###### Example
 
-```html
+```dojo
     <div id="chart"></div>
     <script>
         $(function() {
@@ -134,7 +134,7 @@ The example below demonstrates how to turn off the initial animation only.
 
 ###### Example
 
-```html
+```dojo
     <div id="chart"></div>
     <script>
       $(function() {
@@ -171,7 +171,7 @@ The example below demonstrates how to disable gradients.
 
 ###### Example
 
-```html
+```dojo
     <div id="chart"></div>
     <script>
         $(function() {
@@ -193,13 +193,8 @@ The example below demonstrates how to disable gradients.
 
 ## See Also
 
-Other articles on styling, appearance, and rendering of Kendo UI widgets:
-
 * [Themes and Appearance of the Kendo UI Widgets]({% slug themesandappearnce_kendoui_desktopwidgets %})
 * [Rendering Modes for Data Visualization]({% slug renderingmodesfor_datavisualization_kendouistyling %})
-
-Other articles on troubleshooting:
-
 * [Common Issues in Kendo UI Charts]({% slug troubleshooting_chart_widget %})
 * [Common Issues in Kendo UI]({% slug troubleshooting_common_issues_kendoui %})
 * [Kendo UI JavaScript Errors]({% slug troubleshooting_javascript_errors_kendoui %})
@@ -213,7 +208,6 @@ Other articles on troubleshooting:
 * [Common Issues in Kendo UI MultiSelect]({% slug troubleshooting_common_issues_multiselect_kendoui %})
 * [Common Issues in Kendo UI Scheduler]({% slug troubleshooting_scheduler_widget %})
 * [Common Issues in Kendo UI Upload]({% slug troubleshooting_upload_widget %})
-* [Common Issues Related to Styling, Appearance, and Rendering]({% slug commonissues_troubleshooting_kendouistyling %})
 * [Common Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting)
 * [Validation Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting-validation)
 * [Scaffolding Issues in Telerik UI for ASP.NET MVC](http://docs.telerik.com/aspnet-mvc/troubleshoot/troubleshooting-scaffolding)

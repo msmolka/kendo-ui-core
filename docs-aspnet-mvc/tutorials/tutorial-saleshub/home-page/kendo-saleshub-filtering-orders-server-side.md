@@ -9,7 +9,7 @@ position: 3
 
 # Filter Orders on the Server
 
-![kendo-saleshub-customer-TreeView-and-grid-screenshot](/tutorials/tutorial-saleshub/home-page/images/kendo-saleshub-customer-treeview-and-grid-screenshot.png)
+![kendo-saleshub-customer-TreeView-and-grid-screenshot](images/kendo-saleshub-customer-treeview-and-grid-screenshot.png)
 
 Since **SalesHub** contains a lot of orders for various customers, it would not be very efficient for **all**
 of the orders to be returned when the orders grid renders. To reduce wait times and cut back on the amount of bandwidth
@@ -210,8 +210,6 @@ After you got the `kendoGrid` object, access the DataSource for it through the `
 The filter you add to the DataSource indicates that the DataSource has to contain only items, which have a `CustomerId` equal to the `customerId` that you got as a parameter to the function. By adding this filter, the DataSource sends a request to the server asking only for Orders that belong to the specified customer.
 
 ## See Also
-
-Other articles on the Kendo UI Sales Hub project and its **Home** and **Order** pages:
 
 * [Overview of the Kendo UI Music Store Sample Project]({% slug overview_saleshubtutorial_aspnetmvc %})
 * [Create the Customer TreeView]({% slug createcustomtreeview_saleshubtutorial_aspnetmvc %})

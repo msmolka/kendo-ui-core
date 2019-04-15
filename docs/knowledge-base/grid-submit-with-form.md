@@ -31,7 +31,7 @@ How can I:
 1. Bind the Grid to a static array and implement local CRUD operations with the `"incell"` editing mode.
 1. When a change in the data occurs, populate a hidden input inside the form with a string representation of the data. As a result, when the form submits, the hidden input data is also automatically submitted to the server.
 
-```html
+```dojo
     <form class="invoice" action="url" method = "POST">
       Customer name: <input type = "text" name = "customer_name" class="k-textbox" />
       <br>
@@ -87,7 +87,7 @@ How can I:
 				// populate hidden input with new data
               $("#gridData").val(JSON.stringify(sampleData));
               // on success
-              e.success(e.data.models[i]);
+              e.success(e.data.models);
               // on failure
               //e.error("XHR response", "status code", "error message");
             },

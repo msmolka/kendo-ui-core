@@ -172,7 +172,8 @@ var __meta__ = { // jshint ignore:line
             optionLabelTemplate: null,
             groupTemplate: "#:data#",
             fixedGroupTemplate: "#:data#",
-            autoWidth: false
+            autoWidth: false,
+            popup: null
         },
 
         events: [
@@ -424,7 +425,7 @@ var __meta__ = { // jshint ignore:line
             }
 
             listView.value(value).done(function() {
-                that._old = that._accessor();
+                that._old = that._valueBeforeCascade = that._accessor();
                 that._oldIndex = that.selectedIndex;
             });
         },
@@ -1254,16 +1255,16 @@ var __meta__ = { // jshint ignore:line
             }
 
             that._focused = that.wrapper = wrapper
-                              .addClass("k-widget k-dropdown k-header")
-                              .addClass(DOMelement.className)
-                              .css("display", "")
-                              .attr({
-                                  accesskey: element.attr("accesskey"),
-                                  unselectable: "on",
-                                  role: "listbox",
-                                  "aria-haspopup": true,
-                                  "aria-expanded": false
-                              });
+                .addClass("k-widget k-dropdown")
+                .addClass(DOMelement.className)
+                .css("display", "")
+                .attr({
+                    accesskey: element.attr("accesskey"),
+                    unselectable: "on",
+                    role: "listbox",
+                    "aria-haspopup": true,
+                    "aria-expanded": false
+                });
 
             element.hide().removeAttr("accesskey");
         },

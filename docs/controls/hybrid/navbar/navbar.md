@@ -21,7 +21,7 @@ The example below demonstrates how to initialize the Hybrid UI NavBar from marku
 
 ###### Example
 
-```html
+```dojo
     <div data-role="view" data-title="Hello world">
         <div data-role="header">
             <div data-role="navbar">
@@ -128,7 +128,7 @@ The example below demonstrates how to use the `view-title` data attribute to aut
 
 **Figure 1: Different color schemes of the NavBar**
 
-![NavBar different color schemes](/controls/hybrid/navbar/NavBar.png)
+![NavBar different color schemes](NavBar.png)
 
 There are three predefined color schemes&mdash;light, dark (default), and accent. To apply color schemes different than the default one, set the `km-light` or the `km-accent` class.
 
@@ -185,8 +185,6 @@ To nest a ButtonGroup, set the `km-navbar-buttongroup` class and add the ButtonG
       </div>
 
 ## See Also
-
-Other articles and how-to examples on the Hybrid UI components and on the NavBar:
 
 * [Hybrid UI NavBar JavaScript API Reference](/api/javascript/mobile/ui/navbar)
 * [Overview of the Hybrid UI Components]({% slug overview_hybridkendoui %})

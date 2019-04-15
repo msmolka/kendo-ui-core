@@ -36,11 +36,11 @@ The validation messages are displayed differently depending on whether the [`asy
 
 **Figure 1: Batch mode is disabled**
 
-![Validation message on disabled batch mode](/controls/editors/upload/upload-validation-batch-disabled.png)
+![Validation message on disabled batch mode](upload-validation-batch-disabled.png)
 
 **Figure 2: Batch mode is enabled**
 
-![Validation message on enabled batch mode](/controls/editors/upload/upload-validation-batch-enabled.png)
+![Validation message on enabled batch mode](upload-validation-batch-enabled.png)
 
 ### Maximum File Size
 
@@ -55,8 +55,6 @@ The `minFileSize` property defines the minimum size in bytes allowed of a file t
 Internet Explorer versions prior to version 10 provide no information on the file size. As a result, the Upload validation for the `minFileSize` and `maxFileSize` options will not work as expected.
 
 ## See Also
-
-Other articles on the Kendo UI Upload:
 
 * [Overview of the Upload Widget]({% slug overview_kendoui_upload_widget %})
 * [Send and Receive Metadata]({% slug metadata_upload_widget %})

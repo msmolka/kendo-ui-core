@@ -13,7 +13,7 @@ Kendo UI Charts can display the metadata of a point or a specific part of the ax
 
 **Figure 1: Notes displayed in a chart**
 
-![](/controls/charts/chart-notes.png)
+![](../chart-notes.png)
 
 ## Configuration
 
@@ -121,8 +121,6 @@ In the axis configuration you only have `value`, which is the value of the axis.
     });
 
 ## See Also
-
-Other articles on Kendo UI Charts:
 
 * [Overview of the Chart Widgets]({% slug overview_kendoui_charts_widget %})
 * [Data Binding]({% slug databinding_charts_widget %})

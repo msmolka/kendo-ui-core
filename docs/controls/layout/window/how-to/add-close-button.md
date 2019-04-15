@@ -11,7 +11,7 @@ The example below demonstrates how to add a **Close** button to a modal Kendo UI
 
 ###### Example
 
-```html
+```dojo
     <div id="example">
       <div id="window">
         <button class="k-button close-button">Close</button>
@@ -50,8 +50,6 @@ The example below demonstrates how to add a **Close** button to a modal Kendo UI
 ```
 
 ## See Also
-
-Other articles and how-to examples on the Kendo UI Window:
 
 * [Window JavaScript API Reference](/api/javascript/ui/window)
 * [How to Post to Iframe]({% slug howto_posttoiframe_window %})

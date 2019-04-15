@@ -55,7 +55,7 @@ The Kendo UI Tooltip relies on the `mouseenter` and `mouseleave` events to work.
 
 ###### Example
 
-```html
+```dojo
 <style>
 .parent {
     display: inline-block;
@@ -143,8 +143,6 @@ The example below demonstrates how to access an existing Tooltip instance.
     var tooltip = $("#target").data("kendoTooltip");
 
 ## See Also
-
-Other articles on Kendo UI Tooltip:
 
 * [Overview of the ASP.NET MVC HtmlHelper Extension for the Tooltip Widget](/aspnet-mvc/helpers/tooltip/overview)
 * [Overview of the Tooltip JSP Tag]({% slug overview_tooltip_uiforjsp %})
